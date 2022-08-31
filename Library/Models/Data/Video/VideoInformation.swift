@@ -26,7 +26,7 @@ struct VideoInformation: Hashable, Equatable {
     let description: String?
     
     /// 社区信息
-    let communityInformation: VideoCommunityInformation
+    let communityInformation: VideoCommunityInformation?
     
     /// 是否为 PGC 内容
     let isPgc: Bool

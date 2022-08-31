@@ -9,5 +9,7 @@
 
 protoc \
     bilibili/app/dynamic/v2/*.proto \
+    bilibili/app/archive/v1/*.proto \
+    bilibili/app/archive/middleware/v1/*.proto \
     --swift_out=Source \
     --grpc-swift_out=Source
