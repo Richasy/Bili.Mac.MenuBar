@@ -11,6 +11,45 @@
 		7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* ContentView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
 		7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045328BE3D9E008D2FED /* Preview Assets.xcassets */; };
+		75390FEF28BEFA0200FC0509 /* metadata in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE328BEFA0200FC0509 /* metadata */; };
+		75390FF028BEFA0200FC0509 /* ad in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE428BEFA0200FC0509 /* ad */; };
+		75390FF128BEFA0200FC0509 /* account in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE528BEFA0200FC0509 /* account */; };
+		75390FF228BEFA0200FC0509 /* community in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE628BEFA0200FC0509 /* community */; };
+		75390FF328BEFA0200FC0509 /* pgc in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE728BEFA0200FC0509 /* pgc */; };
+		75390FF428BEFA0200FC0509 /* app in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE828BEFA0200FC0509 /* app */; };
+		75390FF528BEFA0200FC0509 /* cheese in Resources */ = {isa = PBXBuildFile; fileRef = 75390FE928BEFA0200FC0509 /* cheese */; };
+		75390FF628BEFA0200FC0509 /* broadcast in Resources */ = {isa = PBXBuildFile; fileRef = 75390FEA28BEFA0200FC0509 /* broadcast */; };
+		75390FF728BEFA0200FC0509 /* im in Resources */ = {isa = PBXBuildFile; fileRef = 75390FEB28BEFA0200FC0509 /* im */; };
+		75390FF828BEFA0200FC0509 /* rpc in Resources */ = {isa = PBXBuildFile; fileRef = 75390FEC28BEFA0200FC0509 /* rpc */; };
+		75390FF928BEFA0200FC0509 /* api in Resources */ = {isa = PBXBuildFile; fileRef = 75390FED28BEFA0200FC0509 /* api */; };
+		75390FFA28BEFA0200FC0509 /* main in Resources */ = {isa = PBXBuildFile; fileRef = 75390FEE28BEFA0200FC0509 /* main */; };
+		75390FFE28BEFAA800FC0509 /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 75390FFD28BEFAA800FC0509 /* CGRPCZlib */; };
+		7539100028BEFAA800FC0509 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 75390FFF28BEFAA800FC0509 /* GRPC */; };
+		7539100228BEFAA800FC0509 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */; };
+		7539100A28BF030100FC0509 /* DynamicInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100928BF030100FC0509 /* DynamicInformation.swift */; };
+		7539100E28BF058400FC0509 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100D28BF058400FC0509 /* DynamicType.swift */; };
+		7539101528BF07A700FC0509 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539101428BF07A700FC0509 /* Image.swift */; };
+		75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */; };
+		75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */; };
+		75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */; };
+		75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */; };
+		75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */; };
+		75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */; };
+		75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FF128BF20AB00E17A7C /* DIFactory.swift */; };
+		75CD100028BF359700E17A7C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FFF28BF359700E17A7C /* Swinject */; };
+		75CD100228BF362A00E17A7C /* DynamicAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100128BF362A00E17A7C /* DynamicAdapterProtocol.swift */; };
+		75CD100928BF3A5F00E17A7C /* dynamic.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100728BF3A5F00E17A7C /* dynamic.grpc.swift */; };
+		75CD100A28BF3A5F00E17A7C /* dynamic.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100828BF3A5F00E17A7C /* dynamic.pb.swift */; };
+		75CD100C28BF3B1F00E17A7C /* DynamicAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100B28BF3B1F00E17A7C /* DynamicAdapter.swift */; };
+		75CD100E28BF3B4700E17A7C /* UserAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100D28BF3B4700E17A7C /* UserAdapterProtocol.swift */; };
+		75CD101028BF3D4900E17A7C /* VideoAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD100F28BF3D4900E17A7C /* VideoAdapterProtocol.swift */; };
+		75CD101428BF3D7000E17A7C /* CommunityAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD101328BF3D7000E17A7C /* CommunityAdapterProtocol.swift */; };
+		75CD101928BF3EBD00E17A7C /* VideoIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD101828BF3EBD00E17A7C /* VideoIdentifier.swift */; };
+		75CD101B28BF3FF800E17A7C /* VideoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD101A28BF3FF800E17A7C /* VideoInformation.swift */; };
+		75CD101D28BF40A700E17A7C /* VideoCommunityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD101C28BF40A700E17A7C /* VideoCommunityInformation.swift */; };
+		75CD102128BF43BF00E17A7C /* UserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD102028BF43BF00E17A7C /* UserAdapter.swift */; };
+		75CD102328BF453800E17A7C /* VideoAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD102228BF453800E17A7C /* VideoAdapter.swift */; };
+		75CD102528BF496400E17A7C /* CommunityAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD102428BF496400E17A7C /* CommunityAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +60,41 @@
 		7520045328BE3D9E008D2FED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bili_Mac_MenuBar.entitlements; sourceTree = "<group>"; };
 		7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bili-Mac-MenuBar-Info.plist"; sourceTree = SOURCE_ROOT; };
+		75390FE328BEFA0200FC0509 /* metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = metadata; sourceTree = "<group>"; };
+		75390FE428BEFA0200FC0509 /* ad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ad; sourceTree = "<group>"; };
+		75390FE528BEFA0200FC0509 /* account */ = {isa = PBXFileReference; lastKnownFileType = folder; path = account; sourceTree = "<group>"; };
+		75390FE628BEFA0200FC0509 /* community */ = {isa = PBXFileReference; lastKnownFileType = folder; path = community; sourceTree = "<group>"; };
+		75390FE728BEFA0200FC0509 /* pgc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pgc; sourceTree = "<group>"; };
+		75390FE828BEFA0200FC0509 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
+		75390FE928BEFA0200FC0509 /* cheese */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cheese; sourceTree = "<group>"; };
+		75390FEA28BEFA0200FC0509 /* broadcast */ = {isa = PBXFileReference; lastKnownFileType = folder; path = broadcast; sourceTree = "<group>"; };
+		75390FEB28BEFA0200FC0509 /* im */ = {isa = PBXFileReference; lastKnownFileType = folder; path = im; sourceTree = "<group>"; };
+		75390FEC28BEFA0200FC0509 /* rpc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rpc; sourceTree = "<group>"; };
+		75390FED28BEFA0200FC0509 /* api */ = {isa = PBXFileReference; lastKnownFileType = folder; path = api; sourceTree = "<group>"; };
+		75390FEE28BEFA0200FC0509 /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
+		7539100328BEFE6400FC0509 /* RUNME.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = RUNME.sh; sourceTree = "<group>"; };
+		7539100928BF030100FC0509 /* DynamicInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicInformation.swift; sourceTree = "<group>"; };
+		7539100D28BF058400FC0509 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
+		7539101428BF07A700FC0509 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCommunityInformation.swift; sourceTree = "<group>"; };
+		75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
+		75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapterProtocol.swift; sourceTree = "<group>"; };
+		75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapter.swift; sourceTree = "<group>"; };
+		75CD0FF128BF20AB00E17A7C /* DIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIFactory.swift; sourceTree = "<group>"; };
+		75CD100128BF362A00E17A7C /* DynamicAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAdapterProtocol.swift; sourceTree = "<group>"; };
+		75CD100728BF3A5F00E17A7C /* dynamic.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = dynamic.grpc.swift; path = bilibili/app/dynamic/v2/dynamic.grpc.swift; sourceTree = "<group>"; };
+		75CD100828BF3A5F00E17A7C /* dynamic.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = dynamic.pb.swift; path = bilibili/app/dynamic/v2/dynamic.pb.swift; sourceTree = "<group>"; };
+		75CD100B28BF3B1F00E17A7C /* DynamicAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAdapter.swift; sourceTree = "<group>"; };
+		75CD100D28BF3B4700E17A7C /* UserAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdapterProtocol.swift; sourceTree = "<group>"; };
+		75CD100F28BF3D4900E17A7C /* VideoAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAdapterProtocol.swift; sourceTree = "<group>"; };
+		75CD101328BF3D7000E17A7C /* CommunityAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAdapterProtocol.swift; sourceTree = "<group>"; };
+		75CD101828BF3EBD00E17A7C /* VideoIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoIdentifier.swift; sourceTree = "<group>"; };
+		75CD101A28BF3FF800E17A7C /* VideoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInformation.swift; sourceTree = "<group>"; };
+		75CD101C28BF40A700E17A7C /* VideoCommunityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCommunityInformation.swift; sourceTree = "<group>"; };
+		75CD102028BF43BF00E17A7C /* UserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdapter.swift; sourceTree = "<group>"; };
+		75CD102228BF453800E17A7C /* VideoAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoAdapter.swift; path = Library/Provider/VideoAdapter.swift; sourceTree = SOURCE_ROOT; };
+		75CD102428BF496400E17A7C /* CommunityAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +102,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7539100028BEFAA800FC0509 /* GRPC in Frameworks */,
+				75CD100028BF359700E17A7C /* Swinject in Frameworks */,
+				75390FFE28BEFAA800FC0509 /* CGRPCZlib in Frameworks */,
+				7539100228BEFAA800FC0509 /* protoc-gen-grpc-swift in Frameworks */,
+				75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +116,7 @@
 		7520044028BE3D9D008D2FED = {
 			isa = PBXGroup;
 			children = (
+				75390FE028BEF8B500FC0509 /* Library */,
 				7520044B28BE3D9D008D2FED /* Bili.Mac.MenuBar */,
 				7520044A28BE3D9D008D2FED /* Products */,
 			);
@@ -71,6 +151,176 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		75390FE028BEF8B500FC0509 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				75CD0FE228BF105C00E17A7C /* Adapter */,
+				75CD0FE128BF104600E17A7C /* Provider */,
+				75390FE128BEF8FD00FC0509 /* Models */,
+				75CD0FF128BF20AB00E17A7C /* DIFactory.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		75390FE128BEF8FD00FC0509 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7539100B28BF056500FC0509 /* Enums */,
+				7539100728BF02D200FC0509 /* Data */,
+				75390FE228BEF90D00FC0509 /* gRPC */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75390FE228BEF90D00FC0509 /* gRPC */ = {
+			isa = PBXGroup;
+			children = (
+				7539100428BF025000FC0509 /* Source */,
+				75390FFB28BEFA1200FC0509 /* bilibili */,
+				7539100328BEFE6400FC0509 /* RUNME.sh */,
+			);
+			path = gRPC;
+			sourceTree = "<group>";
+		};
+		75390FFB28BEFA1200FC0509 /* bilibili */ = {
+			isa = PBXGroup;
+			children = (
+				75390FE528BEFA0200FC0509 /* account */,
+				75390FE428BEFA0200FC0509 /* ad */,
+				75390FED28BEFA0200FC0509 /* api */,
+				75390FE828BEFA0200FC0509 /* app */,
+				75390FEA28BEFA0200FC0509 /* broadcast */,
+				75390FE928BEFA0200FC0509 /* cheese */,
+				75390FE628BEFA0200FC0509 /* community */,
+				75390FEB28BEFA0200FC0509 /* im */,
+				75390FEE28BEFA0200FC0509 /* main */,
+				75390FE328BEFA0200FC0509 /* metadata */,
+				75390FE728BEFA0200FC0509 /* pgc */,
+				75390FEC28BEFA0200FC0509 /* rpc */,
+			);
+			path = bilibili;
+			sourceTree = "<group>";
+		};
+		7539100428BF025000FC0509 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				75CD100728BF3A5F00E17A7C /* dynamic.grpc.swift */,
+				75CD100828BF3A5F00E17A7C /* dynamic.pb.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7539100728BF02D200FC0509 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				75CD101528BF3E8000E17A7C /* Video */,
+				75CD0FDC28BF0D7C00E17A7C /* Community */,
+				7539101328BF079200FC0509 /* Appearance */,
+				7539101228BF077500FC0509 /* User */,
+				7539100828BF02E800FC0509 /* Dynamic */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7539100828BF02E800FC0509 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				7539100928BF030100FC0509 /* DynamicInformation.swift */,
+				75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		7539100B28BF056500FC0509 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7539100F28BF070F00FC0509 /* Bili */,
+				7539100C28BF057000FC0509 /* Community */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		7539100C28BF057000FC0509 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				7539100D28BF058400FC0509 /* DynamicType.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		7539100F28BF070F00FC0509 /* Bili */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bili;
+			sourceTree = "<group>";
+		};
+		7539101228BF077500FC0509 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		7539101328BF079200FC0509 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				7539101428BF07A700FC0509 /* Image.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		75CD0FDC28BF0D7C00E17A7C /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		75CD0FE128BF104600E17A7C /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				75CD0FE328BF1BF800E17A7C /* Protocols */,
+				75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */,
+				75CD100B28BF3B1F00E17A7C /* DynamicAdapter.swift */,
+				75CD102028BF43BF00E17A7C /* UserAdapter.swift */,
+				75CD102228BF453800E17A7C /* VideoAdapter.swift */,
+				75CD102428BF496400E17A7C /* CommunityAdapter.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		75CD0FE228BF105C00E17A7C /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		75CD0FE328BF1BF800E17A7C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */,
+				75CD100128BF362A00E17A7C /* DynamicAdapterProtocol.swift */,
+				75CD100D28BF3B4700E17A7C /* UserAdapterProtocol.swift */,
+				75CD100F28BF3D4900E17A7C /* VideoAdapterProtocol.swift */,
+				75CD101328BF3D7000E17A7C /* CommunityAdapterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75CD101528BF3E8000E17A7C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				75CD101828BF3EBD00E17A7C /* VideoIdentifier.swift */,
+				75CD101A28BF3FF800E17A7C /* VideoInformation.swift */,
+				75CD101C28BF40A700E17A7C /* VideoCommunityInformation.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,6 +337,13 @@
 			dependencies = (
 			);
 			name = Bili.Mac.MenuBar;
+			packageProductDependencies = (
+				75390FFD28BEFAA800FC0509 /* CGRPCZlib */,
+				75390FFF28BEFAA800FC0509 /* GRPC */,
+				7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */,
+				75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */,
+				75CD0FFF28BF359700E17A7C /* Swinject */,
+			);
 			productName = Bili.Mac.MenuBar;
 			productReference = 7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */;
 			productType = "com.apple.product-type.application";
@@ -115,6 +372,11 @@
 				Base,
 			);
 			mainGroup = 7520044028BE3D9D008D2FED;
+			packageReferences = (
+				75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+				75CD0FFE28BF359700E17A7C /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 7520044A28BE3D9D008D2FED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,8 +391,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75390FF828BEFA0200FC0509 /* rpc in Resources */,
+				75390FF728BEFA0200FC0509 /* im in Resources */,
+				75390FF228BEFA0200FC0509 /* community in Resources */,
 				7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */,
 				7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */,
+				75390FF928BEFA0200FC0509 /* api in Resources */,
+				75390FF528BEFA0200FC0509 /* cheese in Resources */,
+				75390FF628BEFA0200FC0509 /* broadcast in Resources */,
+				75390FEF28BEFA0200FC0509 /* metadata in Resources */,
+				75390FFA28BEFA0200FC0509 /* main in Resources */,
+				75390FF428BEFA0200FC0509 /* app in Resources */,
+				75390FF328BEFA0200FC0509 /* pgc in Resources */,
+				75390FF128BEFA0200FC0509 /* account in Resources */,
+				75390FF028BEFA0200FC0509 /* ad in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +416,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */,
+				75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */,
+				75CD101028BF3D4900E17A7C /* VideoAdapterProtocol.swift in Sources */,
 				7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */,
+				75CD101D28BF40A700E17A7C /* VideoCommunityInformation.swift in Sources */,
+				75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */,
+				75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */,
+				75CD100928BF3A5F00E17A7C /* dynamic.grpc.swift in Sources */,
+				75CD101428BF3D7000E17A7C /* CommunityAdapterProtocol.swift in Sources */,
+				75CD100E28BF3B4700E17A7C /* UserAdapterProtocol.swift in Sources */,
+				75CD101928BF3EBD00E17A7C /* VideoIdentifier.swift in Sources */,
+				75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */,
+				75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */,
+				75CD102328BF453800E17A7C /* VideoAdapter.swift in Sources */,
+				75CD101B28BF3FF800E17A7C /* VideoInformation.swift in Sources */,
+				75CD102528BF496400E17A7C /* CommunityAdapter.swift in Sources */,
+				7539100A28BF030100FC0509 /* DynamicInformation.swift in Sources */,
+				75CD100C28BF3B1F00E17A7C /* DynamicAdapter.swift in Sources */,
+				7539100E28BF058400FC0509 /* DynamicType.swift in Sources */,
+				75CD100A28BF3A5F00E17A7C /* dynamic.pb.swift in Sources */,
+				75CD102128BF43BF00E17A7C /* UserAdapter.swift in Sources */,
+				7539101528BF07A700FC0509 /* Image.swift in Sources */,
+				75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */,
+				75CD100228BF362A00E17A7C /* DynamicAdapterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +638,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.1;
+			};
+		};
+		75CD0FFE28BF359700E17A7C /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.8.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75390FFD28BEFAA800FC0509 /* CGRPCZlib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = CGRPCZlib;
+		};
+		75390FFF28BEFAA800FC0509 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = "protoc-gen-grpc-swift";
+		};
+		75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
+		75CD0FFF28BF359700E17A7C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75CD0FFE28BF359700E17A7C /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7520044128BE3D9D008D2FED /* Project object */;
 }

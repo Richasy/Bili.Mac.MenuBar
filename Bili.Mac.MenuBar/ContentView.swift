@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let imageAdapter = DIFactory.instance.container.resolve(ImageAdapterProtocol.self)
+    
+    @State var text = "Hello World"
+    
     var body: some View {
         VStack{
-            Button(action: {}) {
-                Text("Hello, world!")
+            Button(action: {
+                text = imageAdapter?.ConvertToImage(uri: "https://www.baidu.com", width: 200, height: 200).uri ?? "None"
+            }) {
+                Text(text)
                     .padding()
             }
         }

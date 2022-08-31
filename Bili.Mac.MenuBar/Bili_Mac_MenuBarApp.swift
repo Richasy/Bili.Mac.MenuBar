@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct Bili_Mac_MenuBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    let diFactory = DIFactory.instance
     
     init() {
         AppDelegate.shared = self.appDelegate
