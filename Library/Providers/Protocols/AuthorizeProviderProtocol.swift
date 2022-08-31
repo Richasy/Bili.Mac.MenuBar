@@ -8,7 +8,10 @@
 protocol AuthorizeProviderProtocol {
     
     /// 状态变化通知列表
-    var stateChangedNotifyList: Set<Event<AuthorizeStateChangedEventArgs>> { get }
+    var authorizeStateChangedNotifyList: Set<Event<AuthorizeStateChangedEventArgs>> { get }
+    
+    /// 状态变化通知列表
+    var qrCodeStateChangedNotifyList: Set<Event<QRCodeStateChangedEventArgs>> { get }
     
     /// 当前授权状态
     var state: AuthorizeState { get }

@@ -64,6 +64,18 @@
 		75CD104228BF961300E17A7C /* UserCommunityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104128BF961300E17A7C /* UserCommunityInformation.swift */; };
 		75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */; };
 		75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */; };
+		75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104728BF986400E17A7C /* AuthorizeProvider.swift */; };
+		75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */; };
+		75CD104E28BF995000E17A7C /* SettingsToolkitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */; };
+		75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */; };
+		75CD105228BF9CAF00E17A7C /* SettingsToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */; };
+		75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */; };
+		75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105828BFA34300E17A7C /* AuthorizeResult.swift */; };
+		75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105A28BFA39900E17A7C /* TokenInfo.swift */; };
+		75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105C28BFA3E400E17A7C /* QRInfo.swift */; };
+		75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105E28BFA98500E17A7C /* TokenKeys.swift */; };
+		75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD106028BFAA8100E17A7C /* QueryKeys.swift */; };
+		75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD106228BFAC7800E17A7C /* ServiceKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +135,18 @@
 		75CD104128BF961300E17A7C /* UserCommunityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommunityInformation.swift; sourceTree = "<group>"; };
 		75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityProviderProtocol.swift; sourceTree = "<group>"; };
+		75CD104728BF986400E17A7C /* AuthorizeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProvider.swift; sourceTree = "<group>"; };
+		75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5ToolkitProtocol.swift; sourceTree = "<group>"; };
+		75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToolkitProtocol.swift; sourceTree = "<group>"; };
+		75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Toolkit.swift; sourceTree = "<group>"; };
+		75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToolkit.swift; sourceTree = "<group>"; };
+		75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeStateChangedEventArgs.swift; sourceTree = "<group>"; };
+		75CD105828BFA34300E17A7C /* AuthorizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResult.swift; sourceTree = "<group>"; };
+		75CD105A28BFA39900E17A7C /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
+		75CD105C28BFA3E400E17A7C /* QRInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRInfo.swift; sourceTree = "<group>"; };
+		75CD105E28BFA98500E17A7C /* TokenKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenKeys.swift; sourceTree = "<group>"; };
+		75CD106028BFAA8100E17A7C /* QueryKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKeys.swift; sourceTree = "<group>"; };
+		75CD106228BFAC7800E17A7C /* ServiceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +206,7 @@
 		75390FE028BEF8B500FC0509 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				75CD104928BF98B000E17A7C /* Toolkits */,
 				75CD0FE228BF105C00E17A7C /* Providers */,
 				75CD0FE128BF104600E17A7C /* Adapters */,
 				75390FE128BEF8FD00FC0509 /* Models */,
@@ -193,6 +218,7 @@
 		75390FE128BEF8FD00FC0509 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				75CD105728BFA32A00E17A7C /* BiliBIli */,
 				75CD103A28BF918D00E17A7C /* App */,
 				7539100B28BF056500FC0509 /* Enums */,
 				7539100728BF02D200FC0509 /* Data */,
@@ -283,6 +309,9 @@
 		7539100F28BF070F00FC0509 /* Bili */ = {
 			isa = PBXGroup;
 			children = (
+				75CD105E28BFA98500E17A7C /* TokenKeys.swift */,
+				75CD106028BFAA8100E17A7C /* QueryKeys.swift */,
+				75CD106228BFAC7800E17A7C /* ServiceKeys.swift */,
 			);
 			path = Bili;
 			sourceTree = "<group>";
@@ -322,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				75CD102C28BF89A100E17A7C /* Protocols */,
+				75CD104728BF986400E17A7C /* AuthorizeProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -375,8 +405,38 @@
 			children = (
 				75CD103B28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift */,
 				75CD103D28BF935900E17A7C /* Event.swift */,
+				75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		75CD104928BF98B000E17A7C /* Toolkits */ = {
+			isa = PBXGroup;
+			children = (
+				75CD104A28BF98C600E17A7C /* Protocols */,
+				75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */,
+				75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */,
+			);
+			path = Toolkits;
+			sourceTree = "<group>";
+		};
+		75CD104A28BF98C600E17A7C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */,
+				75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75CD105728BFA32A00E17A7C /* BiliBIli */ = {
+			isa = PBXGroup;
+			children = (
+				75CD105828BFA34300E17A7C /* AuthorizeResult.swift */,
+				75CD105A28BFA39900E17A7C /* TokenInfo.swift */,
+				75CD105C28BFA3E400E17A7C /* QRInfo.swift */,
+			);
+			path = BiliBIli;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,14 +534,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */,
+				75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */,
 				75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */,
 				75CD101028BF3D4900E17A7C /* VideoAdapterProtocol.swift in Sources */,
 				7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */,
 				75CD101D28BF40A700E17A7C /* VideoCommunityInformation.swift in Sources */,
+				75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */,
 				75CD103328BF8DB800E17A7C /* AuthorizeState.swift in Sources */,
 				75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */,
+				75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */,
 				75CD104228BF961300E17A7C /* UserCommunityInformation.swift in Sources */,
 				75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */,
+				75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */,
+				75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */,
+				75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */,
+				75CD104E28BF995000E17A7C /* SettingsToolkitProtocol.swift in Sources */,
 				75CD103E28BF935900E17A7C /* Event.swift in Sources */,
 				75CD100928BF3A5F00E17A7C /* dynamic.grpc.swift in Sources */,
 				75CD101428BF3D7000E17A7C /* CommunityAdapterProtocol.swift in Sources */,
@@ -489,22 +556,27 @@
 				75CD101928BF3EBD00E17A7C /* VideoIdentifier.swift in Sources */,
 				75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */,
 				75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */,
+				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD101B28BF3FF800E17A7C /* VideoInformation.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
 				75CD102528BF496400E17A7C /* CommunityAdapter.swift in Sources */,
 				7539100A28BF030100FC0509 /* DynamicInformation.swift in Sources */,
+				75CD105228BF9CAF00E17A7C /* SettingsToolkit.swift in Sources */,
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				75CD100C28BF3B1F00E17A7C /* DynamicAdapter.swift in Sources */,
 				7539100E28BF058400FC0509 /* DynamicType.swift in Sources */,
+				75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */,
 				75CD100A28BF3A5F00E17A7C /* dynamic.pb.swift in Sources */,
 				75CD102B28BF898600E17A7C /* VideoAdapter.swift in Sources */,
 				75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */,
+				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
 				75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */,
 				75CD102128BF43BF00E17A7C /* UserAdapter.swift in Sources */,
 				7539101528BF07A700FC0509 /* Image.swift in Sources */,
 				75CD102728BF88A200E17A7C /* archive.pb.swift in Sources */,
 				75CD104028BF95AA00E17A7C /* AccountInformation.swift in Sources */,
+				75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */,
 				75CD103C28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift in Sources */,
 				75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,

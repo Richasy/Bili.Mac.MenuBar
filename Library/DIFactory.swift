@@ -15,6 +15,10 @@ struct DIFactory {
     
     init() {
         container = Container()
+        
+        container.autoregister(MD5ToolkitProtocol.self, initializer: MD5Toolkit.init)
+        container.autoregister(SettingsToolkitProtocol.self, initializer: SettingsToolkit.init)
+        
         container.autoregister(ImageAdapterProtocol.self, initializer: ImageAdapter.init)
         container.autoregister(UserAdapterProtocol.self, initializer: UserAdapter.init)
         container.autoregister(CommunityAdapterProtocol.self, initializer: CommunityAdapter.init)
