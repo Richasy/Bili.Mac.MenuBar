@@ -24,6 +24,9 @@ struct DIFactory {
         container.autoregister(CommunityAdapterProtocol.self, initializer: CommunityAdapter.init)
         container.autoregister(VideoAdapterProtocol.self, initializer: VideoAdapter.init)
         container.autoregister(DynamicAdapterProtocol.self, initializer: DynamicAdapter.init)
+        
+        container.autoregister(AuthorizeProviderProtocol.self, initializer: AuthorizeProvider.init)
+        container.autoregister(HttpProviderProtocol.self, initializer: HttpProvider.init)
     }
     
     let container: Container

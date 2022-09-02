@@ -12,7 +12,6 @@ import SwiftEventBus
 class AuthorizeProvider: AuthorizeProviderProtocol {
     private let md5Toolkit: MD5ToolkitProtocol
     private let settingsToolkit: SettingsToolkitProtocol
-    private let httpProvider: HttpProviderProtocol
     
     private var tokenInfo: TokenInfo? = nil
     private var internalQRAuthCode: String = ""
@@ -23,7 +22,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     init(md5Toolkit: MD5ToolkitProtocol, settingsToolkit: SettingsToolkitProtocol) {
         self.md5Toolkit = md5Toolkit
         self.settingsToolkit = settingsToolkit
-        self.httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         
         self.guid = UUID().uuidString
         state = .signedOut
@@ -53,19 +51,19 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.iosKey.rawValue
             parameters[QueryKeys.mobileApp.rawValue] = "iphone"
             parameters[QueryKeys.platform.rawValue] = "ios"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded())
         } else if clientType == .android {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.androidKey.rawValue
             parameters[QueryKeys.mobileApp.rawValue] = "android"
             parameters[QueryKeys.platform.rawValue] = "android"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded())
         } else if clientType == .web {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.webKey.rawValue
             parameters[QueryKeys.platform.rawValue] = "web"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970 * 1000)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded() * 1000)
         } else {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.loginKey.rawValue
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970 * 1000)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded() * 1000)
         }
         
         var token: String = ""
@@ -130,9 +128,9 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     
     func loopQRCodeStatusAsync() async {
         do {
+            let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
             let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCodeCheck.rawValue, queryParams: [QueryKeys.authCode.rawValue: internalQRAuthCode, QueryKeys.localId.rawValue: guid], type: .ios, needToken: false)
-            let response = try await httpProvider.sendAsync(request: request)
-            let result : ServerResponse<TokenInfo> = await httpProvider.parseAsync(response: response)
+            let result = try await httpProvider.sendAsync(ServerResponse<TokenInfo>.self, request: request)
             let arg = QRCodeStateChangedEventArgs(state: .success, token: result.data)
             SwiftEventBus.post(EventKeys.qrcodeStateChanged.rawValue, sender: arg)
         } catch let error as ServiceException {
@@ -152,15 +150,15 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     
     func getQRCodeImageAsync() async -> String {
         let queryParameters = [QueryKeys.localId.rawValue: guid]
+        let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCode.rawValue, queryParams: queryParameters, type: .ios, needToken: false)
-        let response = try? await httpProvider.sendAsync(request: request)
+        let response = try? await httpProvider.sendAsync(ServerResponse<QRInfo>.self, request: request)
         
         guard let response = response else {
             return ""
         }
         
-        let result: ServerResponse<QRInfo> = await httpProvider.parseAsync(response: response)
-        let qr = try! QRCode.encode(text: result.data.url, ecl: .medium)
+        let qr = try! QRCode.encode(text: response.data.url, ecl: .medium)
         let svg = qr.toSVGString(border: 2)
         return svg
     }
@@ -206,10 +204,10 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             return nil
         }
         
+        let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.acessToken ?? "", QueryKeys.refreshToken.rawValue: refreshToken]
         let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.refreshToken.rawValue, queryParams: queryParameters, type: .ios, needToken: false)
-        let response = try await httpProvider.sendAsync(request: request)
-        let result: ServerResponse<TokenInfo> = await httpProvider.parseAsync(response: response)
+        let result = try await httpProvider.sendAsync(ServerResponse<TokenInfo>.self, request: request)
         await ssoInitAsync()
         
         return result.data
@@ -217,8 +215,9 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     
     private func ssoInitAsync() async {
         let url = ApiKeys.sso.rawValue
+        let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let request = await httpProvider.getRequestMessageAsync(method: "GET", url: url, queryParams: Dictionary<String, String>(), type: .ios, needToken: false)
-        try? _ = await httpProvider.sendAsync(request: request)
+        try? _ = await httpProvider.sendAsync(ServerResponse<Int32>.self, request: request)
     }
     
     private func networkVerifyTokenAsync() async -> Bool {
@@ -229,8 +228,9 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.acessToken ?? ""]
         
         do {
+            let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
             let request = await httpProvider.getRequestMessageAsync(method: "GET", url: ApiKeys.checkToken.rawValue, queryParams: queryParameters, type: .ios, needToken: false)
-            try _ = await httpProvider.sendAsync(request: request)
+            try _ = await httpProvider.sendAsync(ServerResponse<Int32>.self, request: request)
             return true
         } catch {
             return false

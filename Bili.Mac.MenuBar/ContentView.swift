@@ -8,16 +8,19 @@
 import SwiftUI
 import QRCodeGenerator
 import SVGView
+import NIOHTTP2
 
 struct ContentView: View {
     
     let imageAdapter = DIFactory.instance.container.resolve(ImageAdapterProtocol.self)
+    let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)
     
     @State var image: URL? = nil
     
     var body: some View {
         VStack{
             Button(action: {
+                /*
                 if image == nil {
                     let qr = try! QRCode.encode(text: "https://www.baidu.com", ecl: .medium)
                     let svg = qr.toSVGString(border: 2)
@@ -31,7 +34,20 @@ struct ContentView: View {
                 else {
                     try? FileManager.default.removeItem(atPath: image?.path ?? "")
                     image = nil
+                } */
+                
+                let url = "https://jsonplaceholder.typicode.com/posts"
+                
+                Task {
+                    let request = await httpProvider?.getRequestMessageAsync(method: "GET", url: url, queryParams: Dictionary<String, String>(), type: .ios, needToken: false)
+                    let result = try? await httpProvider?.sendAsync([Post].self, request: request!)
+                    guard let result = result else {
+                        return
+                    }
+                    
+                    print(result)
                 }
+                
             }) {
                 Text("显示二维码")
             }
@@ -49,4 +65,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+struct Post: Codable, Hashable {
+    var userId: Int32
+    var id: Int32
+    var title: String
+    var body: String
 }

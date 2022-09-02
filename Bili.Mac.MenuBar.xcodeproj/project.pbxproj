@@ -32,6 +32,7 @@
 		7593E95C28C1B348003A3497 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95B28C1B348003A3497 /* SVGView */; };
 		7593E95F28C1C3E8003A3497 /* SwiftEventBus in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95E28C1C3E8003A3497 /* SwiftEventBus */; };
 		7593E96128C1C421003A3497 /* EventKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96028C1C421003A3497 /* EventKeys.swift */; };
+		7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96228C1D5C1003A3497 /* HttpProvider.swift */; };
 		75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */; };
 		75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */; };
 		75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */; };
@@ -109,6 +110,7 @@
 		7539100D28BF058400FC0509 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
 		7539101428BF07A700FC0509 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		7593E96028C1C421003A3497 /* EventKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeys.swift; sourceTree = "<group>"; };
+		7593E96228C1D5C1003A3497 /* HttpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProvider.swift; sourceTree = "<group>"; };
 		75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCommunityInformation.swift; sourceTree = "<group>"; };
 		75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				75CD102C28BF89A100E17A7C /* Protocols */,
 				75CD104728BF986400E17A7C /* AuthorizeProvider.swift */,
+				7593E96228C1D5C1003A3497 /* HttpProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
 				75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */,
+				7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */,
 				75CD102128BF43BF00E17A7C /* UserAdapter.swift in Sources */,
 				7539101528BF07A700FC0509 /* Image.swift in Sources */,
 				75CD102728BF88A200E17A7C /* archive.pb.swift in Sources */,
