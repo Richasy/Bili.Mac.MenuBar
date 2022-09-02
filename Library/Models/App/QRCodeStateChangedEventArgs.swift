@@ -9,5 +9,5 @@ import Foundation
 
 struct QRCodeStateChangedEventArgs {
     let state: QRCodeState
-    let token: TokenInfo
+    let token: TokenInfo?
 }

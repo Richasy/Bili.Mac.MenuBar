@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "svgview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/SVGView.git",
+      "state" : {
+        "revision" : "18bf73efc2f2dede5dfa73f517ddf4e054061294",
+        "version" : "1.0.4"
+      }
+    },
+    {
       "identity" : "swift-atomics",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-atomics.git",
@@ -79,6 +88,24 @@
       "state" : {
         "revision" : "b8230909dedc640294d7324d37f4c91ad3dcf177",
         "version" : "1.20.1"
+      }
+    },
+    {
+      "identity" : "swift-qrcode-generator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fwcd/swift-qrcode-generator.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5891c4f87abb86fc71e394672119a897068662c0"
+      }
+    },
+    {
+      "identity" : "swifteventbus",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cesarferreira/SwiftEventBus.git",
+      "state" : {
+        "revision" : "a30ff35e616f507d8a8d122dac32a2150371a87e",
+        "version" : "5.1.0"
       }
     },
     {

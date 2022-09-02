@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QRInfo {
+struct QRInfo: Codable {
     var url: String
     var authCode: String
 }

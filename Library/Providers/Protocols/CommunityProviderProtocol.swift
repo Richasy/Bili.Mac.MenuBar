@@ -9,7 +9,7 @@ protocol CommunityProviderProtocol {
     
     /// 获取视频动态列表
     /// - Returns: 视频动态集合
-    func getDynamicVideoList() -> DynamicView
+    func getDynamicVideoListAsync() async -> DynamicView
     
     /// 重置视频动态请求状态
     func resetVideoDynamicStatus()

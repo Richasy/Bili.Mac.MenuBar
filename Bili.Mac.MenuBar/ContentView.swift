@@ -6,20 +6,39 @@
 //
 
 import SwiftUI
+import QRCodeGenerator
+import SVGView
 
 struct ContentView: View {
     
     let imageAdapter = DIFactory.instance.container.resolve(ImageAdapterProtocol.self)
     
-    @State var text = "Hello World"
+    @State var image: URL? = nil
     
     var body: some View {
         VStack{
             Button(action: {
-                text = imageAdapter?.ConvertToImage(uri: "https://www.baidu.com", width: 200, height: 200).uri ?? "None"
+                if image == nil {
+                    let qr = try! QRCode.encode(text: "https://www.baidu.com", ecl: .medium)
+                    let svg = qr.toSVGString(border: 2)
+                    var url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+                    url.appendPathComponent("bili_signin_qrcode.svg")
+                    if let data = svg.data(using: .utf8) {
+                        try? data.write(to: url)
+                        image = url
+                    }
+                }
+                else {
+                    try? FileManager.default.removeItem(atPath: image?.path ?? "")
+                    image = nil
+                }
             }) {
-                Text(text)
-                    .padding()
+                Text("显示二维码")
+            }
+            
+            if(image != nil) {
+                SVGView(contentsOf: image!)
+                    .frame(width: 240, height: 240, alignment: .center)
             }
         }
         .frame(maxWidth:.infinity, maxHeight: .infinity)

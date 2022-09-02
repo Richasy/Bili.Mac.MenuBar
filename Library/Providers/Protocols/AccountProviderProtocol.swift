@@ -12,9 +12,9 @@ protocol AccountProviderProtocol {
     
     /// 获取我的个人信息
     /// - Returns: 账户信息
-    func getMyInformation() -> AccountInformation
+    func getMyInformationAsync() async -> AccountInformation
     
     /// 获取我的社区信息
     /// - Returns: 社区信息
-    func getMyCommunityInformation() -> UserCommunityInformation
+    func getMyCommunityInformationAsync() async -> UserCommunityInformation
 }

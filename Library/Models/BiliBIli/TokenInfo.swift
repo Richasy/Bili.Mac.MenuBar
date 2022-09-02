@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TokenInfo {
+struct TokenInfo: Codable {
     var mid: Int64
     var acessToken: String
     var refreshToken: String

@@ -20,15 +20,15 @@ protocol HttpProviderProtocol {
     ///   - type: 使用的令牌类型
     ///   - needToken: 是否需要令牌
     /// - Returns: 请求体
-    func getRequestMessage(method: String, url: String, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) -> URLRequest
+    func getRequestMessageAsync(method: String, url: String, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async -> URLRequest
     
     /// 发送请求
     /// - Parameter request: 请求体
     /// - Returns: 响应结果
-    func send(request: URLRequest) -> URLResponse
+    func sendAsync(request: URLRequest) async throws -> URLResponse
     
     /// 将响应结果转换为制定类型的数据
     /// - Parameter response: 响应结果
-    /// - Returns: 制定类型的数据
-    func parse<T>(response: URLResponse) -> T
+    /// - Returns: 指定类型的数据
+    func parseAsync<T: Codable>(response: URLResponse) async -> T
 }
