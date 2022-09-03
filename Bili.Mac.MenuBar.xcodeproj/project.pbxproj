@@ -30,9 +30,13 @@
 		7539100E28BF058400FC0509 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100D28BF058400FC0509 /* DynamicType.swift */; };
 		7539101528BF07A700FC0509 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539101428BF07A700FC0509 /* Image.swift */; };
 		7593E95C28C1B348003A3497 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95B28C1B348003A3497 /* SVGView */; };
-		7593E95F28C1C3E8003A3497 /* SwiftEventBus in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95E28C1C3E8003A3497 /* SwiftEventBus */; };
 		7593E96128C1C421003A3497 /* EventKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96028C1C421003A3497 /* EventKeys.swift */; };
 		7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96228C1D5C1003A3497 /* HttpProvider.swift */; };
+		7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96428C1FDB3003A3497 /* SignInView.swift */; };
+		7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96728C1FE78003A3497 /* AppLogo.swift */; };
+		7593E96A28C20770003A3497 /* SignInQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96928C20770003A3497 /* SignInQRCode.swift */; };
+		7593E96E28C34ED9003A3497 /* ObservableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96D28C34ED9003A3497 /* ObservableProtocol.swift */; };
+		7593E97028C34F20003A3497 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96F28C34F20003A3497 /* EventBus.swift */; };
 		75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */; };
 		75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */; };
 		75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */; };
@@ -69,9 +73,7 @@
 		75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */; };
 		75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104728BF986400E17A7C /* AuthorizeProvider.swift */; };
 		75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */; };
-		75CD104E28BF995000E17A7C /* SettingsToolkitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */; };
 		75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */; };
-		75CD105228BF9CAF00E17A7C /* SettingsToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */; };
 		75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */; };
 		75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105828BFA34300E17A7C /* AuthorizeResult.swift */; };
 		75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105A28BFA39900E17A7C /* TokenInfo.swift */; };
@@ -111,6 +113,11 @@
 		7539101428BF07A700FC0509 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		7593E96028C1C421003A3497 /* EventKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeys.swift; sourceTree = "<group>"; };
 		7593E96228C1D5C1003A3497 /* HttpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProvider.swift; sourceTree = "<group>"; };
+		7593E96428C1FDB3003A3497 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		7593E96728C1FE78003A3497 /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogo.swift; sourceTree = "<group>"; };
+		7593E96928C20770003A3497 /* SignInQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInQRCode.swift; sourceTree = "<group>"; };
+		7593E96D28C34ED9003A3497 /* ObservableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableProtocol.swift; sourceTree = "<group>"; };
+		7593E96F28C34F20003A3497 /* EventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		75CD0FDA28BF0C1300E17A7C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		75CD0FDD28BF0DA300E17A7C /* DynamicCommunityInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCommunityInformation.swift; sourceTree = "<group>"; };
 		75CD0FDF28BF0F1C00E17A7C /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
@@ -145,9 +152,7 @@
 		75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104728BF986400E17A7C /* AuthorizeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProvider.swift; sourceTree = "<group>"; };
 		75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5ToolkitProtocol.swift; sourceTree = "<group>"; };
-		75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToolkitProtocol.swift; sourceTree = "<group>"; };
 		75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Toolkit.swift; sourceTree = "<group>"; };
-		75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToolkit.swift; sourceTree = "<group>"; };
 		75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeStateChangedEventArgs.swift; sourceTree = "<group>"; };
 		75CD105828BFA34300E17A7C /* AuthorizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResult.swift; sourceTree = "<group>"; };
 		75CD105A28BFA39900E17A7C /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
@@ -171,7 +176,6 @@
 				7539100228BEFAA800FC0509 /* protoc-gen-grpc-swift in Frameworks */,
 				7593E95C28C1B348003A3497 /* SVGView in Frameworks */,
 				75CD106C28C1A33500E17A7C /* QRCodeGenerator in Frameworks */,
-				7593E95F28C1C3E8003A3497 /* SwiftEventBus in Frameworks */,
 				75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,12 +203,14 @@
 		7520044B28BE3D9D008D2FED /* Bili.Mac.MenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				7593E96628C1FE63003A3497 /* Controls */,
 				7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */,
 				7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */,
 				7520044E28BE3D9D008D2FED /* ContentView.swift */,
 				7520045028BE3D9E008D2FED /* Assets.xcassets */,
 				7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */,
 				7520045228BE3D9E008D2FED /* Preview Content */,
+				7593E96428C1FDB3003A3497 /* SignInView.swift */,
 			);
 			path = Bili.Mac.MenuBar;
 			sourceTree = "<group>";
@@ -350,6 +356,15 @@
 			path = Appearance;
 			sourceTree = "<group>";
 		};
+		7593E96628C1FE63003A3497 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				7593E96728C1FE78003A3497 /* AppLogo.swift */,
+				7593E96928C20770003A3497 /* SignInQRCode.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		75CD0FE128BF104600E17A7C /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +438,7 @@
 				75CD103B28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift */,
 				75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */,
 				75CD106828C1025600E17A7C /* ServiceException.swift */,
+				7593E96F28C34F20003A3497 /* EventBus.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -432,7 +448,6 @@
 			children = (
 				75CD104A28BF98C600E17A7C /* Protocols */,
 				75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */,
-				75CD105128BF9CAF00E17A7C /* SettingsToolkit.swift */,
 			);
 			path = Toolkits;
 			sourceTree = "<group>";
@@ -441,7 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */,
-				75CD104D28BF995000E17A7C /* SettingsToolkitProtocol.swift */,
+				7593E96D28C34ED9003A3497 /* ObservableProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -481,7 +496,6 @@
 				75CD0FFF28BF359700E17A7C /* Swinject */,
 				75CD106B28C1A33500E17A7C /* QRCodeGenerator */,
 				7593E95B28C1B348003A3497 /* SVGView */,
-				7593E95E28C1C3E8003A3497 /* SwiftEventBus */,
 			);
 			productName = Bili.Mac.MenuBar;
 			productReference = 7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */;
@@ -517,7 +531,6 @@
 				75CD0FFE28BF359700E17A7C /* XCRemoteSwiftPackageReference "Swinject" */,
 				75CD106A28C1A33500E17A7C /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */,
 				7593E95A28C1B348003A3497 /* XCRemoteSwiftPackageReference "SVGView" */,
-				7593E95D28C1C3E8003A3497 /* XCRemoteSwiftPackageReference "SwiftEventBus" */,
 			);
 			productRefGroup = 7520044A28BE3D9D008D2FED /* Products */;
 			projectDirPath = "";
@@ -559,6 +572,7 @@
 			files = (
 				7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */,
 				75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */,
+				7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */,
 				75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */,
 				75CD101028BF3D4900E17A7C /* VideoAdapterProtocol.swift in Sources */,
 				7593E96128C1C421003A3497 /* EventKeys.swift in Sources */,
@@ -566,6 +580,9 @@
 				75CD101D28BF40A700E17A7C /* VideoCommunityInformation.swift in Sources */,
 				75CD106928C1025600E17A7C /* ServiceException.swift in Sources */,
 				75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */,
+				7593E97028C34F20003A3497 /* EventBus.swift in Sources */,
+				7593E96E28C34ED9003A3497 /* ObservableProtocol.swift in Sources */,
+				7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */,
 				75CD103328BF8DB800E17A7C /* AuthorizeState.swift in Sources */,
 				75CD0FDB28BF0C1300E17A7C /* UserProfile.swift in Sources */,
 				75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */,
@@ -575,20 +592,19 @@
 				75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */,
 				75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */,
 				75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */,
-				75CD104E28BF995000E17A7C /* SettingsToolkitProtocol.swift in Sources */,
 				75CD100928BF3A5F00E17A7C /* dynamic.grpc.swift in Sources */,
 				75CD101428BF3D7000E17A7C /* CommunityAdapterProtocol.swift in Sources */,
 				75CD100E28BF3B4700E17A7C /* UserAdapterProtocol.swift in Sources */,
 				75CD101928BF3EBD00E17A7C /* VideoIdentifier.swift in Sources */,
 				75CD0FDE28BF0DA300E17A7C /* DynamicCommunityInformation.swift in Sources */,
 				75CD0FE028BF0F1C00E17A7C /* DynamicView.swift in Sources */,
+				7593E96A28C20770003A3497 /* SignInQRCode.swift in Sources */,
 				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD101B28BF3FF800E17A7C /* VideoInformation.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
 				75CD102528BF496400E17A7C /* CommunityAdapter.swift in Sources */,
 				7539100A28BF030100FC0509 /* DynamicInformation.swift in Sources */,
 				75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */,
-				75CD105228BF9CAF00E17A7C /* SettingsToolkit.swift in Sources */,
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				75CD100C28BF3B1F00E17A7C /* DynamicAdapter.swift in Sources */,
@@ -828,14 +844,6 @@
 				version = 1.0.4;
 			};
 		};
-		7593E95D28C1C3E8003A3497 /* XCRemoteSwiftPackageReference "SwiftEventBus" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cesarferreira/SwiftEventBus.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
@@ -882,11 +890,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7593E95A28C1B348003A3497 /* XCRemoteSwiftPackageReference "SVGView" */;
 			productName = SVGView;
-		};
-		7593E95E28C1C3E8003A3497 /* SwiftEventBus */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7593E95D28C1C3E8003A3497 /* XCRemoteSwiftPackageReference "SwiftEventBus" */;
-			productName = SwiftEventBus;
 		};
 		75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -5,10 +5,16 @@
 //  Created by 张安然 on 2022/8/31.
 //
 
+import SwiftUI
+
 protocol AuthorizeProviderProtocol {
     
     /// 当前授权状态
-    var state: AuthorizeState { get }
+    var authorizeState: AuthorizeState { get }
+    
+    var qrCodeState: QRCodeState { get }
+    
+    var events: EventBus { get set }
     
     /// 生成授权查询字符串
     /// - Parameters:

@@ -6,58 +6,38 @@
 //
 
 import SwiftUI
-import QRCodeGenerator
-import SVGView
-import NIOHTTP2
 
 struct ContentView: View {
     
-    let imageAdapter = DIFactory.instance.container.resolve(ImageAdapterProtocol.self)
-    let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)
+    init() {
+        authorizeProvider = DIFactory.instance.container.resolve(AuthorizeProviderProtocol.self)!
+    }
     
-    @State var image: URL? = nil
+    private let authorizeProvider: AuthorizeProviderProtocol
+    
+    @State var authorizeState: AuthorizeState = .signedOut
     
     var body: some View {
-        VStack{
-            Button(action: {
-                /*
-                if image == nil {
-                    let qr = try! QRCode.encode(text: "https://www.baidu.com", ecl: .medium)
-                    let svg = qr.toSVGString(border: 2)
-                    var url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-                    url.appendPathComponent("bili_signin_qrcode.svg")
-                    if let data = svg.data(using: .utf8) {
-                        try? data.write(to: url)
-                        image = url
-                    }
+        
+        VStack {
+            if authorizeState == .signedOut {
+                SignInView()
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+            } else {
+                VStack {
+                    Text("已登录")
                 }
-                else {
-                    try? FileManager.default.removeItem(atPath: image?.path ?? "")
-                    image = nil
-                } */
-                
-                let url = "https://jsonplaceholder.typicode.com/posts"
-                
-                Task {
-                    let request = await httpProvider?.getRequestMessageAsync(method: "GET", url: url, queryParams: Dictionary<String, String>(), type: .ios, needToken: false)
-                    let result = try? await httpProvider?.sendAsync([Post].self, request: request!)
-                    guard let result = result else {
-                        return
-                    }
-                    
-                    print(result)
-                }
-                
-            }) {
-                Text("显示二维码")
+                .frame(maxWidth:.infinity, maxHeight: .infinity)
+            }
+        }.onAppear {
+            authorizeProvider.events.addEvent(id: "ContentView", name: EventKeys.authorizeStateChanged.rawValue) { data in
+                self.authorizeState = data as! AuthorizeState
             }
             
-            if(image != nil) {
-                SVGView(contentsOf: image!)
-                    .frame(width: 240, height: 240, alignment: .center)
+            Task {
+                _ = await authorizeProvider.getTokenAsync()
             }
         }
-        .frame(maxWidth:.infinity, maxHeight: .infinity)
     }
 }
 

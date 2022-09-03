@@ -9,5 +9,5 @@ import Foundation
 
 struct QRInfo: Codable {
     var url: String
-    var authCode: String
+    var auth_code: String
 }

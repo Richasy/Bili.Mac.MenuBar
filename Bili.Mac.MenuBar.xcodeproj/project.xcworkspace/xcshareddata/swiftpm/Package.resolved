@@ -100,15 +100,6 @@
       }
     },
     {
-      "identity" : "swifteventbus",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/cesarferreira/SwiftEventBus.git",
-      "state" : {
-        "revision" : "a30ff35e616f507d8a8d122dac32a2150371a87e",
-        "version" : "5.1.0"
-      }
-    },
-    {
       "identity" : "swinject",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Swinject/Swinject.git",

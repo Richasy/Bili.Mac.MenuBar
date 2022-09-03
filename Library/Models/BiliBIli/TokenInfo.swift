@@ -9,7 +9,7 @@ import Foundation
 
 struct TokenInfo: Codable {
     var mid: Int64
-    var acessToken: String
-    var refreshToken: String
-    var expiresIn: Int32
+    var access_token: String
+    var refresh_token: String
+    var expires_in: Int32
 }

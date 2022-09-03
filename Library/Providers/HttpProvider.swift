@@ -26,15 +26,11 @@ class HttpProvider: HttpProviderProtocol {
         } else {
             let query = await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
             requestMessage = URLRequest(url: URL(string: url)!)
-            requestMessage.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            var urlComponents = URLComponents()
-            for param in query {
-                urlComponents.queryItems?.append(URLQueryItem(name: param.key, value: param.value))
-            }
-            
-            requestMessage.httpBody = urlComponents.query?.data(using: .utf8)
+            requestMessage.encodeParameters(parameters: query)
         }
         
+        requestMessage.setValue(ServiceKeys.acceptString.rawValue, forHTTPHeaderField: "Accept")
+        requestMessage.setValue(ServiceKeys.userAgent.rawValue, forHTTPHeaderField: "User-Agent")
         requestMessage.httpMethod = method
         return requestMessage
     }
@@ -50,11 +46,36 @@ class HttpProvider: HttpProviderProtocol {
             let jsonObj = try JSONDecoder().decode(T.self, from: data)
             return jsonObj
         } catch {
+            print(error)
             if error is ServiceException {
                 throw error
             } else {
                 throw ServiceException(code: -1, message: error.localizedDescription)
             }
         }
+    }
+}
+
+extension URLRequest {
+    
+    private func percentEscapeString(_ string: String) -> String {
+        var characterSet = CharacterSet.alphanumerics
+        characterSet.insert(charactersIn: "-._* ")
+        
+        return string
+            .addingPercentEncoding(withAllowedCharacters: characterSet)!
+            .replacingOccurrences(of: " ", with: "+")
+            .replacingOccurrences(of: " ", with: "+", options: [], range: nil)
+    }
+    
+    mutating func encodeParameters(parameters: [String : String]) {
+        httpMethod = "POST"
+        
+        let parameterArray = parameters.map { (arg) -> String in
+            let (key, value) = arg
+            return "\(key)=\(self.percentEscapeString(value))"
+        }
+        
+        httpBody = parameterArray.joined(separator: "&").data(using: String.Encoding.utf8)
     }
 }

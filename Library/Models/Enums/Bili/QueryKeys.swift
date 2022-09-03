@@ -6,9 +6,9 @@
 //
 
 enum QueryKeys : String {
-    case appKey = "appKey"
+    case appKey = "appkey"
     case build = "build"
-    case mobileApp = "mobile_app"
+    case mobileApp = "mobi_app"
     case platform = "platform"
     case platformSlim = "plat"
     case timeStamp = "ts"

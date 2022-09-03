@@ -7,11 +7,10 @@
 
 import Foundation
 import QRCodeGenerator
-import SwiftEventBus
+import SwiftUI
 
 class AuthorizeProvider: AuthorizeProviderProtocol {
     private let md5Toolkit: MD5ToolkitProtocol
-    private let settingsToolkit: SettingsToolkitProtocol
     
     private var tokenInfo: TokenInfo? = nil
     private var internalQRAuthCode: String = ""
@@ -19,22 +18,26 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     private var currentUserId: String = ""
     private let guid: String
     
-    init(md5Toolkit: MD5ToolkitProtocol, settingsToolkit: SettingsToolkitProtocol) {
+    init(md5Toolkit: MD5ToolkitProtocol) {
         self.md5Toolkit = md5Toolkit
-        self.settingsToolkit = settingsToolkit
         
-        self.guid = UUID().uuidString
-        state = .signedOut
+        self.guid = UUID().uuidString.replacingOccurrences(of: "-", with: "").lowercased()
+        authorizeState = .signedOut
+        qrCodeState = .notConfirm
+        events = EventBus()
     }
     
-    var state: AuthorizeState {
+    var authorizeState: AuthorizeState {
         didSet {
-            if oldValue != state {
-                let args = AuthorizeStateChangedEventArgs(oldState: oldValue, newState: state)
-                SwiftEventBus.post(EventKeys.authorizeStateChanged.rawValue, sender: args)
-            }
+            events.fireEvent(name: EventKeys.authorizeStateChanged.rawValue, param: authorizeState)
         }
     }
+    var qrCodeState: QRCodeState {
+        didSet {
+            events.fireEvent(name: EventKeys.qrcodeStateChanged.rawValue, param: qrCodeState)
+        }
+    }
+    var events: EventBus
     
     func generateAuthorizedQueryStringAsync(queryParameters: Dictionary<String, String>, clienType: RequestClientType, needToken: Bool) async -> String {
         let parameters = await generateAuthorizeQueryDictionaryAsync(queryParameters: queryParameters, clientType: clienType, needToken: needToken)
@@ -51,32 +54,30 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.iosKey.rawValue
             parameters[QueryKeys.mobileApp.rawValue] = "iphone"
             parameters[QueryKeys.platform.rawValue] = "ios"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded())
+            parameters[QueryKeys.timeStamp.rawValue] = String(Int64(Date.now.timeIntervalSince1970))
         } else if clientType == .android {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.androidKey.rawValue
             parameters[QueryKeys.mobileApp.rawValue] = "android"
             parameters[QueryKeys.platform.rawValue] = "android"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded())
+            parameters[QueryKeys.timeStamp.rawValue] = String(Int64(Date.now.timeIntervalSince1970))
         } else if clientType == .web {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.webKey.rawValue
             parameters[QueryKeys.platform.rawValue] = "web"
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded() * 1000)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Int64(Date.now.timeIntervalSince1970 * 1000))
         } else {
             parameters[QueryKeys.appKey.rawValue] = TokenKeys.loginKey.rawValue
-            parameters[QueryKeys.timeStamp.rawValue] = String(Date.now.timeIntervalSince1970.rounded() * 1000)
+            parameters[QueryKeys.timeStamp.rawValue] = String(Int64(Date.now.timeIntervalSince1970 * 1000))
         }
         
         var token: String = ""
         if await isTokenValidAsync(isNetworkVerify: false) {
-            token = tokenInfo!.acessToken
+            token = tokenInfo!.access_token
         } else if needToken {
             token = await getTokenAsync()
         }
         
         if !token.isEmpty {
             parameters[QueryKeys.accessToken.rawValue] = token
-        } else if needToken {
-            return parameters
         }
         
         let sign = generateSign(queryParameters: parameters)
@@ -88,22 +89,23 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         do {
             guard let tokenInfo = tokenInfo else {
                 retrieveAuthorizeResult()
-                return tokenInfo?.acessToken ?? ""
+                return tokenInfo?.access_token ?? ""
             }
             
             let isValid = await isTokenValidAsync(isNetworkVerify: false)
             if isValid {
-                state = .signedIn
-                return tokenInfo.acessToken
+                authorizeState = .signedIn
+                return tokenInfo.access_token
             } else {
                 let token = try await internalRefreshTokenAsync()
                 if token != nil {
                     saveAuthorizeResult(result: token)
-                    return token?.acessToken ?? ""
+                    return token?.access_token ?? ""
                 }
             }
             
         } catch {
+            print(error)
             signOut()
         }
         
@@ -111,16 +113,16 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     func signOut() {
-        state = .loading
-        
-        settingsToolkit.deleteLocalSetting(settingName: "AuthResult")
-        settingsToolkit.deleteLocalSetting(settingName: "AuthTime")
+        authorizeState = .loading
+        print("正在退出账户")
+        UserDefaults.standard.removeObject(forKey: "AuthResult")
+        UserDefaults.standard.removeObject(forKey: "AuthTime")
         
         if tokenInfo != nil {
             tokenInfo = nil
         }
         
-        state = .signedOut
+        authorizeState = .signedOut
         currentUserId = ""
         var accountProvider = DIFactory.instance.container.resolve(AccountProviderProtocol.self)!
         accountProvider.userId = ""
@@ -129,21 +131,26 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     func loopQRCodeStatusAsync() async {
         do {
             let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
-            let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCodeCheck.rawValue, queryParams: [QueryKeys.authCode.rawValue: internalQRAuthCode, QueryKeys.localId.rawValue: guid], type: .ios, needToken: false)
+            let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCodeCheck.rawValue, queryParams: [QueryKeys.authCode.rawValue: internalQRAuthCode, QueryKeys.localId.rawValue: guid], type: .android, needToken: false)
             let result = try await httpProvider.sendAsync(ServerResponse<TokenInfo>.self, request: request)
-            let arg = QRCodeStateChangedEventArgs(state: .success, token: result.data)
-            SwiftEventBus.post(EventKeys.qrcodeStateChanged.rawValue, sender: arg)
-        } catch let error as ServiceException {
-            var qrStatus = QRCodeState.failed
-            if(error.code == 86039) {
-                qrStatus = .notConfirm
-            } else if (error.code == 86038 || error.code == -3) {
-                qrStatus = .expired
+            guard result.code == 0 else {
+                throw ServiceException(code: result.code, message: result.message)
             }
             
-            let arg = QRCodeStateChangedEventArgs(state: qrStatus, token: nil)
-            SwiftEventBus.post(EventKeys.qrcodeStateChanged.rawValue, sender: arg)
+            saveAuthorizeResult(result: result.data)
+            qrCodeState = .success
+            print(qrCodeState)
+        } catch let error as ServiceException {
+            qrCodeState = QRCodeState.failed
+            if(error.code == 86039) {
+                qrCodeState = .notConfirm
+            } else if (error.code == 86038 || error.code == -3) {
+                qrCodeState = .expired
+            }
+            
+            print(qrCodeState)
         } catch {
+            print(error)
             return
         }
     }
@@ -151,23 +158,28 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     func getQRCodeImageAsync() async -> String {
         let queryParameters = [QueryKeys.localId.rawValue: guid]
         let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
-        let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCode.rawValue, queryParams: queryParameters, type: .ios, needToken: false)
+        let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.qrCode.rawValue, queryParams: queryParameters, type: .android, needToken: false)
         let response = try? await httpProvider.sendAsync(ServerResponse<QRInfo>.self, request: request)
         
         guard let response = response else {
             return ""
         }
         
-        let qr = try! QRCode.encode(text: response.data.url, ecl: .medium)
+        guard let url = response.data?.url else {
+            return ""
+        }
+        
+        internalQRAuthCode = response.data?.auth_code ?? ""
+        let qr = try! QRCode.encode(text: url, ecl: .medium)
         let svg = qr.toSVGString(border: 2)
         return svg
     }
     
     func isTokenValidAsync(isNetworkVerify: Bool) async -> Bool {
         let isLocalValid = tokenInfo != nil
-        && !tokenInfo!.acessToken.isEmpty
+        && !tokenInfo!.access_token.isEmpty
         && lastAuthorizeTime != nil
-        && lastAuthorizeTime!.timeIntervalSinceNow.isEqual(to: Double(tokenInfo!.expiresIn))
+        && lastAuthorizeTime!.timeIntervalSinceNow.isEqual(to: Double(tokenInfo!.expires_in))
         
         let result = isLocalValid && isNetworkVerify
             ? await networkVerifyTokenAsync()
@@ -200,12 +212,12 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     private func internalRefreshTokenAsync() async throws -> TokenInfo? {
-        guard let refreshToken = tokenInfo?.refreshToken else {
+        guard let refreshToken = tokenInfo?.refresh_token else {
             return nil
         }
         
         let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
-        let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.acessToken ?? "", QueryKeys.refreshToken.rawValue: refreshToken]
+        let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.access_token ?? "", QueryKeys.refreshToken.rawValue: refreshToken]
         let request = await httpProvider.getRequestMessageAsync(method: "POST", url: ApiKeys.refreshToken.rawValue, queryParams: queryParameters, type: .ios, needToken: false)
         let result = try await httpProvider.sendAsync(ServerResponse<TokenInfo>.self, request: request)
         await ssoInitAsync()
@@ -221,11 +233,11 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     private func networkVerifyTokenAsync() async -> Bool {
-        guard !(tokenInfo?.acessToken.isEmpty ?? false) else {
+        guard !(tokenInfo?.access_token.isEmpty ?? false) else {
             return false
         }
         
-        let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.acessToken ?? ""]
+        let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.access_token ?? ""]
         
         do {
             let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
@@ -243,36 +255,40 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         }
         
         let data = try! JSONEncoder().encode(result)
-        let json = String(data: data, encoding: .utf8)
         let now = Date.now
-        settingsToolkit.writeLocalSetting(settingName: "AuthResult", value: json)
-        settingsToolkit.writeLocalSetting(settingName: "AuthTime", value: now.timeIntervalSince1970)
+        let authJson = String(data: data, encoding: .utf8)
+        UserDefaults.standard.set(authJson, forKey: "AuthResult")
+        UserDefaults.standard.set(now, forKey: "AuthTime")
         
+        print("已保存登录凭据")
         currentUserId = String(result.mid)
         lastAuthorizeTime = now
         tokenInfo = result
-        state = .signedIn
+        authorizeState = .signedIn
+        print("已登录")
     }
     
     private func retrieveAuthorizeResult() {
-        guard settingsToolkit.isSettingKeyExist(settingName: "AuthResult") else {
+        guard let authJson = UserDefaults.standard.string(forKey: "AuthResult") else {
+            print("本地没有登录凭据")
             tokenInfo = nil
             lastAuthorizeTime = Date()
             return
         }
         
-        let tokenJson = settingsToolkit.readLocalSetting(settingName: "AuthResult", defaultValue: "{}")
-        let tokenData = tokenJson?.data(using: .utf8)
-        let token = try? JSONDecoder().decode(TokenInfo.self, from: tokenData!)
+        let jsonData = authJson.data(using: .utf8)
+        let token = try? JSONDecoder().decode(TokenInfo.self, from: jsonData!)
         
         guard let token = token else {
             return
         }
         
-        let saveTime = settingsToolkit.readLocalSetting(settingName: "AuthTime", defaultValue: TimeInterval(0))
+        print("已取回登录凭据")
+        let saveTime = UserDefaults.standard.object(forKey: "AuthTime") as? Date
         currentUserId = String(token.mid)
         tokenInfo = token
-        lastAuthorizeTime = Date.init(timeIntervalSince1970: saveTime!)
-        state = .signedIn
+        print("用户Id: \(token.mid)")
+        lastAuthorizeTime = saveTime
+        authorizeState = .signedIn
     }
 }
