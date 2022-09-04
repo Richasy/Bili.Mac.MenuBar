@@ -24,9 +24,7 @@ struct ContentView: View {
                 SignInView()
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
             } else {
-                VStack {
-                    Text("已登录")
-                }
+                AccountView()
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
             }
         }.onAppear {
@@ -35,7 +33,7 @@ struct ContentView: View {
             }
             
             Task {
-                _ = await authorizeProvider.getTokenAsync()
+                await authorizeProvider.trySignInAsync()
             }
         }
     }

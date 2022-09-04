@@ -30,4 +30,6 @@ enum QueryKeys : String {
     case page = "page"
     case myId = "mid"
     case cursor = "cursor"
+    case appVer = "appver"
+    case actionKey = "actionKey"
 }

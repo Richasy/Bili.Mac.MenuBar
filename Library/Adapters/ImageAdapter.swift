@@ -15,7 +15,7 @@ class ImageAdapter: ImageAdapterProtocol {
     
     func ConvertToImage(uri: String, width: Double, height: Double) -> Image {
         Image(uri: uri, width: width, height: height) {(w,h) in
-                return "@\(w)w_\(h)h_1c_100q.jpg"
+                return "@\(Int(w))w_\(Int(h))h_1c_100q.jpg"
         }
     }
 }

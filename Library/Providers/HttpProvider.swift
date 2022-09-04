@@ -6,44 +6,60 @@
 //
 
 import Foundation
+import Alamofire
 
 class HttpProvider: HttpProviderProtocol {
-    var client: URLSession
     private let authProvider: AuthorizeProviderProtocol
     
     init(authProvider: AuthorizeProviderProtocol) {
         self.authProvider = authProvider
-        client = URLSession.shared
     }
     
-    func getRequestMessageAsync(method: String, url: String, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async -> URLRequest {
-        var requestMessage: URLRequest
+    func requestAsync<T: Codable>(url: String, method: HTTPMethod, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async throws -> T {
         
-        if method == "GET" || method == "DELETE" {
-            let query = await authProvider.generateAuthorizedQueryStringAsync(queryParameters: queryParams, clienType: type, needToken: needToken)
-            let requestUrl = url + "?\(query)"
-            requestMessage = URLRequest(url: URL(string: requestUrl)!)
-        } else {
-            let query = await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
-            requestMessage = URLRequest(url: URL(string: url)!)
-            requestMessage.encodeParameters(parameters: query)
-        }
-        
-        requestMessage.setValue(ServiceKeys.acceptString.rawValue, forHTTPHeaderField: "Accept")
-        requestMessage.setValue(ServiceKeys.userAgent.rawValue, forHTTPHeaderField: "User-Agent")
-        requestMessage.httpMethod = method
-        return requestMessage
-    }
-    
-    func sendAsync<T>(_ t:T.Type, request: URLRequest) async throws -> T where T : Decodable, T : Encodable {
         do {
-            let (data, response) = try await client.data(for: request)
-            let res = response as! HTTPURLResponse
-            guard (200...299).contains(res.statusCode) else {
-                throw ServiceException(code: Int32(res.statusCode), message: "请求失败")
+            
+            if let cookieArray = UserDefaults.standard.array(forKey: "Cookies") {
+                for cookieData in cookieArray {
+                    if let dict = cookieData as? [HTTPCookiePropertyKey : Any] {
+                        if let cookie = HTTPCookie.init(properties : dict) {
+                            HTTPCookieStorage.shared.setCookie(cookie)
+                        }
+                    }
+                }
             }
             
-            let jsonObj = try JSONDecoder().decode(T.self, from: data)
+            let query = await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
+            let headers: HTTPHeaders = [
+                "Accept": ServiceKeys.acceptString.rawValue,
+                "User-Agent": ServiceKeys.userAgent.rawValue
+            ]
+            
+            let dataTask = AF.request(url, method: method, parameters: query, encoder: URLEncodedFormParameterEncoder(destination: method == .get ? .queryString : .httpBody), headers: headers, requestModifier: {$0.allowsConstrainedNetworkAccess = true})
+                .validate(statusCode: 200..<300)
+                .validate(contentType: ["application/json"])
+                .serializingData()
+            let response = await dataTask.response
+            guard (200..<300).contains(response.response!.statusCode) else {
+                throw ServiceException(code: Int32(response.response!.statusCode), message: "请求失败")
+            }
+            
+            let shouldSaveCookie = url == ApiKeys.tokenInfo.rawValue
+            if shouldSaveCookie {
+                let headerFields = response.response?.allHeaderFields as! [String: String]
+                let url = response.request?.url
+                let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
+                var cookieArray = [[HTTPCookiePropertyKey : Any ]]()
+                for cookie in cookies {
+                    cookieArray.append(cookie.properties!)
+                }
+                
+                print(headerFields)
+                print(cookies)
+                UserDefaults.standard.set(cookieArray, forKey: "Cookies")
+            }
+            
+            let jsonObj = try JSONDecoder().decode(T.self, from: response.data!)
             return jsonObj
         } catch {
             print(error)
@@ -53,29 +69,5 @@ class HttpProvider: HttpProviderProtocol {
                 throw ServiceException(code: -1, message: error.localizedDescription)
             }
         }
-    }
-}
-
-extension URLRequest {
-    
-    private func percentEscapeString(_ string: String) -> String {
-        var characterSet = CharacterSet.alphanumerics
-        characterSet.insert(charactersIn: "-._* ")
-        
-        return string
-            .addingPercentEncoding(withAllowedCharacters: characterSet)!
-            .replacingOccurrences(of: " ", with: "+")
-            .replacingOccurrences(of: " ", with: "+", options: [], range: nil)
-    }
-    
-    mutating func encodeParameters(parameters: [String : String]) {
-        httpMethod = "POST"
-        
-        let parameterArray = parameters.map { (arg) -> String in
-            let (key, value) = arg
-            return "\(key)=\(self.percentEscapeString(value))"
-        }
-        
-        httpBody = parameterArray.joined(separator: "&").data(using: String.Encoding.utf8)
     }
 }

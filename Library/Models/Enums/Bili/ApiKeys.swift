@@ -9,6 +9,7 @@ import Foundation
 
 enum ApiKeys: String {
     case checkToken = "https://passport.bilibili.com/api/oauth2/info"
+    case tokenInfo = "https://passport.bilibili.com/x/passport-login/oauth2/info"
     case sso = "https://passport.bilibili.com/api/login/sso"
     case qrCode = "https://passport.bilibili.com/x/passport-tv-login/qrcode/auth_code"
     case qrCodeCheck = "https://passport.bilibili.com/x/passport-tv-login/qrcode/poll"

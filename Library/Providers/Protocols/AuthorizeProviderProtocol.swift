@@ -36,6 +36,9 @@ protocol AuthorizeProviderProtocol {
     /// - Returns: 令牌
     func getTokenAsync() async -> String
     
+    /// 尝试登录
+    func trySignInAsync() async
+    
     /// 循环检查二维码状态
     func loopQRCodeStatusAsync() async
     

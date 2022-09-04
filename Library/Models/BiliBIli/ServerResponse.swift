@@ -10,6 +10,5 @@ import Foundation
 struct ServerResponse<T: Codable>: Codable {
     var code: Int32
     var message: String
-    var ttl: Int32
     var data: T?
 }
