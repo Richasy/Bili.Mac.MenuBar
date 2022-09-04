@@ -39,7 +39,9 @@ class HttpProvider: HttpProviderProtocol {
                 .validate(statusCode: 200..<300)
                 .validate(contentType: ["application/json"])
                 .serializingData()
+            
             let response = await dataTask.response
+            print(response.request?.url?.absoluteString ?? "没有地址")
             guard (200..<300).contains(response.response!.statusCode) else {
                 throw ServiceException(code: Int32(response.response!.statusCode), message: "请求失败")
             }

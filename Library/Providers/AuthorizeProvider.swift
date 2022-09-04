@@ -16,7 +16,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     private var tokenInfo: TokenInfo? = nil
     private var internalQRAuthCode: String = ""
     private var lastAuthorizeTime: Date? = nil
-    private var currentUserId: String = ""
     private let guid: String
     
     init(md5Toolkit: MD5ToolkitProtocol) {
@@ -39,6 +38,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         }
     }
     var events: EventBus
+    var userId: String?
     
     func generateAuthorizedQueryStringAsync(queryParameters: Dictionary<String, String>, clienType: RequestClientType, needToken: Bool) async -> String {
         let parameters = await generateAuthorizeQueryDictionaryAsync(queryParameters: queryParameters, clientType: clienType, needToken: needToken)
@@ -149,9 +149,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         }
         
         authorizeState = .signedOut
-        currentUserId = ""
-        var accountProvider = DIFactory.instance.container.resolve(AccountProviderProtocol.self)!
-        accountProvider.userId = ""
+        userId = nil
     }
     
     func loopQRCodeStatusAsync() async {
@@ -279,7 +277,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         UserDefaults.standard.set(now, forKey: "AuthTime")
         
         print("已保存登录凭据")
-        currentUserId = String(result.mid)
+        userId = String(result.mid)
         lastAuthorizeTime = now
         tokenInfo = result
         authorizeState = .signedIn
@@ -303,7 +301,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         
         print("已取回登录凭据")
         let saveTime = UserDefaults.standard.object(forKey: "AuthTime") as? Date
-        currentUserId = String(token.mid)
+        userId = String(token.mid)
         tokenInfo = token
         print("用户Id: \(token.mid)")
         lastAuthorizeTime = saveTime

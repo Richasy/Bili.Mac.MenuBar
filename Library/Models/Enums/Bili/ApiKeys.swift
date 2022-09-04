@@ -17,6 +17,7 @@ enum ApiKeys: String {
     
     case myInfo = "https://app.bilibili.com/x/v2/account/myinfo"
     case mine = "https://app.bilibili.com/x/v2/account/mine"
+    case message = "https://api.bilibili.com/x/msgfeed/unread"
     
-    case dynamicVideo = "https://grpc.biliapi.net/bilibili.app.dynamic.v2.Dynamic/DynVideo"
+    case dynamic = "https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new"
 }

@@ -20,14 +20,11 @@ struct DIFactory {
         container.autoregister(MD5ToolkitProtocol.self, initializer: MD5Toolkit.init).inObjectScope(.container)
         
         container.autoregister(ImageAdapterProtocol.self, initializer: ImageAdapter.init).inObjectScope(.container)
-        container.autoregister(UserAdapterProtocol.self, initializer: UserAdapter.init).inObjectScope(.container)
-        container.autoregister(CommunityAdapterProtocol.self, initializer: CommunityAdapter.init).inObjectScope(.container)
-        container.autoregister(VideoAdapterProtocol.self, initializer: VideoAdapter.init).inObjectScope(.container)
-        container.autoregister(DynamicAdapterProtocol.self, initializer: DynamicAdapter.init).inObjectScope(.container)
         
         container.autoregister(AuthorizeProviderProtocol.self, initializer: AuthorizeProvider.init).inObjectScope(.container)
         container.autoregister(HttpProviderProtocol.self, initializer: HttpProvider.init).inObjectScope(.container)
         container.autoregister(AccountProviderProtocol.self, initializer: AccountProvider.init).inObjectScope(.container)
+        container.autoregister(CommunityProviderProtocol.self, initializer: CommunityProvider.init).inObjectScope(.container)
     }
     
     let container: Container

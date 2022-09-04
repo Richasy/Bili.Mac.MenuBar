@@ -18,7 +18,6 @@ enum QueryKeys : String {
     case accessToken = "access_token"
     case refreshToken = "refresh_token"
     case sign = "sign"
-    case geeType = "gee_type"
     case localId = "local_id"
     case authCode = "auth_code"
     case createTime = "ctime"
@@ -32,4 +31,6 @@ enum QueryKeys : String {
     case cursor = "cursor"
     case appVer = "appver"
     case actionKey = "actionKey"
+    case typeList = "type_list"
+    case uid = "uid"
 }

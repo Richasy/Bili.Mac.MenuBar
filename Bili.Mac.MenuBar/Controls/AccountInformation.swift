@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GRPC
 
 struct AccountInformation: View {
     
@@ -78,7 +79,7 @@ struct AccountInformation: View {
                 }
                 .buttonStyle(.plain)
             }
-            .padding(EdgeInsets(top: 28, leading: 28, bottom: 10, trailing: 28))
+            .padding(EdgeInsets(top: 12, leading: 28, bottom: 10, trailing: 28))
             
             HStack(spacing: 6) {
                 ModuleButton(url: $followingLink, count: $followingNumber, text: "关注")
@@ -93,12 +94,22 @@ struct AccountInformation: View {
                 loadMine(mine: data as? Mine)
             }
             
+            accountProvider.events.addEvent(id: "AccountInformation", name: EventKeys.messageCountUpdated.rawValue) { data in
+                guard let info = data as? UnreadInfo else {
+                    return
+                }
+                
+                messageNumber = info.at + info.chat + info.like + info.reply
+            }
+            
             Task {
                 let _ = await accountProvider.getMyInformationAsync()
+                let _ = await accountProvider.getUnreadMessageAsync()
             }
         }
         .onDisappear {
             accountProvider.events.removeEvent(id: "AccountInformation", name: EventKeys.accountUpdated.rawValue)
+            accountProvider.events.removeEvent(id: "AccountInformation", name: EventKeys.messageCountUpdated.rawValue)
         }
     }
     

@@ -16,6 +16,8 @@ protocol AuthorizeProviderProtocol {
     
     var events: EventBus { get set }
     
+    var userId: String? { get }
+    
     /// 生成授权查询字符串
     /// - Parameters:
     ///   - queryParameters: 查询字典

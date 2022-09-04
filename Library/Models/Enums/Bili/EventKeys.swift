@@ -9,4 +9,5 @@ enum EventKeys: String {
     case authorizeStateChanged = "authorizeStateChanged"
     case qrcodeStateChanged = "qrCodeStateChanged"
     case accountUpdated = "accountUpdated"
+    case messageCountUpdated = "messageCountUpdated"
 }

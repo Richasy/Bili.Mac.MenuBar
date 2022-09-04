@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct UnreadInfo: Codable {
+    var at: Int32
+    var chat: Int32
+    var like: Int32
+    var reply: Int32
+}
