@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
-import GRPC
 
 struct AccountInformation: View {
     
     init() {
         accountProvider = DIFactory.instance.container.resolve(AccountProviderProtocol.self)!
+        authorizeProvider = DIFactory.instance.container.resolve(AuthorizeProviderProtocol.self)!
+        communityProvider = DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!
         imageAdapter = DIFactory.instance.container.resolve(ImageAdapterProtocol.self)!
     }
     
     private let accountProvider: AccountProviderProtocol
+    private let authorizeProvider: AuthorizeProviderProtocol
+    private let communityProvider: CommunityProviderProtocol
     private let imageAdapter: ImageAdapterProtocol
     
     @State var avatar: URL? = nil
@@ -32,6 +35,7 @@ struct AccountInformation: View {
     @State var fansLink: String = ""
     @State var dynamicLink: String = ""
     @State var messageLink: String = "https://message.bilibili.com/"
+    @State var isShowMenu: Bool = false
     
     var body: some View {
         VStack {
@@ -64,20 +68,26 @@ struct AccountInformation: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    DIFactory.instance.container.resolve(AuthorizeProviderProtocol.self)!.signOut()
-                }) {
-                    ZStack {
-                        SwiftUI.Image(systemName: "line.3.horizontal")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 14, alignment: .center)
+                Menu("选项") {
+                    Button(action: {
+                        refreshData()
+                    }) {
+                        Label("刷新", systemImage: "arrow.clockwise")
                     }
-                    .frame(width: 36, height: 36, alignment: .center)
-                    .background(Color("ButtonBackground"))
-                    .cornerRadius(16)
+                    Button(action: {
+                        authorizeProvider.signOut()
+                    }) {
+                        Label("退出账户", systemImage: "door.left.hand.open")
+                    }
+                    Button(action: {
+                        exit(0)
+                    }) {
+                        Label("关闭应用", systemImage: "xmark")
+                    }
                 }
-                .buttonStyle(.plain)
+                .menuStyle(.automatic)
+                .menuIndicator(.hidden)
+                .fixedSize()
             }
             .padding(EdgeInsets(top: 12, leading: 28, bottom: 10, trailing: 28))
             
@@ -110,6 +120,14 @@ struct AccountInformation: View {
         .onDisappear {
             accountProvider.events.removeEvent(id: "AccountInformation", name: EventKeys.accountUpdated.rawValue)
             accountProvider.events.removeEvent(id: "AccountInformation", name: EventKeys.messageCountUpdated.rawValue)
+        }
+    }
+    
+    private func refreshData() {
+        Task {
+            let _ = await accountProvider.getMyInformationAsync()
+            let _ = await accountProvider.getUnreadMessageAsync()
+            let _ = await communityProvider.getDynamicVideoListAsync()
         }
     }
     

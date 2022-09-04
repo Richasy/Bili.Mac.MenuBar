@@ -12,7 +12,10 @@ class CommunityProvider: CommunityProviderProtocol {
     init() {
         httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         authProvider = DIFactory.instance.container.resolve(AuthorizeProviderProtocol.self)!
+        events = EventBus()
     }
+    
+    var events: EventBus
     
     private let httpProvider: HttpProviderProtocol
     private let authProvider: AuthorizeProviderProtocol
@@ -23,9 +26,12 @@ class CommunityProvider: CommunityProviderProtocol {
             QueryKeys.uid.rawValue: authProvider.userId!
         ]
         
+        events.fireEvent(name: EventKeys.dynamicUpdating.rawValue, param: nil)
+        
         let data: ServerResponse<BiliBili.Dynamic>? = try? await httpProvider.requestAsync(url: ApiKeys.dynamic.rawValue, method: .get, queryParams: queryParameters, type: .ios, needToken: true)
         
         guard let cards = data!.data?.cards else {
+            events.fireEvent(name: EventKeys.dynamicUpdated.rawValue, param: nil)
             return nil
         }
         
@@ -48,6 +54,7 @@ class CommunityProvider: CommunityProviderProtocol {
             set.append(d)
         }
         
+        events.fireEvent(name: EventKeys.dynamicUpdated.rawValue, param: set)
         return set
     }
 }

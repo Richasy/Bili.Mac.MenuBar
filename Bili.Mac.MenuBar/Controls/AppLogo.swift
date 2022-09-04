@@ -11,7 +11,7 @@ struct AppLogo: View {
     var body: some View {
         VStack (spacing: 24) {
             HStack(spacing: 14) {
-                SwiftUI.Image("AppIconWithoutBackground")
+                SwiftUI.Image("SimpleIcon")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 52, height: 52, alignment: .center)

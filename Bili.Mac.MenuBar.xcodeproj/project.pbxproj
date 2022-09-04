@@ -11,9 +11,6 @@
 		7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* ContentView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
 		7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045328BE3D9E008D2FED /* Preview Assets.xcassets */; };
-		75390FFE28BEFAA800FC0509 /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 75390FFD28BEFAA800FC0509 /* CGRPCZlib */; };
-		7539100028BEFAA800FC0509 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 75390FFF28BEFAA800FC0509 /* GRPC */; };
-		7539100228BEFAA800FC0509 /* protoc-gen-grpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */; };
 		7539100E28BF058400FC0509 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100D28BF058400FC0509 /* DynamicType.swift */; };
 		7539101528BF07A700FC0509 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539101428BF07A700FC0509 /* Image.swift */; };
 		7593E95C28C1B348003A3497 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95B28C1B348003A3497 /* SVGView */; };
@@ -34,6 +31,9 @@
 		7593E98728C47F19003A3497 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98628C47F19003A3497 /* Dynamic.swift */; };
 		7593E98928C48369003A3497 /* DynamicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98828C48369003A3497 /* DynamicCard.swift */; };
 		7593E98B28C48B59003A3497 /* DynamicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98A28C48B59003A3497 /* DynamicInfo.swift */; };
+		75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6AC0628C49C1F00F8AB04 /* WindowView.swift */; };
+		75C6AC0A28C4E66500F8AB04 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 75C6AC0928C4E66500F8AB04 /* Atomics */; };
+		75C6AC0D28C4E69A00F8AB04 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 75C6AC0C28C4E69A00F8AB04 /* NIO */; };
 		75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */; };
 		75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */; };
 		75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */; };
@@ -90,6 +90,7 @@
 		7593E98628C47F19003A3497 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		7593E98828C48369003A3497 /* DynamicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCard.swift; sourceTree = "<group>"; };
 		7593E98A28C48B59003A3497 /* DynamicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicInfo.swift; sourceTree = "<group>"; };
+		75C6AC0628C49C1F00F8AB04 /* WindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowView.swift; sourceTree = "<group>"; };
 		75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapterProtocol.swift; sourceTree = "<group>"; };
 		75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapter.swift; sourceTree = "<group>"; };
 		75CD0FF128BF20AB00E17A7C /* DIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIFactory.swift; sourceTree = "<group>"; };
@@ -122,12 +123,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7539100028BEFAA800FC0509 /* GRPC in Frameworks */,
 				7593E97F28C39E3E003A3497 /* Alamofire in Frameworks */,
+				75C6AC0D28C4E69A00F8AB04 /* NIO in Frameworks */,
 				75CD100028BF359700E17A7C /* Swinject in Frameworks */,
-				75390FFE28BEFAA800FC0509 /* CGRPCZlib in Frameworks */,
-				7539100228BEFAA800FC0509 /* protoc-gen-grpc-swift in Frameworks */,
 				7593E95C28C1B348003A3497 /* SVGView in Frameworks */,
+				75C6AC0A28C4E66500F8AB04 /* Atomics in Frameworks */,
 				75CD106C28C1A33500E17A7C /* QRCodeGenerator in Frameworks */,
 				75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */,
 			);
@@ -165,6 +165,7 @@
 				7520045228BE3D9E008D2FED /* Preview Content */,
 				7593E96428C1FDB3003A3497 /* SignInView.swift */,
 				7593E97B28C38D9D003A3497 /* AccountView.swift */,
+				75C6AC0628C49C1F00F8AB04 /* WindowView.swift */,
 			);
 			path = Bili.Mac.MenuBar;
 			sourceTree = "<group>";
@@ -369,14 +370,13 @@
 			);
 			name = Bili.Mac.MenuBar;
 			packageProductDependencies = (
-				75390FFD28BEFAA800FC0509 /* CGRPCZlib */,
-				75390FFF28BEFAA800FC0509 /* GRPC */,
-				7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */,
 				75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */,
 				75CD0FFF28BF359700E17A7C /* Swinject */,
 				75CD106B28C1A33500E17A7C /* QRCodeGenerator */,
 				7593E95B28C1B348003A3497 /* SVGView */,
 				7593E97E28C39E3E003A3497 /* Alamofire */,
+				75C6AC0928C4E66500F8AB04 /* Atomics */,
+				75C6AC0C28C4E69A00F8AB04 /* NIO */,
 			);
 			productName = Bili.Mac.MenuBar;
 			productReference = 7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */;
@@ -407,12 +407,13 @@
 			);
 			mainGroup = 7520044028BE3D9D008D2FED;
 			packageReferences = (
-				75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */,
 				75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				75CD0FFE28BF359700E17A7C /* XCRemoteSwiftPackageReference "Swinject" */,
 				75CD106A28C1A33500E17A7C /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */,
 				7593E95A28C1B348003A3497 /* XCRemoteSwiftPackageReference "SVGView" */,
 				7593E97D28C39E3E003A3497 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				75C6AC0828C4E66500F8AB04 /* XCRemoteSwiftPackageReference "swift-atomics" */,
+				75C6AC0B28C4E69A00F8AB04 /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			productRefGroup = 7520044A28BE3D9D008D2FED /* Products */;
 			projectDirPath = "";
@@ -472,6 +473,7 @@
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
 				7539100E28BF058400FC0509 /* DynamicType.swift in Sources */,
+				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
 				7593E98928C48369003A3497 /* DynamicCard.swift in Sources */,
 				75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */,
 				75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */,
@@ -613,19 +615,20 @@
 				CODE_SIGN_ENTITLEMENTS = Bili.Mac.MenuBar/Bili_Mac_MenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Bili.Mac.MenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = WA3YBW3P7H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "迷你哔哩";
+				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.2209;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -642,21 +645,22 @@
 				CODE_SIGN_ENTITLEMENTS = Bili.Mac.MenuBar/Bili_Mac_MenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Bili.Mac.MenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = WA3YBW3P7H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "迷你哔哩";
+				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.2209;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "迷你哔哩";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -686,14 +690,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/grpc/grpc-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		7593E95A28C1B348003A3497 /* XCRemoteSwiftPackageReference "SVGView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/SVGView.git";
@@ -708,6 +704,22 @@
 			requirement = {
 				kind = exactVersion;
 				version = 5.6.2;
+			};
+		};
+		75C6AC0828C4E66500F8AB04 /* XCRemoteSwiftPackageReference "swift-atomics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-atomics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		75C6AC0B28C4E69A00F8AB04 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		75CD0FED28BF1FFE00E17A7C /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
@@ -737,21 +749,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		75390FFD28BEFAA800FC0509 /* CGRPCZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = CGRPCZlib;
-		};
-		75390FFF28BEFAA800FC0509 /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		7539100128BEFAA800FC0509 /* protoc-gen-grpc-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 75390FFC28BEFAA800FC0509 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = "protoc-gen-grpc-swift";
-		};
 		7593E95B28C1B348003A3497 /* SVGView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7593E95A28C1B348003A3497 /* XCRemoteSwiftPackageReference "SVGView" */;
@@ -761,6 +758,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7593E97D28C39E3E003A3497 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		75C6AC0928C4E66500F8AB04 /* Atomics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75C6AC0828C4E66500F8AB04 /* XCRemoteSwiftPackageReference "swift-atomics" */;
+			productName = Atomics;
+		};
+		75C6AC0C28C4E69A00F8AB04 /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75C6AC0B28C4E69A00F8AB04 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
 		};
 		75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */ = {
 			isa = XCSwiftPackageProductDependency;

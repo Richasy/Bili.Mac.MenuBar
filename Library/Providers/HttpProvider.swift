@@ -18,17 +18,6 @@ class HttpProvider: HttpProviderProtocol {
     func requestAsync<T: Codable>(url: String, method: HTTPMethod, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async throws -> T {
         
         do {
-            
-            if let cookieArray = UserDefaults.standard.array(forKey: "Cookies") {
-                for cookieData in cookieArray {
-                    if let dict = cookieData as? [HTTPCookiePropertyKey : Any] {
-                        if let cookie = HTTPCookie.init(properties : dict) {
-                            HTTPCookieStorage.shared.setCookie(cookie)
-                        }
-                    }
-                }
-            }
-            
             let query = await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
             let headers: HTTPHeaders = [
                 "Accept": ServiceKeys.acceptString.rawValue,
@@ -41,24 +30,8 @@ class HttpProvider: HttpProviderProtocol {
                 .serializingData()
             
             let response = await dataTask.response
-            print(response.request?.url?.absoluteString ?? "没有地址")
             guard (200..<300).contains(response.response!.statusCode) else {
                 throw ServiceException(code: Int32(response.response!.statusCode), message: "请求失败")
-            }
-            
-            let shouldSaveCookie = url == ApiKeys.tokenInfo.rawValue
-            if shouldSaveCookie {
-                let headerFields = response.response?.allHeaderFields as! [String: String]
-                let url = response.request?.url
-                let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
-                var cookieArray = [[HTTPCookiePropertyKey : Any ]]()
-                for cookie in cookies {
-                    cookieArray.append(cookie.properties!)
-                }
-                
-                print(headerFields)
-                print(cookies)
-                UserDefaults.standard.set(cookieArray, forKey: "Cookies")
             }
             
             let jsonObj = try JSONDecoder().decode(T.self, from: response.data!)

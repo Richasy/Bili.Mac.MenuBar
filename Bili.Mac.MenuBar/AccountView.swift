@@ -9,8 +9,14 @@ import SwiftUI
 
 struct AccountView: View {
     
+    init() {
+        communityProvider = DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!
+    }
+    
     @State var cards: [DynamicInfo]? = nil
     @State var isLoading: Bool = false
+    
+    private let communityProvider: CommunityProviderProtocol
     
     var body: some View {
         VStack(alignment:.leading) {
@@ -34,11 +40,26 @@ struct AccountView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .onAppear {
-            Task {
+            communityProvider.events.addEvent(id: "AccountView", name: EventKeys.dynamicUpdating.rawValue) { d in
                 isLoading = true
-                cards  = await DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!.getDynamicVideoListAsync()
-                isLoading = false
             }
+            communityProvider.events.addEvent(id: "AccountView", name: EventKeys.dynamicUpdated.rawValue) { d in
+                isLoading = false
+                let data = d as? [DynamicInfo]
+                cards = data
+            }
+            
+            loadDynamicData()
+        }
+        .onDisappear {
+            communityProvider.events.removeEvent(id: "AccountView", name: EventKeys.dynamicUpdating.rawValue)
+            communityProvider.events.removeEvent(id: "AccountView", name: EventKeys.dynamicUpdated.rawValue)
+        }
+    }
+    
+    func loadDynamicData() {
+        Task {
+            await DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!.getDynamicVideoListAsync()
         }
     }
 }

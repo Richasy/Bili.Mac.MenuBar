@@ -17,7 +17,9 @@ struct Bili_Mac_MenuBarApp: App {
     }
     
     var body: some Scene {
-        Settings{}
+        WindowGroup {
+            WindowView()
+        }
     }
 }
 

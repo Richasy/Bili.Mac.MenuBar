@@ -47,6 +47,7 @@ class AccountProvider: AccountProviderProtocol {
             return nil
         }
         
+        events.fireEvent(name: EventKeys.messageCountUpdated.rawValue, param: data)
         return data
     }
 }

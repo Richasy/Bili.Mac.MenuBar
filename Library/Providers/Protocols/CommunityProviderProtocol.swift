@@ -7,6 +7,8 @@
 
 protocol CommunityProviderProtocol {
     
+    var events: EventBus { get set }
+    
     /// 获取视频动态列表
     /// - Returns: 视频动态集合
     func getDynamicVideoListAsync() async -> [DynamicInfo]?
