@@ -18,22 +18,8 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     
     init() {
         self.guid = UUID().uuidString.replacingOccurrences(of: "-", with: "").lowercased()
-        authorizeState = .signedOut
-        qrCodeState = .notConfirm
-        events = EventBus()
     }
     
-    var authorizeState: AuthorizeState {
-        didSet {
-            events.fireEvent(name: EventKeys.authorizeStateChanged.rawValue, param: authorizeState)
-        }
-    }
-    var qrCodeState: QRCodeState {
-        didSet {
-            events.fireEvent(name: EventKeys.qrcodeStateChanged.rawValue, param: qrCodeState)
-        }
-    }
-    var events: EventBus
     var userId: String?
     
     func generateAuthorizedQueryStringAsync(queryParameters: Dictionary<String, String>, clienType: RequestClientType, needToken: Bool) async -> String {
@@ -72,7 +58,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         if await isTokenValidAsync(isNetworkVerify: false) {
             token = tokenInfo!.access_token
         } else if needToken {
-            token = await getTokenAsync()
+            token = (try? await getTokenAsync()) ?? ""
         }
         
         if !token.isEmpty {
@@ -87,46 +73,39 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         return parameters
     }
     
-    func trySignInAsync() async {
+    func trySignInAsync() async -> Bool {
         retrieveAuthorizeResult()
         guard tokenInfo != nil else {
-            return
+            return false
         }
         
         let isValid = await isTokenValidAsync(isNetworkVerify: true)
         if !isValid {
             let refreshToken = try? await internalRefreshTokenAsync()
             guard let refreshToken = refreshToken else {
-                return
+                return false
             }
             
             saveAuthorizeResult(result: refreshToken)
         }
+        
+        return isValid
     }
     
-    func getTokenAsync() async -> String {
-        do {
-            guard let tokenInfo = tokenInfo else {
-                retrieveAuthorizeResult()
-                return tokenInfo?.access_token ?? ""
-            }
-            
-            let isValid = await isTokenValidAsync(isNetworkVerify: false)
-            if isValid {
-                authorizeState = .signedIn
-                return tokenInfo.access_token
-            } else {
-                let token = try await internalRefreshTokenAsync()
-                if token != nil {
-                    saveAuthorizeResult(result: token)
-                    return token?.access_token ?? ""
-                }
-            }
-            
-        } catch {
-            print(error)
-            if authorizeState != .signedIn {
-                signOut()
+    func getTokenAsync() async throws -> String {
+        guard let tokenInfo = tokenInfo else {
+            retrieveAuthorizeResult()
+            return tokenInfo?.access_token ?? ""
+        }
+        
+        let isValid = await isTokenValidAsync(isNetworkVerify: false)
+        if isValid {
+            return tokenInfo.access_token
+        } else {
+            let token = try await internalRefreshTokenAsync()
+            if token != nil {
+                saveAuthorizeResult(result: token)
+                return token?.access_token ?? ""
             }
         }
         
@@ -134,7 +113,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     func signOut() {
-        authorizeState = .loading
         print("正在退出账户")
         UserDefaults.standard.removeObject(forKey: "AuthResult")
         UserDefaults.standard.removeObject(forKey: "AuthTime")
@@ -144,11 +122,10 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             tokenInfo = nil
         }
         
-        authorizeState = .signedOut
         userId = nil
     }
     
-    func loopQRCodeStatusAsync() async {
+    func loopQRCodeStatusAsync() async -> QRCodeStatus {
         do {
             let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
             let result: ServerResponse<TokenInfo> = try await httpProvider.requestAsync(url: ApiKeys.qrCodeCheck.rawValue, method: .post, queryParams: [QueryKeys.authCode.rawValue: internalQRAuthCode, QueryKeys.localId.rawValue: guid], type: .android, needToken: false)
@@ -157,20 +134,19 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             }
             
             saveAuthorizeResult(result: result.data)
-            qrCodeState = .success
-            print(qrCodeState)
+            return .success
         } catch let error as ServiceException {
-            qrCodeState = QRCodeState.failed
+            var qrCodeState = QRCodeStatus.failed
             if(error.code == 86039) {
                 qrCodeState = .notConfirm
             } else if (error.code == 86038 || error.code == -3) {
                 qrCodeState = .expired
             }
             
-            print(qrCodeState)
+            return qrCodeState
         } catch {
             print(error)
-            return
+            return .failed
         }
     }
     
@@ -276,7 +252,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         userId = String(result.mid)
         lastAuthorizeTime = now
         tokenInfo = result
-        authorizeState = .signedIn
         print("已登录")
     }
     
@@ -301,7 +276,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         tokenInfo = token
         print("用户Id: \(token.mid)")
         lastAuthorizeTime = saveTime
-        authorizeState = .signedIn
     }
     
     private func saveTokenCookiesAsync() async throws {

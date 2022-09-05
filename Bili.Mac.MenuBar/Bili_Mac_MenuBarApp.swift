@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Bili_Mac_MenuBarApp: App {
@@ -31,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = RootView(store: Store(initialState: .init(), reducer: authorizeReducer, environment: .init()))
         
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 400, height: 600)

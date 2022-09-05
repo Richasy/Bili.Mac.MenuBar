@@ -8,17 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */; };
-		7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* ContentView.swift */; };
+		7520044F28BE3D9D008D2FED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* RootView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
 		7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045328BE3D9E008D2FED /* Preview Assets.xcassets */; };
-		7539100E28BF058400FC0509 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100D28BF058400FC0509 /* DynamicType.swift */; };
 		7593E95C28C1B348003A3497 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95B28C1B348003A3497 /* SVGView */; };
-		7593E96128C1C421003A3497 /* EventKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96028C1C421003A3497 /* EventKeys.swift */; };
 		7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96228C1D5C1003A3497 /* HttpProvider.swift */; };
 		7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96428C1FDB3003A3497 /* SignInView.swift */; };
 		7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96728C1FE78003A3497 /* AppLogo.swift */; };
 		7593E96A28C20770003A3497 /* SignInQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96928C20770003A3497 /* SignInQRCode.swift */; };
-		7593E97028C34F20003A3497 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96F28C34F20003A3497 /* EventBus.swift */; };
 		7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97328C36E5E003A3497 /* AccountProvider.swift */; };
 		7593E97828C37005003A3497 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97728C37005003A3497 /* Mine.swift */; };
 		7593E97C28C38D9D003A3497 /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97B28C38D9D003A3497 /* SubscribeView.swift */; };
@@ -35,16 +32,13 @@
 		75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FF128BF20AB00E17A7C /* DIFactory.swift */; };
 		75CD100028BF359700E17A7C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FFF28BF359700E17A7C /* Swinject */; };
 		75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD102D28BF89BF00E17A7C /* HttpProviderProtocol.swift */; };
-		75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103028BF8D7400E17A7C /* AuthorizeResultStatus.swift */; };
-		75CD103328BF8DB800E17A7C /* AuthorizeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103228BF8DB800E17A7C /* AuthorizeState.swift */; };
+		75CD103328BF8DB800E17A7C /* AuthorizeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103228BF8DB800E17A7C /* AuthorizeStatus.swift */; };
 		75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103428BF8DFA00E17A7C /* QRCodeStatus.swift */; };
 		75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103628BF8E2800E17A7C /* RequestClientType.swift */; };
 		75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103828BF914400E17A7C /* AuthorizeProviderProtocol.swift */; };
-		75CD103C28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD103B28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift */; };
 		75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */; };
 		75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */; };
 		75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104728BF986400E17A7C /* AuthorizeProvider.swift */; };
-		75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */; };
 		75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105828BFA34300E17A7C /* AuthorizeResult.swift */; };
 		75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105A28BFA39900E17A7C /* TokenInfo.swift */; };
 		75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105C28BFA3E400E17A7C /* QRInfo.swift */; };
@@ -62,23 +56,21 @@
 		75CD220528C6247200F5000A /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220428C6247200F5000A /* DynamicView.swift */; };
 		75CD220728C6292200F5000A /* AccountCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220628C6292200F5000A /* AccountCompose.swift */; };
 		75CD220928C62D1A00F5000A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220828C62D1A00F5000A /* AccountView.swift */; };
+		75CD220B28C63A1F00F5000A /* AuthorizeCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bili.Mac.MenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bili_Mac_MenuBarApp.swift; sourceTree = "<group>"; };
-		7520044E28BE3D9D008D2FED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7520044E28BE3D9D008D2FED /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		7520045028BE3D9E008D2FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7520045328BE3D9E008D2FED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bili_Mac_MenuBar.entitlements; sourceTree = "<group>"; };
 		7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bili-Mac-MenuBar-Info.plist"; sourceTree = SOURCE_ROOT; };
-		7539100D28BF058400FC0509 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
-		7593E96028C1C421003A3497 /* EventKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeys.swift; sourceTree = "<group>"; };
 		7593E96228C1D5C1003A3497 /* HttpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProvider.swift; sourceTree = "<group>"; };
 		7593E96428C1FDB3003A3497 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		7593E96728C1FE78003A3497 /* AppLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogo.swift; sourceTree = "<group>"; };
 		7593E96928C20770003A3497 /* SignInQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInQRCode.swift; sourceTree = "<group>"; };
-		7593E96F28C34F20003A3497 /* EventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		7593E97328C36E5E003A3497 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
 		7593E97728C37005003A3497 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
 		7593E97B28C38D9D003A3497 /* SubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
@@ -90,16 +82,13 @@
 		75C6AC0628C49C1F00F8AB04 /* WindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowView.swift; sourceTree = "<group>"; };
 		75CD0FF128BF20AB00E17A7C /* DIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIFactory.swift; sourceTree = "<group>"; };
 		75CD102D28BF89BF00E17A7C /* HttpProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProviderProtocol.swift; sourceTree = "<group>"; };
-		75CD103028BF8D7400E17A7C /* AuthorizeResultStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResultStatus.swift; sourceTree = "<group>"; };
-		75CD103228BF8DB800E17A7C /* AuthorizeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeState.swift; sourceTree = "<group>"; };
+		75CD103228BF8DB800E17A7C /* AuthorizeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeStatus.swift; sourceTree = "<group>"; };
 		75CD103428BF8DFA00E17A7C /* QRCodeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeStatus.swift; sourceTree = "<group>"; };
 		75CD103628BF8E2800E17A7C /* RequestClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClientType.swift; sourceTree = "<group>"; };
 		75CD103828BF914400E17A7C /* AuthorizeProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProviderProtocol.swift; sourceTree = "<group>"; };
-		75CD103B28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeStateChangedEventArgs.swift; sourceTree = "<group>"; };
 		75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104728BF986400E17A7C /* AuthorizeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProvider.swift; sourceTree = "<group>"; };
-		75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeStateChangedEventArgs.swift; sourceTree = "<group>"; };
 		75CD105828BFA34300E17A7C /* AuthorizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResult.swift; sourceTree = "<group>"; };
 		75CD105A28BFA39900E17A7C /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
 		75CD105C28BFA3E400E17A7C /* QRInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRInfo.swift; sourceTree = "<group>"; };
@@ -115,6 +104,7 @@
 		75CD220428C6247200F5000A /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
 		75CD220628C6292200F5000A /* AccountCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCompose.swift; sourceTree = "<group>"; };
 		75CD220828C62D1A00F5000A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeCompose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,13 +151,10 @@
 				7593E96628C1FE63003A3497 /* Controls */,
 				7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */,
 				7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */,
-				7520044E28BE3D9D008D2FED /* ContentView.swift */,
+				7520044E28BE3D9D008D2FED /* RootView.swift */,
 				7520045028BE3D9E008D2FED /* Assets.xcassets */,
 				7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */,
 				7520045228BE3D9E008D2FED /* Preview Content */,
-				7593E96428C1FDB3003A3497 /* SignInView.swift */,
-				7593E97B28C38D9D003A3497 /* SubscribeView.swift */,
-				75C6AC0628C49C1F00F8AB04 /* WindowView.swift */,
 			);
 			path = Bili.Mac.MenuBar;
 			sourceTree = "<group>";
@@ -205,17 +192,8 @@
 			children = (
 				75CD102F28BF8D5700E17A7C /* Authorize */,
 				7539100F28BF070F00FC0509 /* Bili */,
-				7539100C28BF057000FC0509 /* Community */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		7539100C28BF057000FC0509 /* Community */ = {
-			isa = PBXGroup;
-			children = (
-				7539100D28BF058400FC0509 /* DynamicType.swift */,
-			);
-			path = Community;
 			sourceTree = "<group>";
 		};
 		7539100F28BF070F00FC0509 /* Bili */ = {
@@ -225,7 +203,6 @@
 				75CD106028BFAA8100E17A7C /* QueryKeys.swift */,
 				75CD106228BFAC7800E17A7C /* ServiceKeys.swift */,
 				75CD106428C0F3F600E17A7C /* ApiKeys.swift */,
-				7593E96028C1C421003A3497 /* EventKeys.swift */,
 			);
 			path = Bili;
 			sourceTree = "<group>";
@@ -267,8 +244,7 @@
 		75CD102F28BF8D5700E17A7C /* Authorize */ = {
 			isa = PBXGroup;
 			children = (
-				75CD103028BF8D7400E17A7C /* AuthorizeResultStatus.swift */,
-				75CD103228BF8DB800E17A7C /* AuthorizeState.swift */,
+				75CD103228BF8DB800E17A7C /* AuthorizeStatus.swift */,
 				75CD103428BF8DFA00E17A7C /* QRCodeStatus.swift */,
 				75CD103628BF8E2800E17A7C /* RequestClientType.swift */,
 			);
@@ -278,10 +254,7 @@
 		75CD103A28BF918D00E17A7C /* App */ = {
 			isa = PBXGroup;
 			children = (
-				75CD103B28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift */,
-				75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */,
 				75CD106828C1025600E17A7C /* ServiceException.swift */,
-				7593E96F28C34F20003A3497 /* EventBus.swift */,
 				75CD21F628C5E60D00F5000A /* Extensions.swift */,
 			);
 			path = App;
@@ -307,6 +280,7 @@
 				75CD21F928C5E98C00F5000A /* VideoCompose.swift */,
 				75CD21FE28C6139100F5000A /* DynamicCompose.swift */,
 				75CD220628C6292200F5000A /* AccountCompose.swift */,
+				75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -314,6 +288,9 @@
 		75CD220328C6246000F5000A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7593E96428C1FDB3003A3497 /* SignInView.swift */,
+				7593E97B28C38D9D003A3497 /* SubscribeView.swift */,
+				75C6AC0628C49C1F00F8AB04 /* WindowView.swift */,
 				75CD220428C6247200F5000A /* DynamicView.swift */,
 				75CD220828C62D1A00F5000A /* AccountView.swift */,
 			);
@@ -411,23 +388,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CD220528C6247200F5000A /* DynamicView.swift in Sources */,
-				7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */,
+				7520044F28BE3D9D008D2FED /* RootView.swift in Sources */,
 				7593E98528C479F3003A3497 /* CommunityProvider.swift in Sources */,
 				7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */,
-				7593E96128C1C421003A3497 /* EventKeys.swift in Sources */,
 				75CD21FF28C6139100F5000A /* DynamicCompose.swift in Sources */,
 				7593E97828C37005003A3497 /* Mine.swift in Sources */,
 				7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */,
+				75CD220B28C63A1F00F5000A /* AuthorizeCompose.swift in Sources */,
 				75CD220928C62D1A00F5000A /* AccountView.swift in Sources */,
 				75CD106928C1025600E17A7C /* ServiceException.swift in Sources */,
 				75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */,
 				75CD21F728C5E60D00F5000A /* Extensions.swift in Sources */,
-				7593E97028C34F20003A3497 /* EventBus.swift in Sources */,
 				7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */,
 				7593E98728C47F19003A3497 /* Dynamic.swift in Sources */,
-				75CD103328BF8DB800E17A7C /* AuthorizeState.swift in Sources */,
+				75CD103328BF8DB800E17A7C /* AuthorizeStatus.swift in Sources */,
 				7593E97C28C38D9D003A3497 /* SubscribeView.swift in Sources */,
-				75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */,
 				75CD106528C0F3F600E17A7C /* ApiKeys.swift in Sources */,
 				75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */,
 				75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */,
@@ -442,15 +417,12 @@
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
-				7539100E28BF058400FC0509 /* DynamicType.swift in Sources */,
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
 				7593E98928C48369003A3497 /* VideoCard.swift in Sources */,
-				75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
 				75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */,
 				7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */,
 				75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */,
-				75CD103C28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift in Sources */,
 				7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
 				75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */,
@@ -590,7 +562,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "迷你哔哩";
 				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -620,7 +591,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "迷你哔哩";
 				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
