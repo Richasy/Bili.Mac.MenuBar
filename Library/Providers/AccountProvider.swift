@@ -12,22 +12,11 @@ class AccountProvider: AccountProviderProtocol {
     
     init() {
         httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
-        events = EventBus()
     }
     
     private let httpProvider: HttpProviderProtocol
-    private var accountInfo: Mine? {
-        didSet {
-            events.fireEvent(name: EventKeys.accountUpdated.rawValue, param: accountInfo)
-        }
-    }
-    private var unreadInfo: UnreadInfo? {
-        didSet {
-            events.fireEvent(name: EventKeys.messageCountUpdated.rawValue, param: unreadInfo)
-        }
-    }
-    
-    var events: EventBus
+    private var accountInfo: Mine?
+    private var unreadInfo: UnreadInfo?
     
     func getMyInformationAsync() async -> Mine? {
         let result: ServerResponse<Mine>? = try? await httpProvider.requestAsync(url: ApiKeys.mine.rawValue, method: .get, queryParams: Dictionary<String, String>(), type: .ios, needToken: true)
@@ -47,7 +36,6 @@ class AccountProvider: AccountProviderProtocol {
             return nil
         }
         
-        events.fireEvent(name: EventKeys.messageCountUpdated.rawValue, param: data)
         return data
     }
 }

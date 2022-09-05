@@ -7,8 +7,6 @@
 
 protocol AccountProviderProtocol {
     
-    var events: EventBus { get set }
-    
     /// 获取我的个人信息
     /// - Returns: 账户信息
     func getMyInformationAsync() async -> Mine?

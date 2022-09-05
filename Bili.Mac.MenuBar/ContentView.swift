@@ -24,7 +24,7 @@ struct ContentView: View {
                 SignInView()
                     .frame(maxWidth:.infinity, maxHeight: .infinity)
             } else {
-                AccountView()
+                SubscribeView()
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
             }
         }.onAppear {

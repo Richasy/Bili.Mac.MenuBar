@@ -12,7 +12,6 @@
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
 		7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045328BE3D9E008D2FED /* Preview Assets.xcassets */; };
 		7539100E28BF058400FC0509 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539100D28BF058400FC0509 /* DynamicType.swift */; };
-		7539101528BF07A700FC0509 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539101428BF07A700FC0509 /* Image.swift */; };
 		7593E95C28C1B348003A3497 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E95B28C1B348003A3497 /* SVGView */; };
 		7593E96128C1C421003A3497 /* EventKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96028C1C421003A3497 /* EventKeys.swift */; };
 		7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96228C1D5C1003A3497 /* HttpProvider.swift */; };
@@ -22,20 +21,16 @@
 		7593E97028C34F20003A3497 /* EventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E96F28C34F20003A3497 /* EventBus.swift */; };
 		7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97328C36E5E003A3497 /* AccountProvider.swift */; };
 		7593E97828C37005003A3497 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97728C37005003A3497 /* Mine.swift */; };
-		7593E97A28C3857A003A3497 /* AccountInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97928C3857A003A3497 /* AccountInformation.swift */; };
-		7593E97C28C38D9D003A3497 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97B28C38D9D003A3497 /* AccountView.swift */; };
+		7593E97C28C38D9D003A3497 /* SubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E97B28C38D9D003A3497 /* SubscribeView.swift */; };
 		7593E97F28C39E3E003A3497 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7593E97E28C39E3E003A3497 /* Alamofire */; };
 		7593E98128C4511D003A3497 /* ModuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98028C4511D003A3497 /* ModuleButton.swift */; };
 		7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98228C4636C003A3497 /* UnreadInfo.swift */; };
 		7593E98528C479F3003A3497 /* CommunityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98428C479F3003A3497 /* CommunityProvider.swift */; };
 		7593E98728C47F19003A3497 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98628C47F19003A3497 /* Dynamic.swift */; };
-		7593E98928C48369003A3497 /* DynamicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98828C48369003A3497 /* DynamicCard.swift */; };
-		7593E98B28C48B59003A3497 /* DynamicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98A28C48B59003A3497 /* DynamicInfo.swift */; };
+		7593E98928C48369003A3497 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593E98828C48369003A3497 /* VideoCard.swift */; };
 		75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6AC0628C49C1F00F8AB04 /* WindowView.swift */; };
 		75C6AC0A28C4E66500F8AB04 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 75C6AC0928C4E66500F8AB04 /* Atomics */; };
 		75C6AC0D28C4E69A00F8AB04 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 75C6AC0C28C4E69A00F8AB04 /* NIO */; };
-		75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */; };
-		75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */; };
 		75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FEE28BF1FFE00E17A7C /* SwinjectAutoregistration */; };
 		75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD0FF128BF20AB00E17A7C /* DIFactory.swift */; };
 		75CD100028BF359700E17A7C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD0FFF28BF359700E17A7C /* Swinject */; };
@@ -49,8 +44,6 @@
 		75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */; };
 		75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */; };
 		75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104728BF986400E17A7C /* AuthorizeProvider.swift */; };
-		75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */; };
-		75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */; };
 		75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */; };
 		75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105828BFA34300E17A7C /* AuthorizeResult.swift */; };
 		75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD105A28BFA39900E17A7C /* TokenInfo.swift */; };
@@ -62,6 +55,13 @@
 		75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD106628C0FED900E17A7C /* ServerResponse.swift */; };
 		75CD106928C1025600E17A7C /* ServiceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD106828C1025600E17A7C /* ServiceException.swift */; };
 		75CD106C28C1A33500E17A7C /* QRCodeGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD106B28C1A33500E17A7C /* QRCodeGenerator */; };
+		75CD21F728C5E60D00F5000A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD21F628C5E60D00F5000A /* Extensions.swift */; };
+		75CD21FA28C5E98C00F5000A /* VideoCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD21F928C5E98C00F5000A /* VideoCompose.swift */; };
+		75CD21FF28C6139100F5000A /* DynamicCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD21FE28C6139100F5000A /* DynamicCompose.swift */; };
+		75CD220228C623C300F5000A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 75CD220128C623C300F5000A /* ComposableArchitecture */; };
+		75CD220528C6247200F5000A /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220428C6247200F5000A /* DynamicView.swift */; };
+		75CD220728C6292200F5000A /* AccountCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220628C6292200F5000A /* AccountCompose.swift */; };
+		75CD220928C62D1A00F5000A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220828C62D1A00F5000A /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +73,6 @@
 		7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bili_Mac_MenuBar.entitlements; sourceTree = "<group>"; };
 		7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bili-Mac-MenuBar-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7539100D28BF058400FC0509 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
-		7539101428BF07A700FC0509 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		7593E96028C1C421003A3497 /* EventKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKeys.swift; sourceTree = "<group>"; };
 		7593E96228C1D5C1003A3497 /* HttpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProvider.swift; sourceTree = "<group>"; };
 		7593E96428C1FDB3003A3497 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -82,17 +81,13 @@
 		7593E96F28C34F20003A3497 /* EventBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBus.swift; sourceTree = "<group>"; };
 		7593E97328C36E5E003A3497 /* AccountProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProvider.swift; sourceTree = "<group>"; };
 		7593E97728C37005003A3497 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
-		7593E97928C3857A003A3497 /* AccountInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformation.swift; sourceTree = "<group>"; };
-		7593E97B28C38D9D003A3497 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		7593E97B28C38D9D003A3497 /* SubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeView.swift; sourceTree = "<group>"; };
 		7593E98028C4511D003A3497 /* ModuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleButton.swift; sourceTree = "<group>"; };
 		7593E98228C4636C003A3497 /* UnreadInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadInfo.swift; sourceTree = "<group>"; };
 		7593E98428C479F3003A3497 /* CommunityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityProvider.swift; sourceTree = "<group>"; };
 		7593E98628C47F19003A3497 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
-		7593E98828C48369003A3497 /* DynamicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCard.swift; sourceTree = "<group>"; };
-		7593E98A28C48B59003A3497 /* DynamicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicInfo.swift; sourceTree = "<group>"; };
+		7593E98828C48369003A3497 /* VideoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCard.swift; sourceTree = "<group>"; };
 		75C6AC0628C49C1F00F8AB04 /* WindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowView.swift; sourceTree = "<group>"; };
-		75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapterProtocol.swift; sourceTree = "<group>"; };
-		75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapter.swift; sourceTree = "<group>"; };
 		75CD0FF128BF20AB00E17A7C /* DIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIFactory.swift; sourceTree = "<group>"; };
 		75CD102D28BF89BF00E17A7C /* HttpProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD103028BF8D7400E17A7C /* AuthorizeResultStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResultStatus.swift; sourceTree = "<group>"; };
@@ -104,8 +99,6 @@
 		75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityProviderProtocol.swift; sourceTree = "<group>"; };
 		75CD104728BF986400E17A7C /* AuthorizeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeProvider.swift; sourceTree = "<group>"; };
-		75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5ToolkitProtocol.swift; sourceTree = "<group>"; };
-		75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Toolkit.swift; sourceTree = "<group>"; };
 		75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeStateChangedEventArgs.swift; sourceTree = "<group>"; };
 		75CD105828BFA34300E17A7C /* AuthorizeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeResult.swift; sourceTree = "<group>"; };
 		75CD105A28BFA39900E17A7C /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
@@ -116,6 +109,12 @@
 		75CD106428C0F3F600E17A7C /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		75CD106628C0FED900E17A7C /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		75CD106828C1025600E17A7C /* ServiceException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceException.swift; sourceTree = "<group>"; };
+		75CD21F628C5E60D00F5000A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		75CD21F928C5E98C00F5000A /* VideoCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompose.swift; sourceTree = "<group>"; };
+		75CD21FE28C6139100F5000A /* DynamicCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCompose.swift; sourceTree = "<group>"; };
+		75CD220428C6247200F5000A /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
+		75CD220628C6292200F5000A /* AccountCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCompose.swift; sourceTree = "<group>"; };
+		75CD220828C62D1A00F5000A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +128,7 @@
 				7593E95C28C1B348003A3497 /* SVGView in Frameworks */,
 				75C6AC0A28C4E66500F8AB04 /* Atomics in Frameworks */,
 				75CD106C28C1A33500E17A7C /* QRCodeGenerator in Frameworks */,
+				75CD220228C623C300F5000A /* ComposableArchitecture in Frameworks */,
 				75CD0FEF28BF1FFE00E17A7C /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +156,8 @@
 		7520044B28BE3D9D008D2FED /* Bili.Mac.MenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				75CD220328C6246000F5000A /* Views */,
+				75CD21F828C5E97300F5000A /* Compose */,
 				7593E96628C1FE63003A3497 /* Controls */,
 				7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */,
 				7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */,
@@ -164,7 +166,7 @@
 				7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */,
 				7520045228BE3D9E008D2FED /* Preview Content */,
 				7593E96428C1FDB3003A3497 /* SignInView.swift */,
-				7593E97B28C38D9D003A3497 /* AccountView.swift */,
+				7593E97B28C38D9D003A3497 /* SubscribeView.swift */,
 				75C6AC0628C49C1F00F8AB04 /* WindowView.swift */,
 			);
 			path = Bili.Mac.MenuBar;
@@ -181,9 +183,7 @@
 		75390FE028BEF8B500FC0509 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				75CD104928BF98B000E17A7C /* Toolkits */,
 				75CD0FE228BF105C00E17A7C /* Providers */,
-				75CD0FE128BF104600E17A7C /* Adapters */,
 				75390FE128BEF8FD00FC0509 /* Models */,
 				75CD0FF128BF20AB00E17A7C /* DIFactory.swift */,
 			);
@@ -196,18 +196,8 @@
 				75CD105728BFA32A00E17A7C /* BiliBIli */,
 				75CD103A28BF918D00E17A7C /* App */,
 				7539100B28BF056500FC0509 /* Enums */,
-				7539100728BF02D200FC0509 /* Data */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		7539100728BF02D200FC0509 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				7539101328BF079200FC0509 /* Appearance */,
-				7593E98A28C48B59003A3497 /* DynamicInfo.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		7539100B28BF056500FC0509 /* Enums */ = {
@@ -240,33 +230,15 @@
 			path = Bili;
 			sourceTree = "<group>";
 		};
-		7539101328BF079200FC0509 /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				7539101428BF07A700FC0509 /* Image.swift */,
-			);
-			path = Appearance;
-			sourceTree = "<group>";
-		};
 		7593E96628C1FE63003A3497 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
 				7593E96728C1FE78003A3497 /* AppLogo.swift */,
 				7593E96928C20770003A3497 /* SignInQRCode.swift */,
-				7593E97928C3857A003A3497 /* AccountInformation.swift */,
 				7593E98028C4511D003A3497 /* ModuleButton.swift */,
-				7593E98828C48369003A3497 /* DynamicCard.swift */,
+				7593E98828C48369003A3497 /* VideoCard.swift */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		75CD0FE128BF104600E17A7C /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				75CD0FE328BF1BF800E17A7C /* Protocols */,
-				75CD0FE628BF1CE700E17A7C /* ImageAdapter.swift */,
-			);
-			path = Adapters;
 			sourceTree = "<group>";
 		};
 		75CD0FE228BF105C00E17A7C /* Providers */ = {
@@ -279,14 +251,6 @@
 				7593E98428C479F3003A3497 /* CommunityProvider.swift */,
 			);
 			path = Providers;
-			sourceTree = "<group>";
-		};
-		75CD0FE328BF1BF800E17A7C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				75CD0FE428BF1C1C00E17A7C /* ImageAdapterProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		75CD102C28BF89A100E17A7C /* Protocols */ = {
@@ -318,25 +282,9 @@
 				75CD105528BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift */,
 				75CD106828C1025600E17A7C /* ServiceException.swift */,
 				7593E96F28C34F20003A3497 /* EventBus.swift */,
+				75CD21F628C5E60D00F5000A /* Extensions.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		75CD104928BF98B000E17A7C /* Toolkits */ = {
-			isa = PBXGroup;
-			children = (
-				75CD104A28BF98C600E17A7C /* Protocols */,
-				75CD104F28BF9A5C00E17A7C /* MD5Toolkit.swift */,
-			);
-			path = Toolkits;
-			sourceTree = "<group>";
-		};
-		75CD104A28BF98C600E17A7C /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				75CD104B28BF98E100E17A7C /* MD5ToolkitProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		75CD105728BFA32A00E17A7C /* BiliBIli */ = {
@@ -351,6 +299,25 @@
 				7593E98628C47F19003A3497 /* Dynamic.swift */,
 			);
 			path = BiliBIli;
+			sourceTree = "<group>";
+		};
+		75CD21F828C5E97300F5000A /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				75CD21F928C5E98C00F5000A /* VideoCompose.swift */,
+				75CD21FE28C6139100F5000A /* DynamicCompose.swift */,
+				75CD220628C6292200F5000A /* AccountCompose.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		75CD220328C6246000F5000A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75CD220428C6247200F5000A /* DynamicView.swift */,
+				75CD220828C62D1A00F5000A /* AccountView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +344,7 @@
 				7593E97E28C39E3E003A3497 /* Alamofire */,
 				75C6AC0928C4E66500F8AB04 /* Atomics */,
 				75C6AC0C28C4E69A00F8AB04 /* NIO */,
+				75CD220128C623C300F5000A /* ComposableArchitecture */,
 			);
 			productName = Bili.Mac.MenuBar;
 			productReference = 7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */;
@@ -414,6 +382,7 @@
 				7593E97D28C39E3E003A3497 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				75C6AC0828C4E66500F8AB04 /* XCRemoteSwiftPackageReference "swift-atomics" */,
 				75C6AC0B28C4E69A00F8AB04 /* XCRemoteSwiftPackageReference "swift-nio" */,
+				75CD220028C623C300F5000A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 7520044A28BE3D9D008D2FED /* Products */;
 			projectDirPath = "";
@@ -441,52 +410,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7593E98B28C48B59003A3497 /* DynamicInfo.swift in Sources */,
+				75CD220528C6247200F5000A /* DynamicView.swift in Sources */,
 				7520044F28BE3D9D008D2FED /* ContentView.swift in Sources */,
-				75CD105028BF9A5C00E17A7C /* MD5Toolkit.swift in Sources */,
 				7593E98528C479F3003A3497 /* CommunityProvider.swift in Sources */,
 				7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */,
-				75CD0FE528BF1C1C00E17A7C /* ImageAdapterProtocol.swift in Sources */,
 				7593E96128C1C421003A3497 /* EventKeys.swift in Sources */,
+				75CD21FF28C6139100F5000A /* DynamicCompose.swift in Sources */,
 				7593E97828C37005003A3497 /* Mine.swift in Sources */,
 				7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */,
+				75CD220928C62D1A00F5000A /* AccountView.swift in Sources */,
 				75CD106928C1025600E17A7C /* ServiceException.swift in Sources */,
 				75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */,
+				75CD21F728C5E60D00F5000A /* Extensions.swift in Sources */,
 				7593E97028C34F20003A3497 /* EventBus.swift in Sources */,
 				7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */,
 				7593E98728C47F19003A3497 /* Dynamic.swift in Sources */,
 				75CD103328BF8DB800E17A7C /* AuthorizeState.swift in Sources */,
-				7593E97C28C38D9D003A3497 /* AccountView.swift in Sources */,
+				7593E97C28C38D9D003A3497 /* SubscribeView.swift in Sources */,
 				75CD105628BFA2E600E17A7C /* QRCodeStateChangedEventArgs.swift in Sources */,
 				75CD106528C0F3F600E17A7C /* ApiKeys.swift in Sources */,
 				75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */,
 				75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */,
 				75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */,
+				75CD21FA28C5E98C00F5000A /* VideoCompose.swift in Sources */,
 				75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */,
 				7593E96A28C20770003A3497 /* SignInQRCode.swift in Sources */,
 				7593E98128C4511D003A3497 /* ModuleButton.swift in Sources */,
 				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
-				7593E97A28C3857A003A3497 /* AccountInformation.swift in Sources */,
 				75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */,
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
 				7539100E28BF058400FC0509 /* DynamicType.swift in Sources */,
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
-				7593E98928C48369003A3497 /* DynamicCard.swift in Sources */,
-				75CD104C28BF98E100E17A7C /* MD5ToolkitProtocol.swift in Sources */,
+				7593E98928C48369003A3497 /* VideoCard.swift in Sources */,
 				75CD103128BF8D7400E17A7C /* AuthorizeResultStatus.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
 				75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */,
 				7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */,
-				7539101528BF07A700FC0509 /* Image.swift in Sources */,
 				75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */,
 				75CD103C28BF91AF00E17A7C /* AuthorizeStateChangedEventArgs.swift in Sources */,
-				75CD0FE728BF1CE700E17A7C /* ImageAdapter.swift in Sources */,
 				7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
 				75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */,
+				75CD220728C6292200F5000A /* AccountCompose.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +714,14 @@
 				kind = branch;
 			};
 		};
+		75CD220028C623C300F5000A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -783,6 +759,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75CD106A28C1A33500E17A7C /* XCRemoteSwiftPackageReference "swift-qrcode-generator" */;
 			productName = QRCodeGenerator;
+		};
+		75CD220128C623C300F5000A /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75CD220028C623C300F5000A /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

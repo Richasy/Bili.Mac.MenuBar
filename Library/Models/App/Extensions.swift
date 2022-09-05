@@ -1,0 +1,79 @@
+//
+//  Extensions.swift
+//  Bili.Mac.MenuBar
+//
+//  Created by 张安然 on 2022/9/5.
+//
+
+import Foundation
+import CommonCrypto
+
+extension String {
+    func md5() -> String {
+        let str = self.cString(using: String.Encoding.utf8)
+        let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
+        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
+        CC_MD5(str!, strLen, result)
+        let hash = NSMutableString()
+        for i in 0 ..< digestLen {
+            hash.appendFormat("%02x", result[i])
+        }
+        result.deinitialize(count: 1)
+        
+        return String(format: hash as String)
+    }
+    
+    func resizeImage(w: Int32, h: Int32) -> String {
+        return "\(self.replacingOccurrences(of: "http:", with: "https:"))@\(w)w_\(h)h_1c_100q.jpg"
+    }
+    
+    func toDynamicCardDetail() -> BiliBili.CardDetail {
+        let cardData = self.data(using: .utf8)
+        let cardDetail = try? JSONDecoder().decode(BiliBili.CardDetail.self, from: cardData!)
+        return cardDetail!
+    }
+}
+
+extension BiliBili.CardElement {
+    func toVideoState() -> VideoState {
+        let avatar = self.desc.user_profile!.info.face.resizeImage(w: 60, h: 60)
+        let upName = self.desc.user_profile?.info.uname
+        let upId = String(self.desc.user_profile!.info.uid)
+        let playCount = self.desc.view
+        let cardDetail = self.card.toDynamicCardDetail()
+        let cover = cardDetail.pic.resizeImage(w: 240, h: 160)
+        let title = cardDetail.title
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = "MM-dd HH:mm"
+        let label = formatter.string(from: Date(timeIntervalSince1970: Double(cardDetail.pubdate)))
+        
+        return VideoState(upAvatar: avatar, upName: upName!, upId: upId, label: label, cover: cover, title: title, playCount: Int32(playCount), danmuCount: Int32(cardDetail.stat["danmaku"]!), id: self.desc.dynamic_id_str, videoId: self.desc.bvid, link: cardDetail.short_link_v2)
+    }
+}
+
+extension Mine {
+    func assignAccountState( state: inout AccountState, unreadCount: Int32?) {
+        let image = self.face.resizeImage(w: 90, h: 90)
+        state.avatar = URL(string: image)
+        state.userName = self.name
+        state.userId = String(self.mid)
+        state.level = self.level
+        state.coinNumber = self.coin
+        state.bcoinNumber = self.bcoin
+        state.followingNumber = self.following
+        state.fansNumber = self.follower
+        state.dynamicNumber = self.dynamic
+        state.followingLink = "https://space.bilibili.com/\(state.userId)/fans/follow"
+        state.fansLink = "https://space.bilibili.com/\(state.userId)/fans/fans"
+        state.dynamicLink = "https://space.bilibili.com/\(state.userId)/dynamic"
+        state.messageNumber = unreadCount!
+    }
+}
+
+extension UnreadInfo {
+    func total() -> Int32 {
+        return self.at + self.chat + self.like + self.reply
+    }
+}

@@ -11,16 +11,12 @@ import SwiftUI
 import Alamofire
 
 class AuthorizeProvider: AuthorizeProviderProtocol {
-    private let md5Toolkit: MD5ToolkitProtocol
-    
     private var tokenInfo: TokenInfo? = nil
     private var internalQRAuthCode: String = ""
     private var lastAuthorizeTime: Date? = nil
     private let guid: String
     
-    init(md5Toolkit: MD5ToolkitProtocol) {
-        self.md5Toolkit = md5Toolkit
-        
+    init() {
         self.guid = UUID().uuidString.replacingOccurrences(of: "-", with: "").lowercased()
         authorizeState = .signedOut
         qrCodeState = .notConfirm
@@ -229,7 +225,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         
         let query = queryList.joined(separator: "&")
         let signQuery = query + apiSecret
-        let sign = md5Toolkit.getMd5String(signQuery).lowercased()
+        let sign = signQuery.md5().lowercased()
         return sign
     }
     
