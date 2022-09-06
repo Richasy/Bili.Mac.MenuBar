@@ -20,6 +20,7 @@ struct AuthorizeState: Equatable {
 
 enum AuthorizeAction: BindableAction {
     case signIn
+    case signOut
     case showQRCode
     case requestQRCode
     case checkQRCode
@@ -42,6 +43,9 @@ let authorizeReducer = Reducer<AuthorizeState, AuthorizeAction, AuthorizeEnvirom
             let isValid = await env.authorizeProvider.trySignInAsync()
             return .receiveSignInResponse(isValid)
         }
+    case .signOut:
+        state.authorizeStatus = .signedOut
+        env.authorizeProvider.signOut()
     case .showQRCode:
         state.isShowQRCode = true
         state.logoTopPadding = 46

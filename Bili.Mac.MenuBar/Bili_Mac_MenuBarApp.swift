@@ -28,14 +28,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
+    var viewStore: ViewStore<AppState, AppAction>!
     static var shared : AppDelegate!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = RootView(store: Store(initialState: .init(), reducer: authorizeReducer, environment: .init()))
+        let store = Store(initialState: .init(), reducer: appReducer, environment: ())
+        viewStore = ViewStore(store)
+        let contentView = RootView(store: store)
         
         let popover = NSPopover()
-        popover.contentSize = NSSize(width: 400, height: 600)
+        popover.contentSize = NSSize(width: 400, height: 640)
         popover.behavior = .transient
         popover.animates = true
         popover.contentViewController = NSViewController()
@@ -63,6 +66,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
             self.popover.contentViewController?.view.window?.makeKey()
+            
+            if viewStore.state.autoRefresh {
+                self.viewStore.send(AppAction.refresh)
+            }
         }
     }
     

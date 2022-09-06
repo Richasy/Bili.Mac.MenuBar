@@ -18,7 +18,13 @@ struct SignInView: View {
                 AppLogo()
                     .padding([.top], viewStore.logoTopPadding)
                 
-                if !viewStore.isShowQRCode {
+                if viewStore.authorizeStatus == .loading {
+                    HStack(spacing: 8) {
+                        ProgressView()
+                        Text("正在尝试登录...")
+                            .foregroundColor(.secondary)
+                    }.frame(maxWidth:.infinity, maxHeight: .infinity)
+                } else if !viewStore.isShowQRCode {
                     Spacer()
                     Button (action: {
                         viewStore.send(AuthorizeAction.showQRCode)
@@ -48,6 +54,9 @@ struct SignInView: View {
                     Text("  |  不负责") +
                     Text("维护").foregroundColor(.secondary)
                 }.padding([.bottom], 24)
+            }
+            .onAppear {
+                viewStore.send(AuthorizeAction.signIn)
             }
         }
         

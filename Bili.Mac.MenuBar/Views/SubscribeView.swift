@@ -10,25 +10,23 @@ import ComposableArchitecture
 
 struct SubscribeView: View {
     
+    let store: Store<AppState, AppAction>
+    
     var body: some View {
-        VStack(alignment:.leading) {
-            AccountView(store: Store(
-                initialState: .init(),
-                reducer: accountReducer,
-                environment: .init(accountProvider: DIFactory.instance.container.resolve(AccountProviderProtocol.self)!)))
-                .frame(maxWidth: .infinity, maxHeight: 150, alignment: .top)
-            DynamicView(store: Store(
-                initialState: .init(isLoading: false),
-                reducer: dynamicReducer,
-                environment: .init(communityProvider: DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!)))
+        WithViewStore(self.store) { viewStore in
+            VStack(alignment:.leading) {
+                AccountView(store: store.scope(state: \.account, action: AppAction.account))
+                    .frame(maxWidth: .infinity, maxHeight: 150, alignment: .top)
+                DynamicView(store: store.scope(state: \.dynamic, action: AppAction.dynamic))
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
 struct SubscribeView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscribeView()
+        SubscribeView(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
             .frame(width: 400, height: 600, alignment: .center)
     }
 }

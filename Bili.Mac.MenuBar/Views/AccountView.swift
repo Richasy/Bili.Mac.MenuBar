@@ -29,7 +29,7 @@ struct AccountView: View {
                             Text(viewStore.userName)
                                 .font(.system(size: 18, weight: .bold, design: .rounded))
                                 .lineLimit(1)
-                                
+                            
                             SwiftUI.Image("Level_\(viewStore.level)")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -56,8 +56,10 @@ struct AccountView: View {
                         .frame(width: 36, height: 36, alignment: .center)
                         .background(Color("ButtonBackground"))
                         .cornerRadius(16)
-                    }.buttonStyle(.plain)
-
+                    }
+                    .buttonStyle(.plain)
+                    .help("打开个人主页")
+                    
                 }
                 .padding(EdgeInsets(top: 12, leading: 28, bottom: 10, trailing: 28))
                 
@@ -78,6 +80,6 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(store: Store(initialState: .init(), reducer: accountReducer, environment: .init(accountProvider: DIFactory.instance.container.resolve(AccountProviderProtocol.self)!)))
+        AccountView(store: Store(initialState: .init(), reducer: accountReducer, environment: .init()))
     }
 }

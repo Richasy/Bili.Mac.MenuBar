@@ -114,9 +114,8 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     
     func signOut() {
         print("正在退出账户")
-        UserDefaults.standard.removeObject(forKey: "AuthResult")
-        UserDefaults.standard.removeObject(forKey: "AuthTime")
-        UserDefaults.standard.removeObject(forKey: "Cookies")
+        UserDefaults.standard.removeObject(forKey: SettingKeys.authToken.rawValue)
+        UserDefaults.standard.removeObject(forKey: SettingKeys.authTime.rawValue)
         
         if tokenInfo != nil {
             tokenInfo = nil
@@ -245,8 +244,8 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         let data = try! JSONEncoder().encode(result)
         let now = Date.now
         let authJson = String(data: data, encoding: .utf8)
-        UserDefaults.standard.set(authJson, forKey: "AuthResult")
-        UserDefaults.standard.set(now, forKey: "AuthTime")
+        UserDefaults.standard.set(authJson, forKey: SettingKeys.authToken.rawValue)
+        UserDefaults.standard.set(now, forKey: SettingKeys.authTime.rawValue)
         
         print("已保存登录凭据")
         userId = String(result.mid)
@@ -256,7 +255,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     private func retrieveAuthorizeResult() {
-        guard let authJson = UserDefaults.standard.string(forKey: "AuthResult") else {
+        guard let authJson = UserDefaults.standard.string(forKey: SettingKeys.authToken.rawValue) else {
             print("本地没有登录凭据")
             tokenInfo = nil
             lastAuthorizeTime = Date()
@@ -271,7 +270,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         }
         
         print("已取回登录凭据")
-        let saveTime = UserDefaults.standard.object(forKey: "AuthTime") as? Date
+        let saveTime = UserDefaults.standard.object(forKey: SettingKeys.authTime.rawValue) as? Date
         userId = String(token.mid)
         tokenInfo = token
         print("用户Id: \(token.mid)")
@@ -279,7 +278,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
     }
     
     private func saveTokenCookiesAsync() async throws {
-        UserDefaults.standard.removeObject(forKey: "Cookies")
         let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let _: ServerResponse<TokenInfo>? = try! await httpProvider.requestAsync(url: ApiKeys.tokenInfo.rawValue, method: .get, queryParams: Dictionary<String, String>(), type: .ios, needToken: true)
     }

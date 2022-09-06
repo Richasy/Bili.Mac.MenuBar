@@ -40,6 +40,6 @@ struct DynamicView: View {
 
 struct DynamicView_Previews: PreviewProvider {
     static var previews: some View {
-        DynamicView(store: Store(initialState: .init(isLoading: false), reducer: dynamicReducer, environment: .init(communityProvider: DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!)))
+        DynamicView(store: Store(initialState: .init(isLoading: false), reducer: dynamicReducer, environment: .init()))
     }
 }

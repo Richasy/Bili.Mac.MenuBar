@@ -19,7 +19,7 @@ enum DynamicAction: Equatable {
 }
 
 struct DynamicEnviroment {
-    var communityProvider: CommunityProviderProtocol
+    var communityProvider: CommunityProviderProtocol = DIFactory.instance.container.resolve(CommunityProviderProtocol.self)!
 }
 
 let dynamicReducer = Reducer<DynamicState, DynamicAction, DynamicEnviroment> { state, action, env in

@@ -33,7 +33,7 @@ enum AccountAction: BindableAction {
 }
 
 struct AccountEnviroment {
-    var accountProvider: AccountProviderProtocol
+    var accountProvider: AccountProviderProtocol = DIFactory.instance.container.resolve(AccountProviderProtocol.self)!
 }
 
 let accountReducer = Reducer<AccountState, AccountAction, AccountEnviroment> { state, action, env in
@@ -41,6 +41,7 @@ let accountReducer = Reducer<AccountState, AccountAction, AccountEnviroment> { s
     switch action {
     case .request:
         return .task {
+            print("请求用户数据")
             let info = await env.accountProvider.getMyInformationAsync()
             let unreadMsg = await env.accountProvider.getUnreadMessageAsync()
             return .receiveAccountResponse(info, unreadMsg)

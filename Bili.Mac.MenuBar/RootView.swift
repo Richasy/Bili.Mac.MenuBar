@@ -10,26 +10,20 @@ import ComposableArchitecture
 
 struct RootView: View {
     
-    let store: Store<AuthorizeState, AuthorizeAction>
+    let store: Store<AppState, AppAction>
     
     var body: some View {
         WithViewStore(store) { viewStore in
             VStack {
-                if viewStore.authorizeStatus == .signedOut {
-                    SignInView(store: store)
+                if viewStore.authorize.authorizeStatus != .signedIn {
+                    SignInView(store: store.scope(state: \.authorize, action: AppAction.authorize))
                         .frame(maxWidth:.infinity, maxHeight: .infinity)
-                } else if viewStore.authorizeStatus == .loading {
-                    HStack(spacing: 8) {
-                        ProgressView()
-                        Text("正在尝试登录...")
-                            .foregroundColor(.secondary)
-                    }.frame(maxWidth:.infinity, maxHeight: .infinity)
                 } else {
-                    SubscribeView()
-                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    SubscribeView(store: store)
+                        .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    StatusBar(store: store)
+                        .frame(maxWidth:.infinity)
                 }
-            }.onAppear {
-                viewStore.send(AuthorizeAction.signIn)
             }
         }
     }
@@ -37,6 +31,6 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: Store(initialState: .init(), reducer: authorizeReducer, environment: .init()))
+        RootView(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
     }
 }

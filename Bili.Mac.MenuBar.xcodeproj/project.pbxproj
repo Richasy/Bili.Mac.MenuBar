@@ -57,6 +57,9 @@
 		75CD220728C6292200F5000A /* AccountCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220628C6292200F5000A /* AccountCompose.swift */; };
 		75CD220928C62D1A00F5000A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220828C62D1A00F5000A /* AccountView.swift */; };
 		75CD220B28C63A1F00F5000A /* AuthorizeCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */; };
+		75F1A81728C6CC5900EFD40A /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81628C6CC5900EFD40A /* StatusBar.swift */; };
+		75F1A81928C6CEC000EFD40A /* AppCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81828C6CEC000EFD40A /* AppCompose.swift */; };
+		75F1A81D28C7022200EFD40A /* SettingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81C28C7022200EFD40A /* SettingKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +108,9 @@
 		75CD220628C6292200F5000A /* AccountCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCompose.swift; sourceTree = "<group>"; };
 		75CD220828C62D1A00F5000A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeCompose.swift; sourceTree = "<group>"; };
+		75F1A81628C6CC5900EFD40A /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		75F1A81828C6CEC000EFD40A /* AppCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCompose.swift; sourceTree = "<group>"; };
+		75F1A81C28C7022200EFD40A /* SettingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +209,7 @@
 				75CD106028BFAA8100E17A7C /* QueryKeys.swift */,
 				75CD106228BFAC7800E17A7C /* ServiceKeys.swift */,
 				75CD106428C0F3F600E17A7C /* ApiKeys.swift */,
+				75F1A81C28C7022200EFD40A /* SettingKeys.swift */,
 			);
 			path = Bili;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 				7593E96928C20770003A3497 /* SignInQRCode.swift */,
 				7593E98028C4511D003A3497 /* ModuleButton.swift */,
 				7593E98828C48369003A3497 /* VideoCard.swift */,
+				75F1A81628C6CC5900EFD40A /* StatusBar.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 				75CD21FE28C6139100F5000A /* DynamicCompose.swift */,
 				75CD220628C6292200F5000A /* AccountCompose.swift */,
 				75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */,
+				75F1A81828C6CEC000EFD40A /* AppCompose.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -404,6 +413,7 @@
 				75CD103328BF8DB800E17A7C /* AuthorizeStatus.swift in Sources */,
 				7593E97C28C38D9D003A3497 /* SubscribeView.swift in Sources */,
 				75CD106528C0F3F600E17A7C /* ApiKeys.swift in Sources */,
+				75F1A81728C6CC5900EFD40A /* StatusBar.swift in Sources */,
 				75CD0FF228BF20AB00E17A7C /* DIFactory.swift in Sources */,
 				75CD105B28BFA39900E17A7C /* TokenInfo.swift in Sources */,
 				75CD105928BFA34300E17A7C /* AuthorizeResult.swift in Sources */,
@@ -414,6 +424,7 @@
 				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
 				75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */,
+				75F1A81928C6CEC000EFD40A /* AppCompose.swift in Sources */,
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
@@ -427,6 +438,7 @@
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
 				75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */,
 				75CD220728C6292200F5000A /* AccountCompose.swift in Sources */,
+				75F1A81D28C7022200EFD40A /* SettingKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
