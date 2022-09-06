@@ -38,4 +38,20 @@ class CommunityProvider: CommunityProviderProtocol {
         
         return set
     }
+    
+    func getRankVideoListAsync() async -> [VideoState]? {
+        let data: ServerResponse<BiliBili.RankInfo>? = try? await httpProvider.requestAsync(url: ApiKeys.rank.rawValue, method: .get, queryParams: Dictionary<String, String>(), type: .web, needToken: false)
+        
+        guard let cards = data!.data?.list else {
+            return nil
+        }
+        
+        var set = [VideoState]()
+        for card in cards {
+            let d = card.toVideoState()
+            set.append(d)
+        }
+        
+        return set
+    }
 }

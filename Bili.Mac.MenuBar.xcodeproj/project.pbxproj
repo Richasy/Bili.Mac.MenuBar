@@ -60,6 +60,10 @@
 		75F1A81728C6CC5900EFD40A /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81628C6CC5900EFD40A /* StatusBar.swift */; };
 		75F1A81928C6CEC000EFD40A /* AppCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81828C6CEC000EFD40A /* AppCompose.swift */; };
 		75F1A81D28C7022200EFD40A /* SettingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81C28C7022200EFD40A /* SettingKeys.swift */; };
+		75F1A81F28C70F2700EFD40A /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A81E28C70F2700EFD40A /* Rank.swift */; };
+		75F1A82128C712CC00EFD40A /* PageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82028C712CC00EFD40A /* PageKeys.swift */; };
+		75F1A82328C714A900EFD40A /* RankCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82228C714A900EFD40A /* RankCompose.swift */; };
+		75F1A82528C715A800EFD40A /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82428C715A800EFD40A /* RankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +115,10 @@
 		75F1A81628C6CC5900EFD40A /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		75F1A81828C6CEC000EFD40A /* AppCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCompose.swift; sourceTree = "<group>"; };
 		75F1A81C28C7022200EFD40A /* SettingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingKeys.swift; sourceTree = "<group>"; };
+		75F1A81E28C70F2700EFD40A /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		75F1A82028C712CC00EFD40A /* PageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageKeys.swift; sourceTree = "<group>"; };
+		75F1A82228C714A900EFD40A /* RankCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCompose.swift; sourceTree = "<group>"; };
+		75F1A82428C715A800EFD40A /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +218,7 @@
 				75CD106228BFAC7800E17A7C /* ServiceKeys.swift */,
 				75CD106428C0F3F600E17A7C /* ApiKeys.swift */,
 				75F1A81C28C7022200EFD40A /* SettingKeys.swift */,
+				75F1A82028C712CC00EFD40A /* PageKeys.swift */,
 			);
 			path = Bili;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 				7593E97728C37005003A3497 /* Mine.swift */,
 				7593E98228C4636C003A3497 /* UnreadInfo.swift */,
 				7593E98628C47F19003A3497 /* Dynamic.swift */,
+				75F1A81E28C70F2700EFD40A /* Rank.swift */,
 			);
 			path = BiliBIli;
 			sourceTree = "<group>";
@@ -290,6 +300,7 @@
 				75CD220628C6292200F5000A /* AccountCompose.swift */,
 				75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */,
 				75F1A81828C6CEC000EFD40A /* AppCompose.swift */,
+				75F1A82228C714A900EFD40A /* RankCompose.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 				75C6AC0628C49C1F00F8AB04 /* WindowView.swift */,
 				75CD220428C6247200F5000A /* DynamicView.swift */,
 				75CD220828C62D1A00F5000A /* AccountView.swift */,
+				75F1A82428C715A800EFD40A /* RankView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CD220528C6247200F5000A /* DynamicView.swift in Sources */,
+				75F1A81F28C70F2700EFD40A /* Rank.swift in Sources */,
 				7520044F28BE3D9D008D2FED /* RootView.swift in Sources */,
 				7593E98528C479F3003A3497 /* CommunityProvider.swift in Sources */,
 				7593E96828C1FE78003A3497 /* AppLogo.swift in Sources */,
@@ -428,6 +441,7 @@
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
+				75F1A82528C715A800EFD40A /* RankView.swift in Sources */,
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
 				7593E98928C48369003A3497 /* VideoCard.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
@@ -436,8 +450,10 @@
 				75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */,
 				7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
+				75F1A82128C712CC00EFD40A /* PageKeys.swift in Sources */,
 				75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */,
 				75CD220728C6292200F5000A /* AccountCompose.swift in Sources */,
+				75F1A82328C714A900EFD40A /* RankCompose.swift in Sources */,
 				75F1A81D28C7022200EFD40A /* SettingKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,4 +12,8 @@ protocol CommunityProviderProtocol {
     /// 获取视频动态列表
     /// - Returns: 视频动态集合
     func getDynamicVideoListAsync() async -> [VideoState]?
+    
+    /// 获取总排行榜
+    /// - Returns: 排行榜视频集合
+    func getRankVideoListAsync() async -> [VideoState]?
 }

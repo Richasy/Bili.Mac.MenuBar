@@ -55,5 +55,12 @@ class BiliBili {
         let short_link_v2: String
         let stat: [String: Int]
         let title: String
+        let owner: Owner
+    }
+    
+    struct Owner: Codable {
+        let mid: Int
+        let name: String
+        let face: String
     }
 }

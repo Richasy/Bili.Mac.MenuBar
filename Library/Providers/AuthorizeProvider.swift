@@ -65,7 +65,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
             parameters[QueryKeys.accessKey.rawValue] = token
         }
         
-        parameters[QueryKeys.type.rawValue] = "json"
         parameters[QueryKeys.appVer.rawValue] = ServiceKeys.buildNumber.rawValue
         parameters[QueryKeys.actionKey.rawValue] = "appkey"
         let sign = generateSign(queryParameters: parameters)

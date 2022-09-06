@@ -20,4 +20,5 @@ enum ApiKeys: String {
     case message = "https://api.bilibili.com/x/msgfeed/unread"
     
     case dynamic = "https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new"
+    case rank = "https://api.bilibili.com/x/web-interface/ranking/v2"
 }

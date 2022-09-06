@@ -11,4 +11,5 @@ enum SettingKeys: String {
     case autoRefresh = "autoRefresh"
     case authToken = "authToken"
     case authTime = "authTime"
+    case currentPage = "currentPage"
 }

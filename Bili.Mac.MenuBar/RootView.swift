@@ -19,8 +19,15 @@ struct RootView: View {
                     SignInView(store: store.scope(state: \.authorize, action: AppAction.authorize))
                         .frame(maxWidth:.infinity, maxHeight: .infinity)
                 } else {
-                    SubscribeView(store: store)
-                        .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    
+                    if viewStore.currentPage == PageKeys.subscribe {
+                        SubscribeView(store: store)
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    } else if viewStore.currentPage == PageKeys.rank {
+                        RankView(store: store.scope(state: \.rank, action: AppAction.rank))
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    }
+                    
                     StatusBar(store: store)
                         .frame(maxWidth:.infinity)
                 }

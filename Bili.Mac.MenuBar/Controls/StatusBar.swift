@@ -17,20 +17,22 @@ struct StatusBar: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             HStack {
-                Menu {
-                    
+                Picker(selection: viewStore.binding(\.$currentPage)) {
+                    Text("我的订阅").tag(PageKeys.subscribe)
+                    Text("排行榜").tag(PageKeys.rank)
                 } label: {
-                    Image(systemName: "line.horizontal.3.decrease.circle")
+                    Image(systemName: "line.3.horizontal.decrease.circle")
                 }
-                .menuStyle(BorderlessButtonMenuStyle())
                 .frame(width: 32, height: 16)
                 .padding(3)
                 .background(isPageButtonHover ? Color("ButtonBackgroundHover") : nil)
                 .cornerRadius(4)
+                .onChange(of: viewStore.currentPage, perform: { _ in
+                    viewStore.send(AppAction.saveCurrentPage)
+                })
                 .onHover { isHovered in
                     isPageButtonHover = isHovered
-                }
-                .help("切换页面")
+                }.help("切换页面")
                 
                 Spacer()
                 
@@ -51,8 +53,10 @@ struct StatusBar: View {
                             Text("开启").tag(true)
                             Text("关闭").tag(false)
                         }
+                        .onChange(of: viewStore.autoRefresh, perform: { _ in
+                            viewStore.send(AppAction.saveAutoRefresh)
+                        })
                     }
-                    .disabled(false)
                     
                     VStack {
                         Divider()

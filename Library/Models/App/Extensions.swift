@@ -37,19 +37,27 @@ extension String {
 
 extension BiliBili.CardElement {
     func toVideoState() -> VideoState {
-        let avatar = self.desc.user_profile!.info.face.resizeImage(w: 60, h: 60)
-        let upName = self.desc.user_profile?.info.uname
-        let upId = String(self.desc.user_profile!.info.uid)
-        let playCount = self.desc.view
         let cardDetail = self.card.toDynamicCardDetail()
-        let cover = cardDetail.pic.resizeImage(w: 240, h: 160)
-        let title = cardDetail.title
+        return cardDetail.toVideoState()
+    }
+}
+
+extension BiliBili.CardDetail {
+    func toVideoState() -> VideoState {
+        let avatar = self.owner.face.resizeImage(w: 60, h: 60)
+        let upName = self.owner.name
+        let upId = String(self.owner.mid)
+        let playCount = self.stat["view"]
+        let danmuCount = self.stat["danmaku"]
+        let cover = self.pic.resizeImage(w: 240, h: 160)
+        let title = self.title
         let formatter = DateFormatter()
         formatter.locale = Locale.init(identifier: "zh_CN")
         formatter.dateFormat = "MM-dd HH:mm"
-        let label = formatter.string(from: Date(timeIntervalSince1970: Double(cardDetail.pubdate)))
+        let label = formatter.string(from: Date(timeIntervalSince1970: Double(self.pubdate)))
+        let link = self.short_link_v2
         
-        return VideoState(upAvatar: avatar, upName: upName!, upId: upId, label: label, cover: cover, title: title, playCount: Int32(playCount), danmuCount: Int32(cardDetail.stat["danmaku"]!), id: self.desc.dynamic_id_str, videoId: self.desc.bvid, link: cardDetail.short_link_v2)
+        return VideoState(upAvatar: avatar, upName: upName, upId: upId, label: label, cover: cover, title: title, playCount: Int32(playCount!), danmuCount: Int32(danmuCount!), id: String(self.aid), videoId: String(self.aid), link: link)
     }
 }
 

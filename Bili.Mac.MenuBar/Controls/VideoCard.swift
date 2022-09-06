@@ -51,6 +51,8 @@ struct VideoCard: View {
                             Text(viewStore.title)
                                 .font(.system(size: 14, weight: .regular, design: .rounded))
                                 .lineLimit(2)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .help(viewStore.title)
                             Spacer()
                             HStack(spacing: 20) {
                                 HStack(spacing: 4) {
@@ -61,6 +63,7 @@ struct VideoCard: View {
                                         .font(.system(size: 12, weight: .regular, design: .rounded))
                                         .foregroundColor(.secondary)
                                 }
+                                .help("播放量")
                                 HStack(spacing: 4) {
                                     SwiftUI.Image(systemName: "list.bullet.indent")
                                         .frame(width: 14, height: 14, alignment: .center)
@@ -69,6 +72,7 @@ struct VideoCard: View {
                                         .font(.system(size: 12, weight: .regular, design: .rounded))
                                         .foregroundColor(.secondary)
                                 }
+                                .help("弹幕数")
                             }.frame(maxWidth:.infinity, alignment:.leading)
                         }
                     }
