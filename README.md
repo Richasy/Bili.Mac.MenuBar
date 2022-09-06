@@ -50,7 +50,7 @@
 
 ### 直接下载
 
-你可以在 Github 的 [releases](https://github.com/DamascenoRafael/reminders-menubar/releases) 中找到最新版本下载。下载之后，将后缀为 **.app** 的文件直接拖拽到你的 *Applications* 文件夹即可
+你可以在 Github 的 [releases](https://github.com/Richasy/BIli.Mac.MenuBar/releases) 中找到最新版本下载。下载之后，将后缀为 **.app** 的文件直接拖拽到你的 *Applications* 文件夹即可
 
 安装后可以在你的启动台中找到 **迷你哔哩**，点击即可启动，关闭说明窗口后，点开位于菜单栏的小电视图标，登录后就可以查看全部功能了
 
