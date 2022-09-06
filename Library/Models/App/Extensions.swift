@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/5.
+//  Created by Richasy on 2022/9/5.
 //
 
 import Foundation
@@ -83,5 +83,19 @@ extension Mine {
 extension UnreadInfo {
     func total() -> Int32 {
         return self.at + self.chat + self.like + self.reply
+    }
+}
+
+extension BiliBili.Episode {
+    func toEpisodeState() -> EpisodeState {
+        let id = String(self.episode_id)
+        let cover = self.square_cover.resizeImage(w: 120, h: 120)
+        let title = self.title
+        let label = self.pub_index
+        let seasonId = String(self.season_id)
+        let publishTime = self.pub_time
+        let seasonCover = self.cover
+        
+        return EpisodeState(id: id, cover: cover, title: title, label: label, seasonId: seasonId, publishTime: publishTime, seasonCover: seasonCover)
     }
 }

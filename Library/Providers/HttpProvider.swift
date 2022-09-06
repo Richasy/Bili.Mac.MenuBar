@@ -2,7 +2,7 @@
 //  HttpProvider.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/2.
+//  Created by Richasy on 2022/9/2.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ class HttpProvider: HttpProviderProtocol {
     func requestAsync<T: Codable>(url: String, method: HTTPMethod, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async throws -> T {
         
         do {
-            let query = await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
+            let query = type == .web && !needToken ? queryParams : await authProvider.generateAuthorizeQueryDictionaryAsync(queryParameters: queryParams, clientType: type, needToken: needToken)
             let headers: HTTPHeaders = [
                 "Accept": ServiceKeys.acceptString.rawValue,
                 "User-Agent": ServiceKeys.userAgent.rawValue
@@ -29,9 +29,9 @@ class HttpProvider: HttpProviderProtocol {
                 .validate(contentType: ["application/json"])
                 .serializingData()
             let response = await dataTask.response
-            guard (200..<300).contains(response.response!.statusCode) else {
+            guard (200..<300).contains(response.response?.statusCode ?? 500) else {
                 print(response.error ?? "请求出错")
-                throw ServiceException(code: Int32(response.response!.statusCode), message: "请求失败")
+                throw ServiceException(code: Int32(response.response?.statusCode ?? -1), message: "请求失败")
             }
             
             let jsonObj = try JSONDecoder().decode(T.self, from: response.data!)

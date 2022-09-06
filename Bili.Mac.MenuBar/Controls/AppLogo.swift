@@ -2,7 +2,7 @@
 //  AppLogo.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/2.
+//  Created by Richasy on 2022/9/2.
 //
 
 import SwiftUI

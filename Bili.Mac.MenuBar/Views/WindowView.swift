@@ -2,7 +2,7 @@
 //  WindowView.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/4.
+//  Created by Richasy on 2022/9/4.
 //
 
 import SwiftUI
@@ -19,7 +19,7 @@ struct WindowView: View {
             VStack(spacing: 8) {
                 Text("迷你哔哩")
                     .font(.system(size: 28, weight: .semibold, design: .rounded))
-                Text("版本 0.0.1")
+                Text("版本 0.2209.4")
                     .font(.system(size: 12))
                     .foregroundColor(.secondary)
                 Text("将哔哩放在菜单栏，随时查看视频更新")

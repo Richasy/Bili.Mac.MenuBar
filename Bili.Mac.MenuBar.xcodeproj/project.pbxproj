@@ -64,6 +64,11 @@
 		75F1A82128C712CC00EFD40A /* PageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82028C712CC00EFD40A /* PageKeys.swift */; };
 		75F1A82328C714A900EFD40A /* RankCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82228C714A900EFD40A /* RankCompose.swift */; };
 		75F1A82528C715A800EFD40A /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82428C715A800EFD40A /* RankView.swift */; };
+		75F1A82728C7270300EFD40A /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82628C7270300EFD40A /* Anime.swift */; };
+		75F1A82928C727CF00EFD40A /* EpisodeCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82828C727CF00EFD40A /* EpisodeCompose.swift */; };
+		75F1A82B28C72DAC00EFD40A /* AnimeCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82A28C72DAC00EFD40A /* AnimeCompose.swift */; };
+		75F1A82D28C72EB600EFD40A /* AnimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82C28C72EB600EFD40A /* AnimeView.swift */; };
+		75F1A82F28C72F3800EFD40A /* EpisodeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1A82E28C72F3800EFD40A /* EpisodeCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +124,11 @@
 		75F1A82028C712CC00EFD40A /* PageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageKeys.swift; sourceTree = "<group>"; };
 		75F1A82228C714A900EFD40A /* RankCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCompose.swift; sourceTree = "<group>"; };
 		75F1A82428C715A800EFD40A /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
+		75F1A82628C7270300EFD40A /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		75F1A82828C727CF00EFD40A /* EpisodeCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCompose.swift; sourceTree = "<group>"; };
+		75F1A82A28C72DAC00EFD40A /* AnimeCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCompose.swift; sourceTree = "<group>"; };
+		75F1A82C28C72EB600EFD40A /* AnimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeView.swift; sourceTree = "<group>"; };
+		75F1A82E28C72F3800EFD40A /* EpisodeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +241,7 @@
 				7593E98028C4511D003A3497 /* ModuleButton.swift */,
 				7593E98828C48369003A3497 /* VideoCard.swift */,
 				75F1A81628C6CC5900EFD40A /* StatusBar.swift */,
+				75F1A82E28C72F3800EFD40A /* EpisodeCard.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				7593E98228C4636C003A3497 /* UnreadInfo.swift */,
 				7593E98628C47F19003A3497 /* Dynamic.swift */,
 				75F1A81E28C70F2700EFD40A /* Rank.swift */,
+				75F1A82628C7270300EFD40A /* Anime.swift */,
 			);
 			path = BiliBIli;
 			sourceTree = "<group>";
@@ -301,6 +313,8 @@
 				75CD220A28C63A1F00F5000A /* AuthorizeCompose.swift */,
 				75F1A81828C6CEC000EFD40A /* AppCompose.swift */,
 				75F1A82228C714A900EFD40A /* RankCompose.swift */,
+				75F1A82828C727CF00EFD40A /* EpisodeCompose.swift */,
+				75F1A82A28C72DAC00EFD40A /* AnimeCompose.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -314,6 +328,7 @@
 				75CD220428C6247200F5000A /* DynamicView.swift */,
 				75CD220828C62D1A00F5000A /* AccountView.swift */,
 				75F1A82428C715A800EFD40A /* RankView.swift */,
+				75F1A82C28C72EB600EFD40A /* AnimeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -409,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CD220528C6247200F5000A /* DynamicView.swift in Sources */,
+				75F1A82B28C72DAC00EFD40A /* AnimeCompose.swift in Sources */,
 				75F1A81F28C70F2700EFD40A /* Rank.swift in Sources */,
 				7520044F28BE3D9D008D2FED /* RootView.swift in Sources */,
 				7593E98528C479F3003A3497 /* CommunityProvider.swift in Sources */,
@@ -437,9 +453,11 @@
 				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
 				75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */,
+				75F1A82D28C72EB600EFD40A /* AnimeView.swift in Sources */,
 				75F1A81928C6CEC000EFD40A /* AppCompose.swift in Sources */,
 				75CD104628BF977200E17A7C /* CommunityProviderProtocol.swift in Sources */,
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
+				75F1A82728C7270300EFD40A /* Anime.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
 				75F1A82528C715A800EFD40A /* RankView.swift in Sources */,
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
@@ -451,10 +469,12 @@
 				7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
 				75F1A82128C712CC00EFD40A /* PageKeys.swift in Sources */,
+				75F1A82928C727CF00EFD40A /* EpisodeCompose.swift in Sources */,
 				75CD104428BF96BB00E17A7C /* AccountProviderProtocol.swift in Sources */,
 				75CD220728C6292200F5000A /* AccountCompose.swift in Sources */,
 				75F1A82328C714A900EFD40A /* RankCompose.swift in Sources */,
 				75F1A81D28C7022200EFD40A /* SettingKeys.swift in Sources */,
+				75F1A82F28C72F3800EFD40A /* EpisodeCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,13 +603,14 @@
 				CODE_SIGN_ENTITLEMENTS = Bili.Mac.MenuBar/Bili_Mac_MenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Bili.Mac.MenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = WA3YBW3P7H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -612,13 +633,14 @@
 				CODE_SIGN_ENTITLEMENTS = Bili.Mac.MenuBar/Bili_Mac_MenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Bili.Mac.MenuBar/Preview Content\"";
 				DEVELOPMENT_TEAM = WA3YBW3P7H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bili-Mac-MenuBar-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = Richasy;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -2,7 +2,7 @@
 //  VideoCompose.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/5.
+//  Created by Richasy on 2022/9/5.
 //
 
 import SwiftUI

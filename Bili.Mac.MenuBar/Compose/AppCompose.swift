@@ -2,7 +2,7 @@
 //  AppCompose.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/6.
+//  Created by Richasy on 2022/9/6.
 //
 
 import Foundation
@@ -22,6 +22,7 @@ struct AppState: Equatable {
     var account: AccountState = .init()
     var dynamic: DynamicState = .init(isLoading: false)
     var rank: RankState = .init(isLoading: false)
+    var anime: AnimeState = .init(isLoading: false)
 }
 
 enum AppAction: BindableAction {
@@ -34,6 +35,7 @@ enum AppAction: BindableAction {
     case account(AccountAction)
     case dynamic(DynamicAction)
     case rank(RankAction)
+    case anime(AnimeAction)
     case binding(BindingAction<AppState>)
 }
 
@@ -55,6 +57,10 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
         state: \.rank,
         action: /AppAction.rank,
         environment: { _ in .init() }),
+    animeReducer.pullback(
+        state: \.anime,
+        action: /AppAction.anime,
+        environment: { _ in .init() }),
     .init { state, action, _ in
         switch action {
         case .exit:
@@ -69,6 +75,8 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
                     .merge(with: Effect(value: AppAction.dynamic(DynamicAction.request)))
             } else if state.currentPage == PageKeys.rank {
                 return Effect(value: AppAction.rank(RankAction.request))
+            } else if state.currentPage == PageKeys.todayAnime {
+                return Effect(value: AppAction.anime(AnimeAction.request))
             }
             
         case .signOut:

@@ -2,7 +2,7 @@
 //  DynamicView.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/5.
+//  Created by Richasy on 2022/9/5.
 //
 
 import SwiftUI
@@ -29,6 +29,9 @@ struct DynamicView: View {
                     }
                     .listStyle(.plain)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    Text("数据获取失败，请稍后重试")
+                        .foregroundColor(.secondary)
                 }
             }
             .onAppear {

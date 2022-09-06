@@ -2,7 +2,7 @@
 //  ApiKeys.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/1.
+//  Created by Richasy on 2022/9/1.
 //
 
 import Foundation
@@ -21,4 +21,5 @@ enum ApiKeys: String {
     
     case dynamic = "https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new"
     case rank = "https://api.bilibili.com/x/web-interface/ranking/v2"
+    case timeline = "https://api.bilibili.com/pgc/web/timeline"
 }

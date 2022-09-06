@@ -2,7 +2,7 @@
 //  StatusBar.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/6.
+//  Created by Richasy on 2022/9/6.
 //
 
 import SwiftUI
@@ -18,12 +18,13 @@ struct StatusBar: View {
         WithViewStore(store) { viewStore in
             HStack {
                 Picker(selection: viewStore.binding(\.$currentPage)) {
-                    Text("我的订阅").tag(PageKeys.subscribe)
+                    Text("主页").tag(PageKeys.subscribe)
                     Text("排行榜").tag(PageKeys.rank)
+                    Text("今日动漫").tag(PageKeys.todayAnime)
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
-                .frame(width: 32, height: 16)
+                .frame(width: 120, alignment: .center)
                 .padding(3)
                 .background(isPageButtonHover ? Color("ButtonBackgroundHover") : nil)
                 .cornerRadius(4)
@@ -65,7 +66,7 @@ struct StatusBar: View {
                     Button {
                         viewStore.send(AppAction.signOut)
                     } label: {
-                        Text("登出账户")
+                        Text("退出账户")
                     }
                     
                     VStack {

@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/8/30.
+//  Created by Richasy on 2022/8/30.
 //
 
 import SwiftUI
@@ -25,6 +25,9 @@ struct RootView: View {
                             .frame(maxWidth:.infinity, maxHeight: .infinity)
                     } else if viewStore.currentPage == PageKeys.rank {
                         RankView(store: store.scope(state: \.rank, action: AppAction.rank))
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    } else if viewStore.currentPage == PageKeys.todayAnime {
+                        AnimeView(store: store.scope(state: \.anime, action: AppAction.anime))
                             .frame(maxWidth:.infinity, maxHeight: .infinity)
                     }
                     
