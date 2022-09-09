@@ -55,7 +55,7 @@ struct AccountView: View {
                         }
                         .frame(width: 36, height: 36, alignment: .center)
                         .background(Color("ButtonBackground"))
-                        .cornerRadius(16)
+                        .cornerRadius(18)
                     }
                     .buttonStyle(.plain)
                     .help("打开个人主页")

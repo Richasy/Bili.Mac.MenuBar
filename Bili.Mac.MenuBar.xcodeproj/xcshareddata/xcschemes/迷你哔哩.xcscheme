@@ -73,7 +73,6 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "&#x8ff7;&#x4f60;&#x54d4;&#x54e9;"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

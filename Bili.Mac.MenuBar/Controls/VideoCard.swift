@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct VideoCard: View {
     
     let store: Store<VideoState, VideoAction>
+    @State var isHovering: Bool = false
     
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -79,11 +80,14 @@ struct VideoCard: View {
                 }
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
                 .padding()
-                .background(Color("ButtonBackground"))
+                .background(isHovering ? Color("ButtonBackground") : nil)
                 .cornerRadius(8)
-                
+                .animation(.linear(duration:0.2), value: isHovering)
             }
             .buttonStyle(.plain)
+            .onHover(perform: { isHovering in
+                self.isHovering = isHovering
+            })
             .contextMenu {
                 Button {
                     viewStore.send(.click)

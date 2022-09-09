@@ -42,5 +42,6 @@ struct RootView: View {
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
+            .frame(width: 400, height: 600, alignment: .center)
     }
 }

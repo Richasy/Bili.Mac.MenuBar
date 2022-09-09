@@ -616,8 +616,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.2209;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
+				PRODUCT_MODULE_NAME = "迷你哔哩";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -646,8 +648,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.2209;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
+				PRODUCT_MODULE_NAME = "迷你哔哩";
 				PRODUCT_NAME = "迷你哔哩";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

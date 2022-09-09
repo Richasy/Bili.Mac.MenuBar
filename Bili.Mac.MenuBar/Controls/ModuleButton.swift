@@ -14,6 +14,7 @@ struct ModuleButton: View {
     @Binding var url: String
     @Binding var count: Int32
     @State var text: String = ""
+    @State var isHovering: Bool = false
     
     var body: some View {
         Button {
@@ -29,17 +30,22 @@ struct ModuleButton: View {
                     .foregroundColor(.secondary)
             }
             .frame(width: 80, height: 55, alignment: .center)
-            .background(Color("ButtonBackground"))
+            .background(isHovering ? Color( "ButtonBackground") : nil)
             .cornerRadius(8)
-        }.buttonStyle(.plain)
+            .animation(.linear(duration: 0.2), value: isHovering)
+        }
+        .buttonStyle(.plain)
+        .onHover { isHovering in
+            self.isHovering = isHovering
+        }
     }
     
     private func convertNumber(num: Int32) -> String {
         switch num {
-            case 0..<10000:
-                return String(num)
-            default:
-                return String(format:"%.1f", Double(num) / 10000.0) + "万"
+        case 0..<10000:
+            return String(num)
+        default:
+            return String(format:"%.1f", Double(num) / 10000.0) + "万"
         }
     }
 }
