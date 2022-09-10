@@ -23,6 +23,7 @@ struct AppState: Equatable {
     var dynamic: DynamicState = .init(isLoading: false)
     var rank: RankState = .init(isLoading: false)
     var anime: AnimeState = .init(isLoading: false)
+    var hotSearch: HotSearchState = .init(isLoading: false)
 }
 
 enum AppAction: BindableAction {
@@ -36,6 +37,7 @@ enum AppAction: BindableAction {
     case dynamic(DynamicAction)
     case rank(RankAction)
     case anime(AnimeAction)
+    case hotSearch(HotSearchAction)
     case binding(BindingAction<AppState>)
 }
 
@@ -61,6 +63,10 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
         state: \.anime,
         action: /AppAction.anime,
         environment: { _ in .init() }),
+    hotSearchReducer.pullback(
+        state: \.hotSearch,
+        action: /AppAction.hotSearch,
+        environment: { _ in .init()}),
     .init { state, action, _ in
         switch action {
         case .exit:
@@ -77,6 +83,8 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
                 return Effect(value: AppAction.rank(RankAction.request))
             } else if state.currentPage == PageKeys.todayAnime {
                 return Effect(value: AppAction.anime(AnimeAction.request))
+            } else if state.currentPage == PageKeys.hotSearch {
+                return Effect(value: AppAction.hotSearch(HotSearchAction.request))
             }
             
         case .signOut:

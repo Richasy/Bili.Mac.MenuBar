@@ -20,4 +20,8 @@ protocol CommunityProviderProtocol {
     /// 获取今日动漫（包括番剧和国创）
     /// - Returns: 动漫列表
     func getTodayAnimeAsync() async -> [EpisodeState]?
+    
+    /// 获取热搜列表
+    /// - Returns: 热搜列表
+    func getHotSearchAsync() async -> [HotSearchItemState]?
 }

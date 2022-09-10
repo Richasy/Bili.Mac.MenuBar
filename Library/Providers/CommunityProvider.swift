@@ -71,6 +71,29 @@ class CommunityProvider: CommunityProviderProtocol {
         return set
     }
     
+    func getHotSearchAsync() async -> [HotSearchItemState]? {
+        let queryParameters = [
+            QueryKeys.device.rawValue: "phone",
+            QueryKeys.from.rawValue: "0",
+            QueryKeys.limit.rawValue: "50"
+        ]
+        
+        let data: ServerResponse<[SearchSquareItem]>? = try? await httpProvider.requestAsync(url: ApiKeys.hotSearch.rawValue, method: .get, queryParams: queryParameters, type: .ios, needToken: false)
+        guard let hotSet = data?.data?.first(where: { item in
+            return item.type == "trending"
+        })?.data?.list else {
+            return nil
+        }
+        
+        var set = [HotSearchItemState]()
+        for searchItem in hotSet {
+            let hot = searchItem.toHotItemState()
+            set.append(hot)
+        }
+        
+        return set
+    }
+    
     private func getAnimeInternal(isBangumi: Bool) async -> [EpisodeState]? {
         let queryParameters = [
             QueryKeys.types.rawValue: isBangumi ? "1" : "4",

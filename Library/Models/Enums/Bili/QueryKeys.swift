@@ -36,4 +36,6 @@ enum QueryKeys : String {
     case uid = "uid"
     case before = "before"
     case end = "end"
+    case from = "from"
+    case limit = "limit"
 }

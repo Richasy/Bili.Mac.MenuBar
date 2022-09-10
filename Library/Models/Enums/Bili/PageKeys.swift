@@ -11,4 +11,5 @@ enum PageKeys : Int {
     case subscribe = 0
     case rank = 1
     case todayAnime = 2
+    case hotSearch = 3
 }

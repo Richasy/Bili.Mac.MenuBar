@@ -99,3 +99,15 @@ extension BiliBili.Episode {
         return EpisodeState(id: id, cover: cover, title: title, label: label, seasonId: seasonId, publishTime: publishTime, seasonCover: seasonCover)
     }
 }
+
+extension SearchRecommentItem {
+    func toHotItemState() -> HotSearchItemState {
+        let title = self.show_name ?? ""
+        let keyword = self.keyword ?? ""
+        let icon = self.icon?.resizeImage(w: 40, h: 40) ?? ""
+        let index = String(self.position!)
+        let isShowIcon = !icon.isEmpty
+        
+        return HotSearchItemState(title: title, icon: icon, isShowIcon: isShowIcon, id: index, keyword: keyword)
+    }
+}

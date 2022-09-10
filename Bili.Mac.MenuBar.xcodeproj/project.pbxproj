@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7519780A28CB901D002B4334 /* SearchSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780928CB901D002B4334 /* SearchSquare.swift */; };
+		7519780C28CB9197002B4334 /* HotSearchCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780B28CB9197002B4334 /* HotSearchCompose.swift */; };
+		7519780E28CB91AD002B4334 /* HotSearchItemCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780D28CB91AD002B4334 /* HotSearchItemCompose.swift */; };
+		7519781028CC0382002B4334 /* HotSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780F28CC0382002B4334 /* HotSearchItem.swift */; };
+		7519781228CC06A8002B4334 /* HotSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519781128CC06A8002B4334 /* HotSearchView.swift */; };
 		7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */; };
 		7520044F28BE3D9D008D2FED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* RootView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
@@ -72,6 +77,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7519780928CB901D002B4334 /* SearchSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSquare.swift; sourceTree = "<group>"; };
+		7519780B28CB9197002B4334 /* HotSearchCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchCompose.swift; sourceTree = "<group>"; };
+		7519780D28CB91AD002B4334 /* HotSearchItemCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchItemCompose.swift; sourceTree = "<group>"; };
+		7519780F28CC0382002B4334 /* HotSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchItem.swift; sourceTree = "<group>"; };
+		7519781128CC06A8002B4334 /* HotSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchView.swift; sourceTree = "<group>"; };
 		7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bili.Mac.MenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bili_Mac_MenuBarApp.swift; sourceTree = "<group>"; };
 		7520044E28BE3D9D008D2FED /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -242,6 +252,7 @@
 				7593E98828C48369003A3497 /* VideoCard.swift */,
 				75F1A81628C6CC5900EFD40A /* StatusBar.swift */,
 				75F1A82E28C72F3800EFD40A /* EpisodeCard.swift */,
+				7519780F28CC0382002B4334 /* HotSearchItem.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 				7593E98628C47F19003A3497 /* Dynamic.swift */,
 				75F1A81E28C70F2700EFD40A /* Rank.swift */,
 				75F1A82628C7270300EFD40A /* Anime.swift */,
+				7519780928CB901D002B4334 /* SearchSquare.swift */,
 			);
 			path = BiliBIli;
 			sourceTree = "<group>";
@@ -315,6 +327,8 @@
 				75F1A82228C714A900EFD40A /* RankCompose.swift */,
 				75F1A82828C727CF00EFD40A /* EpisodeCompose.swift */,
 				75F1A82A28C72DAC00EFD40A /* AnimeCompose.swift */,
+				7519780B28CB9197002B4334 /* HotSearchCompose.swift */,
+				7519780D28CB91AD002B4334 /* HotSearchItemCompose.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -329,6 +343,7 @@
 				75CD220828C62D1A00F5000A /* AccountView.swift */,
 				75F1A82428C715A800EFD40A /* RankView.swift */,
 				75F1A82C28C72EB600EFD40A /* AnimeView.swift */,
+				7519781128CC06A8002B4334 /* HotSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CD220528C6247200F5000A /* DynamicView.swift in Sources */,
+				7519780A28CB901D002B4334 /* SearchSquare.swift in Sources */,
 				75F1A82B28C72DAC00EFD40A /* AnimeCompose.swift in Sources */,
 				75F1A81F28C70F2700EFD40A /* Rank.swift in Sources */,
 				7520044F28BE3D9D008D2FED /* RootView.swift in Sources */,
@@ -436,6 +452,7 @@
 				75CD220928C62D1A00F5000A /* AccountView.swift in Sources */,
 				75CD106928C1025600E17A7C /* ServiceException.swift in Sources */,
 				75CD105D28BFA3E400E17A7C /* QRInfo.swift in Sources */,
+				7519780E28CB91AD002B4334 /* HotSearchItemCompose.swift in Sources */,
 				75CD21F728C5E60D00F5000A /* Extensions.swift in Sources */,
 				7593E96528C1FDB3003A3497 /* SignInView.swift in Sources */,
 				7593E98728C47F19003A3497 /* Dynamic.swift in Sources */,
@@ -459,13 +476,16 @@
 				75CD103928BF914400E17A7C /* AuthorizeProviderProtocol.swift in Sources */,
 				75F1A82728C7270300EFD40A /* Anime.swift in Sources */,
 				7593E98328C4636C003A3497 /* UnreadInfo.swift in Sources */,
+				7519781228CC06A8002B4334 /* HotSearchView.swift in Sources */,
 				75F1A82528C715A800EFD40A /* RankView.swift in Sources */,
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
 				7593E98928C48369003A3497 /* VideoCard.swift in Sources */,
+				7519780C28CB9197002B4334 /* HotSearchCompose.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
 				75CD103728BF8E2800E17A7C /* RequestClientType.swift in Sources */,
 				7593E96328C1D5C1003A3497 /* HttpProvider.swift in Sources */,
 				75CD106328BFAC7800E17A7C /* ServiceKeys.swift in Sources */,
+				7519781028CC0382002B4334 /* HotSearchItem.swift in Sources */,
 				7593E97428C36E5E003A3497 /* AccountProvider.swift in Sources */,
 				75CD102E28BF89BF00E17A7C /* HttpProviderProtocol.swift in Sources */,
 				75F1A82128C712CC00EFD40A /* PageKeys.swift in Sources */,

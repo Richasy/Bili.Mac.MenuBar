@@ -29,6 +29,9 @@ struct RootView: View {
                     } else if viewStore.currentPage == PageKeys.todayAnime {
                         AnimeView(store: store.scope(state: \.anime, action: AppAction.anime))
                             .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    } else if viewStore.currentPage == PageKeys.hotSearch {
+                        HotSearchView(store: store.scope(state: \.hotSearch, action: AppAction.hotSearch))
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
                     }
                     
                     StatusBar(store: store)

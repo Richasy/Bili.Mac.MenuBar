@@ -20,6 +20,7 @@ struct StatusBar: View {
                     Text("主页").tag(PageKeys.subscribe)
                     Text("排行榜").tag(PageKeys.rank)
                     Text("今日动漫").tag(PageKeys.todayAnime)
+                    Text("热搜榜单").tag(PageKeys.hotSearch)
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
