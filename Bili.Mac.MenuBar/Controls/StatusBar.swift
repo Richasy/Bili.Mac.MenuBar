@@ -33,61 +33,76 @@ struct StatusBar: View {
                 
                 Spacer()
                 
-                Menu {
-                    
-                    if !viewStore.autoRefresh {
+                HStack {
+                    if viewStore.hasUpdate {
                         Button {
-                            viewStore.send(AppAction.refresh)
+                            viewStore.send(.openRelease)
                         } label: {
-                            Text("刷新")
+                            HStack(spacing: 2) {
+                                Image(systemName: "capslock")
+                                Text("有更新")
+                            }
                         }
+                        .help("应用有更新")
+                        .frame(alignment: .center)
                     }
                     
-                    Button {
-                        return
-                    } label: {
-                        Picker("自动刷新", selection: viewStore.binding(\.$autoRefresh)) {
-                            Text("开启").tag(true)
-                            Text("关闭").tag(false)
+                    Menu {
+                        
+                        if !viewStore.autoRefresh {
+                            Button {
+                                viewStore.send(AppAction.refresh)
+                            } label: {
+                                Text("刷新")
+                            }
                         }
-                        .onChange(of: viewStore.autoRefresh, perform: { _ in
-                            viewStore.send(AppAction.saveAutoRefresh)
-                        })
-                    }
-                    
-                    VStack {
-                        Divider()
-                    }
-                    
-                    Button {
-                        viewStore.send(AppAction.authorize(.signOut))
+                        
+                        Button {
+                            return
+                        } label: {
+                            Picker("自动刷新", selection: viewStore.binding(\.$autoRefresh)) {
+                                Text("开启").tag(true)
+                                Text("关闭").tag(false)
+                            }
+                            .onChange(of: viewStore.autoRefresh, perform: { _ in
+                                viewStore.send(AppAction.saveAutoRefresh)
+                            })
+                        }
+                        
+                        VStack {
+                            Divider()
+                        }
+                        
+                        Button {
+                            viewStore.send(AppAction.authorize(.signOut))
+                        } label: {
+                            Text("退出账户")
+                        }
+                        
+                        VStack {
+                            Divider()
+                        }
+                        
+                        Button {
+                            viewStore.send(AppAction.exit)
+                        } label: {
+                            Text("关闭应用")
+                        }
+                        
                     } label: {
-                        Text("退出账户")
+                        Image(systemName: "gear")
                     }
-                    
-                    VStack {
-                        Divider()
+                    .menuStyle(BorderlessButtonMenuStyle())
+                    .frame(width: 32, height: 16)
+                    .padding(3)
+                    .background(isSettingButtonHover ? Color("ButtonBackgroundHover") : nil)
+                    .cornerRadius(4)
+                    .onHover { isHovered in
+                        isSettingButtonHover = isHovered
                     }
-                    
-                    Button {
-                        viewStore.send(AppAction.exit)
-                    } label: {
-                        Text("关闭应用")
-                    }
-                    
-                } label: {
-                    Image(systemName: "gear")
+                    .animation(.linear(duration: 0.2), value: isSettingButtonHover)
+                    .help("选项与设置")
                 }
-                .menuStyle(BorderlessButtonMenuStyle())
-                .frame(width: 32, height: 16)
-                .padding(3)
-                .background(isSettingButtonHover ? Color("ButtonBackgroundHover") : nil)
-                .cornerRadius(4)
-                .onHover { isHovered in
-                    isSettingButtonHover = isHovered
-                }
-                .animation(.linear(duration: 0.2), value: isSettingButtonHover)
-                .help("选项与设置")
             }
             .frame(maxWidth: .infinity)
             .padding(.bottom, 10)
@@ -98,7 +113,7 @@ struct StatusBar: View {
 
 struct StatusBar_Previews: PreviewProvider {
     static var previews: some View {
-        StatusBar(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
+        StatusBar(store: Store(initialState: .init(), reducer: appReducer, environment: .init()))
             .frame(width: 400, height: 40, alignment: .center)
     }
 }

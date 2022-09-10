@@ -20,6 +20,7 @@ struct DIFactory {
         container.autoregister(HttpProviderProtocol.self, initializer: HttpProvider.init).inObjectScope(.container)
         container.autoregister(AccountProviderProtocol.self, initializer: AccountProvider.init).inObjectScope(.container)
         container.autoregister(CommunityProviderProtocol.self, initializer: CommunityProvider.init).inObjectScope(.container)
+        container.autoregister(UpdateProviderProtocol.self, initializer: UpdateProvider.init).inObjectScope(.container)
     }
     
     let container: Container

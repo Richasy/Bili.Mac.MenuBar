@@ -12,6 +12,8 @@
 		7519780E28CB91AD002B4334 /* HotSearchItemCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780D28CB91AD002B4334 /* HotSearchItemCompose.swift */; };
 		7519781028CC0382002B4334 /* HotSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519780F28CC0382002B4334 /* HotSearchItem.swift */; };
 		7519781228CC06A8002B4334 /* HotSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519781128CC06A8002B4334 /* HotSearchView.swift */; };
+		7519781428CC11E1002B4334 /* UpdateProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519781328CC11E1002B4334 /* UpdateProviderProtocol.swift */; };
+		7519781628CC133A002B4334 /* UpdateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519781528CC133A002B4334 /* UpdateProvider.swift */; };
 		7520044D28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */; };
 		7520044F28BE3D9D008D2FED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* RootView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		7519780D28CB91AD002B4334 /* HotSearchItemCompose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchItemCompose.swift; sourceTree = "<group>"; };
 		7519780F28CC0382002B4334 /* HotSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchItem.swift; sourceTree = "<group>"; };
 		7519781128CC06A8002B4334 /* HotSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSearchView.swift; sourceTree = "<group>"; };
+		7519781328CC11E1002B4334 /* UpdateProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProviderProtocol.swift; sourceTree = "<group>"; };
+		7519781528CC133A002B4334 /* UpdateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProvider.swift; sourceTree = "<group>"; };
 		7520044928BE3D9D008D2FED /* Bili.Mac.MenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bili.Mac.MenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7520044C28BE3D9D008D2FED /* Bili_Mac_MenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bili_Mac_MenuBarApp.swift; sourceTree = "<group>"; };
 		7520044E28BE3D9D008D2FED /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 				7593E96228C1D5C1003A3497 /* HttpProvider.swift */,
 				7593E97328C36E5E003A3497 /* AccountProvider.swift */,
 				7593E98428C479F3003A3497 /* CommunityProvider.swift */,
+				7519781528CC133A002B4334 /* UpdateProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				75CD103828BF914400E17A7C /* AuthorizeProviderProtocol.swift */,
 				75CD104328BF96BB00E17A7C /* AccountProviderProtocol.swift */,
 				75CD104528BF977200E17A7C /* CommunityProviderProtocol.swift */,
+				7519781328CC11E1002B4334 /* UpdateProviderProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -466,7 +472,9 @@
 				75CD21FA28C5E98C00F5000A /* VideoCompose.swift in Sources */,
 				75CD104828BF986400E17A7C /* AuthorizeProvider.swift in Sources */,
 				7593E96A28C20770003A3497 /* SignInQRCode.swift in Sources */,
+				7519781628CC133A002B4334 /* UpdateProvider.swift in Sources */,
 				7593E98128C4511D003A3497 /* ModuleButton.swift in Sources */,
+				7519781428CC11E1002B4334 /* UpdateProviderProtocol.swift in Sources */,
 				75CD105F28BFA98500E17A7C /* TokenKeys.swift in Sources */,
 				75CD103528BF8DFA00E17A7C /* QRCodeStatus.swift in Sources */,
 				75CD106728C0FED900E17A7C /* ServerResponse.swift in Sources */,

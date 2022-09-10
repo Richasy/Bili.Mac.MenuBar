@@ -36,6 +36,9 @@ struct RootView: View {
                     
                     StatusBar(store: store)
                         .frame(maxWidth:.infinity)
+                        .onAppear {
+                            viewStore.send(.checkUpdate)
+                        }
                 }
             }
         }
@@ -44,7 +47,7 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
+        RootView(store: Store(initialState: .init(), reducer: appReducer, environment: .init()))
             .frame(width: 400, height: 600, alignment: .center)
     }
 }

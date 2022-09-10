@@ -35,6 +35,16 @@ extension String {
     }
 }
 
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    var releaseVersionNumberaPretty: String {
+        return "v\(releaseVersionNumber ?? "1.0.0").0"
+    }
+}
+
 extension BiliBili.CardElement {
     func toVideoState() -> VideoState {
         let cardDetail = self.card.toDynamicCardDetail()

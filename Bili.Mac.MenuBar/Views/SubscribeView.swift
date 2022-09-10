@@ -26,7 +26,7 @@ struct SubscribeView: View {
 
 struct SubscribeView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscribeView(store: Store(initialState: .init(), reducer: appReducer, environment: ()))
+        SubscribeView(store: Store(initialState: .init(), reducer: appReducer, environment: .init()))
             .frame(width: 400, height: 600, alignment: .center)
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Richasy on 2022/9/6.
 //
 
-import Foundation
+import SwiftUI
 import ComposableArchitecture
 
 struct AppState: Equatable {
@@ -17,6 +17,7 @@ struct AppState: Equatable {
     
     @BindableState var autoRefresh: Bool
     @BindableState var currentPage: PageKeys
+    var hasUpdate: Bool = false
     
     var authorize: AuthorizeState = .init()
     var account: AccountState = .init()
@@ -32,6 +33,9 @@ enum AppAction: BindableAction {
     case signOut
     case saveAutoRefresh
     case saveCurrentPage
+    case checkUpdate
+    case receiveCheckUpdateResult(Bool?)
+    case openRelease
     case authorize(AuthorizeAction)
     case account(AccountAction)
     case dynamic(DynamicAction)
@@ -41,7 +45,11 @@ enum AppAction: BindableAction {
     case binding(BindingAction<AppState>)
 }
 
-let appReducer = Reducer<AppState, AppAction, Void>.combine(
+struct AppEnviroment {
+    var updateProvider = DIFactory.instance.container.resolve(UpdateProviderProtocol.self)!
+}
+
+let appReducer = Reducer<AppState, AppAction, AppEnviroment>.combine(
     authorizeReducer.pullback(
         state: \.authorize,
         action: /AppAction.authorize,
@@ -67,7 +75,7 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
         state: \.hotSearch,
         action: /AppAction.hotSearch,
         environment: { _ in .init()}),
-    .init { state, action, _ in
+    .init { state, action, env in
         switch action {
         case .exit:
             exit(0)
@@ -93,8 +101,21 @@ let appReducer = Reducer<AppState, AppAction, Void>.combine(
             UserDefaults.standard.set(state.autoRefresh, forKey: SettingKeys.autoRefresh.rawValue)
         case .saveCurrentPage:
             UserDefaults.standard.set(state.currentPage.rawValue, forKey: SettingKeys.currentPage.rawValue)
+        case .checkUpdate:
+            return .task {
+                var hasUpdate = await env.updateProvider.hasUpdateAsync()
+                return .receiveCheckUpdateResult(hasUpdate)
+            }
+        case let .receiveCheckUpdateResult(result):
+            guard let result = result else {
+                break
+            }
+            state.hasUpdate = result
+        case .openRelease:
+            @Environment(\.openURL) var openURL;
+            openURL(URL(string: "https://github.com/Richasy/Bili.Mac.MenuBar/releases")!)
         default:
-            return .none
+            break
         }
         
         return .none

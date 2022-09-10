@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WindowView: View {
+    
+    @State var versionNumber: String = ""
+    
     var body: some View {
         VStack {
             SwiftUI.Image("SimpleIcon")
@@ -19,7 +22,7 @@ struct WindowView: View {
             VStack(spacing: 8) {
                 Text("迷你哔哩")
                     .font(.system(size: 28, weight: .semibold, design: .rounded))
-                Text("版本 0.2209.4")
+                Text("版本 \(versionNumber)")
                     .font(.system(size: 12))
                     .foregroundColor(.secondary)
                 Text("将哔哩放在菜单栏，随时查看视频更新")
@@ -42,6 +45,9 @@ struct WindowView: View {
             .padding()
         }
         .frame(width: 400, height: 400, alignment: .top)
+        .onAppear{
+            versionNumber = Bundle.main.releaseVersionNumberaPretty
+        }
     }
 }
 
