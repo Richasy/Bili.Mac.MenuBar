@@ -40,17 +40,18 @@
 * 支持获取最新的视频动态列表
 * 支持获取全站排行榜
 * 支持获取当天更新的动漫列表
+* 支持获取热搜榜单
 
 ## 安装
 
-*建议在 Mac OS 12.x 以上的系统中安装使用（其实我也不知道最低支持多少，反正用最新的系统就行）*
+*建议在 Mac OS 12.0 以上的系统中安装使用*
 
 **Note**: 这个应用是我自己开发着自娱自乐的，并未通过 Apple Developer Program 的帐户签名，你可能会看到一条消息，说它不是来自受信任的开发人员，无法安装。你可以参考这篇文档解决:
 [打开来自身份不明开发者的 Mac App](https://support.apple.com/guide/mac-help/mh40616/mac).
 
 ### 直接下载
 
-你可以在 Github 的 [releases](https://github.com/Richasy/BIli.Mac.MenuBar/releases) 中找到最新版本下载。下载之后，将后缀为 **.app** 的文件直接拖拽到你的 *Applications* 文件夹即可
+你可以在 Github 的 [releases](https://github.com/Richasy/BIli.Mac.MenuBar/releases) 中找到最新版本下载。下载之后解压压缩包，将后缀为 **.app** 的文件直接拖拽到你的 *Applications* 文件夹即可
 
 安装后可以在你的启动台中找到 **迷你哔哩**，点击即可启动，关闭说明窗口后，点开位于菜单栏的小电视图标，登录后就可以查看全部功能了
 
