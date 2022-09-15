@@ -2,7 +2,7 @@
 //  HotSearchItem.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/10.
+//  Created by Richasy on 2022/9/10.
 //
 
 import SwiftUI

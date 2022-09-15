@@ -2,7 +2,7 @@
 //  PopularCompose.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/15.
+//  Created by Richasy on 2022/9/15.
 //
 
 import SwiftUI

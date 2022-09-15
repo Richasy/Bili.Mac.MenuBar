@@ -2,7 +2,7 @@
 //  SearchSquare.swift
 //  Bili.Mac.MenuBar
 //
-//  Created by 张安然 on 2022/9/9.
+//  Created by Richasy on 2022/9/9.
 //
 
 import Foundation
