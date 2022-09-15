@@ -23,4 +23,5 @@ enum ApiKeys: String {
     case rank = "https://api.bilibili.com/x/web-interface/ranking/v2"
     case timeline = "https://api.bilibili.com/pgc/web/timeline"
     case hotSearch = "https://app.bilibili.com/x/v2/search/square"
+    case popular = "https://grpc.biliapi.net/bilibili.app.show.v1.Popular/Index"
 }

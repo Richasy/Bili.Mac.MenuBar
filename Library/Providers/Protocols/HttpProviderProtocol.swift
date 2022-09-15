@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftProtobuf
 
 protocol HttpProviderProtocol {
     
@@ -19,4 +20,12 @@ protocol HttpProviderProtocol {
     ///   - needToken: 是否需要令牌
     /// - Returns: 结果
     func requestAsync<T: Codable>(url: String, method: HTTPMethod, queryParams: Dictionary<String, String>, type: RequestClientType, needToken: Bool) async throws -> T
+    
+    /// 发送grpc请求并获取返回数据
+    /// - Parameters:
+    ///   - url: 请求地址
+    ///   - message: 请求消息
+    ///   - needToken: 是否需要令牌
+    /// - Returns: 结果
+    func requestAsync(url: String, message: SwiftProtobuf.Message, needToken: Bool) async throws -> Data?
 }

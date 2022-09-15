@@ -17,8 +17,9 @@ struct StatusBar: View {
         WithViewStore(store) { viewStore in
             HStack {
                 Picker(selection: viewStore.binding(\.$currentPage)) {
-                    Text("主页").tag(PageKeys.subscribe)
-                    Text("排行榜").tag(PageKeys.rank)
+                    Text("我的订阅").tag(PageKeys.subscribe)
+                    Text("全区排行").tag(PageKeys.rank)
+                    Text("哔哩热门").tag(PageKeys.popular)
                     Text("今日动漫").tag(PageKeys.todayAnime)
                     Text("热搜榜单").tag(PageKeys.hotSearch)
                 } label: {

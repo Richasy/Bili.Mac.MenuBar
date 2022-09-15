@@ -25,6 +25,7 @@ struct AppState: Equatable {
     var rank: RankState = .init(isLoading: false)
     var anime: AnimeState = .init(isLoading: false)
     var hotSearch: HotSearchState = .init(isLoading: false)
+    var popular: PopularState = .init(isLoading: false)
 }
 
 enum AppAction: BindableAction {
@@ -42,6 +43,7 @@ enum AppAction: BindableAction {
     case rank(RankAction)
     case anime(AnimeAction)
     case hotSearch(HotSearchAction)
+    case popular(PopularAction)
     case binding(BindingAction<AppState>)
 }
 
@@ -74,7 +76,11 @@ let appReducer = Reducer<AppState, AppAction, AppEnviroment>.combine(
     hotSearchReducer.pullback(
         state: \.hotSearch,
         action: /AppAction.hotSearch,
-        environment: { _ in .init()}),
+        environment: { _ in .init() }),
+    popularReducer.pullback(
+        state: \.popular,
+        action: /AppAction.popular,
+        environment: { _ in .init() }),
     .init { state, action, env in
         switch action {
         case .exit:

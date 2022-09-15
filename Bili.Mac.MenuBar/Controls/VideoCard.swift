@@ -19,24 +19,27 @@ struct VideoCard: View {
                 viewStore.send(.click)
             }) {
                 VStack(spacing: 12) {
-                    HStack(spacing: 12) {
-                        AsyncImage(url: URL(string: viewStore.upAvatar)) { image in
-                            image.resizable()
-                                .cornerRadius(16)
-                                .aspectRatio(contentMode: .fit)
-                        } placeholder: {
-                            ProgressView()
-                        }.frame(width: 32, height: 32, alignment: .center)
-                        
-                        VStack(spacing: 2) {
-                            Text(viewStore.upName)
-                                .font(.system(size: 14, weight: .semibold, design: .rounded))
-                                .frame(maxWidth:.infinity, alignment:.leading)
-                            Text(viewStore.label)
-                                .font(.system(size: 10, weight: .regular, design: .rounded))
-                                .foregroundColor(.secondary)
-                                .frame(maxWidth:.infinity, alignment:.leading)
-                        }.frame(maxWidth:.infinity, alignment:.leading)
+                    
+                    if viewStore.isShowUp {
+                        HStack(spacing: 12) {
+                            AsyncImage(url: URL(string: viewStore.upAvatar)) { image in
+                                image.resizable()
+                                    .cornerRadius(16)
+                                    .aspectRatio(contentMode: .fit)
+                            } placeholder: {
+                                ProgressView()
+                            }.frame(width: 32, height: 32, alignment: .center)
+                            
+                            VStack(spacing: 2) {
+                                Text(viewStore.upName)
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .frame(maxWidth:.infinity, alignment:.leading)
+                                Text(viewStore.label)
+                                    .font(.system(size: 10, weight: .regular, design: .rounded))
+                                    .foregroundColor(.secondary)
+                                    .frame(maxWidth:.infinity, alignment:.leading)
+                            }.frame(maxWidth:.infinity, alignment:.leading)
+                        }
                     }
                     
                     HStack(spacing: 12) {
@@ -49,11 +52,21 @@ struct VideoCard: View {
                         }.frame(width: 120, height: 82, alignment: .center)
                         
                         VStack {
+                            
                             Text(viewStore.title)
                                 .font(.system(size: 14, weight: .regular, design: .rounded))
                                 .lineLimit(2)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .help(viewStore.title)
+                            
+                            if !viewStore.isShowUp && !viewStore.label.isEmpty {
+                                Text(viewStore.label)
+                                    .font(.system(size: 10, weight: .regular, design: .rounded))
+                                    .foregroundColor(.secondary)
+                                    .padding([.top], 1)
+                                    .frame(maxWidth:.infinity, alignment:.leading)
+                            }
+                            
                             Spacer()
                             HStack(spacing: 20) {
                                 HStack(spacing: 4) {
@@ -65,15 +78,29 @@ struct VideoCard: View {
                                         .foregroundColor(.secondary)
                                 }
                                 .help("播放量")
-                                HStack(spacing: 4) {
-                                    SwiftUI.Image(systemName: "list.bullet.indent")
-                                        .frame(width: 14, height: 14, alignment: .center)
-                                        .foregroundColor(.secondary)
-                                    Text(convertNumber(num: viewStore.danmuCount))
-                                        .font(.system(size: 12, weight: .regular, design: .rounded))
-                                        .foregroundColor(.secondary)
+                                
+                                if viewStore.isShowDanmu {
+                                    HStack(spacing: 4) {
+                                        SwiftUI.Image(systemName: "list.bullet.indent")
+                                            .frame(width: 14, height: 14, alignment: .center)
+                                            .foregroundColor(.secondary)
+                                        Text(convertNumber(num: viewStore.danmuCount))
+                                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                                            .foregroundColor(.secondary)
+                                    }.help("弹幕数")
                                 }
-                                .help("弹幕数")
+                                else if viewStore.isShowDuration {
+                                    HStack(spacing: 4) {
+                                        SwiftUI.Image(systemName: "clock")
+                                            .frame(width: 14, height: 14, alignment: .center)
+                                            .foregroundColor(.secondary)
+                                        Text(viewStore.duration)
+                                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .help("时长")
+                                }
+                                
                             }.frame(maxWidth:.infinity, alignment:.leading)
                         }
                     }
@@ -107,7 +134,7 @@ struct VideoCard: View {
                     Text("打开 UP 主页")
                 }
             }
-            .frame(height: 158, alignment: .top)
+            .frame(height: viewStore.isShowUp ? 158 : 116, alignment: .top)
             .frame(maxWidth: .infinity)
         }
     }

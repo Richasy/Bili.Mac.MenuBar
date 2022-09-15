@@ -33,6 +33,22 @@ extension String {
         let cardDetail = try? JSONDecoder().decode(BiliBili.CardDetail.self, from: cardData!)
         return cardDetail!
     }
+    
+    func toCountNumber(removeText: String = "") -> Int32 {
+        
+        var text = self
+        if !removeText.isEmpty {
+            text = self.replacingOccurrences(of: removeText, with: "")
+        }
+        
+        if text.last == "万" {
+            return Int32(Double(text.replacingOccurrences(of: "万", with: ""))! * 10000)
+        } else if text.last == "亿" {
+            return Int32(Double(text.replacingOccurrences(of: "亿", with: ""))! * 100000000)
+        }
+        
+        return Int32(text) ?? -1
+    }
 }
 
 extension Bundle {
@@ -119,5 +135,30 @@ extension SearchRecommentItem {
         let isShowIcon = !icon.isEmpty
         
         return HotSearchItemState(title: title, icon: icon, isShowIcon: isShowIcon, id: index, keyword: keyword)
+    }
+}
+
+extension Bilibili_App_Card_V1_Card {
+    func toVideoState() -> VideoState {
+        let v5 = self.smallCoverV5
+        let card = v5.base
+        let shareInfo = card.threePointV4.sharePlane
+        let title = card.title
+        let id = String(shareInfo.aid)
+        let bvId = shareInfo.bvid
+        let upName = shareInfo.author
+        let upId = String(shareInfo.authorID)
+        let link = shareInfo.shortLink
+        let cover = card.cover.resizeImage(w: 240, h: 160)
+        let playCount = shareInfo.playNumber.toCountNumber(removeText: "次")
+        let descSplit = v5.rightDesc2.split(separator: "·")
+        var label = upName
+        if descSplit.count > 1 {
+            let timeText = descSplit[1].replacingOccurrences(of: " ", with: "")
+            label += " · \(timeText)"
+        }
+        let duration = v5.coverRightText1
+        
+        return VideoState(upAvatar: "", upName: upName, upId: upId, label: label, cover: cover, title: title, playCount: playCount, danmuCount: -1, id: bvId, videoId: id, link: link, duration: duration)
     }
 }

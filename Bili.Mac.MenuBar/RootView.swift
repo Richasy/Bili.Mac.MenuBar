@@ -32,6 +32,9 @@ struct RootView: View {
                     } else if viewStore.currentPage == PageKeys.hotSearch {
                         HotSearchView(store: store.scope(state: \.hotSearch, action: AppAction.hotSearch))
                             .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    } else if viewStore.currentPage == PageKeys.popular {
+                        PopularView(store: store.scope(state: \.popular, action: AppAction.popular))
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
                     }
                     
                     StatusBar(store: store)

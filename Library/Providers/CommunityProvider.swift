@@ -56,8 +56,8 @@ class CommunityProvider: CommunityProviderProtocol {
     }
     
     func getTodayAnimeAsync() async -> [EpisodeState]? {
-        let bangumi = await getAnimeInternal(isBangumi: true)
-        let gc = await getAnimeInternal(isBangumi: false)
+        let bangumi = await getAnimeInternalAsync(isBangumi: true)
+        let gc = await getAnimeInternalAsync(isBangumi: false)
         
         guard bangumi != nil && gc != nil else {
             return nil
@@ -94,7 +94,25 @@ class CommunityProvider: CommunityProviderProtocol {
         return set
     }
     
-    private func getAnimeInternal(isBangumi: Bool) async -> [EpisodeState]? {
+    func getPopularVideoListAsync() async -> [VideoState]? {
+        var set = [VideoState]()
+        var lastIdx: Int64 = 0
+        let loopCount = 3
+        
+        for _ in 1...loopCount {
+            let req = await getPopularVideoInternalAsync(offsetId: lastIdx)
+            if req.1 != -1 {
+                lastIdx = req.1
+                set = set + req.0!
+            } else {
+                break
+            }
+        }
+        
+        return set.count == 0 ? nil : set
+    }
+    
+    private func getAnimeInternalAsync(isBangumi: Bool) async -> [EpisodeState]? {
         let queryParameters = [
             QueryKeys.types.rawValue: isBangumi ? "1" : "4",
             QueryKeys.before.rawValue: "0",
@@ -113,5 +131,37 @@ class CommunityProvider: CommunityProviderProtocol {
         }
         
         return set
+    }
+    
+    private func getPopularVideoInternalAsync(offsetId: Int64 = 0) async -> ([VideoState]?, Int64) {
+        var req = Bilibili_App_Show_V1_PopularResultReq()
+        req.idx = offsetId
+        req.loginEvent = 2
+        req.qn = 112
+        req.fnval = 464
+        req.fourk = 1
+        req.spmid = "creation.hot-tab.0.0"
+        let data = try? await httpProvider.requestAsync(url: ApiKeys.popular.rawValue, message: req, needToken: true)
+        
+        guard let data = data else {
+            return (nil, -1)
+        }
+        
+        let reply = try? Bilibili_App_Show_V1_PopularReply(serializedData: data)
+        guard let reply = reply else {
+            return (nil, -1)
+        }
+        
+        var set = [VideoState]()
+        for item in reply.items.filter({ c in
+            return c.smallCoverV5.base.cardGoto == "av"
+        }) {
+            let d = item.toVideoState()
+            set.append(d)
+        }
+        
+        let lastIdx = reply.items.last?.smallCoverV5.base.idx
+        
+        return (set, lastIdx!)
     }
 }

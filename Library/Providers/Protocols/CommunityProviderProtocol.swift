@@ -24,4 +24,8 @@ protocol CommunityProviderProtocol {
     /// 获取热搜列表
     /// - Returns: 热搜列表
     func getHotSearchAsync() async -> [HotSearchItemState]?
+    
+    /// 获取热门视频
+    /// - Returns: 热门视频列表
+    func getPopularVideoListAsync() async -> [VideoState]?
 }

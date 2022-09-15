@@ -54,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         button.image = NSImage(named: "Icon")
         button.action = #selector(togglePopover(_:))
+        print(GRPCConfig(accessToken: "sdasdas").getLocaleBin())
     }
     
     @objc func togglePopover(_ sender: AnyObject?) {
