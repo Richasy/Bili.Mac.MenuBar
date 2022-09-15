@@ -99,6 +99,8 @@ let appReducer = Reducer<AppState, AppAction, AppEnviroment>.combine(
                 return Effect(value: AppAction.anime(AnimeAction.request))
             } else if state.currentPage == PageKeys.hotSearch {
                 return Effect(value: AppAction.hotSearch(HotSearchAction.request))
+            } else if state.currentPage == PageKeys.popular {
+                return Effect(value: AppAction.popular(PopularAction.request))
             }
             
         case .signOut:
