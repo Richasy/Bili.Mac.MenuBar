@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
     var viewStore: ViewStore<AppState, AppAction>!
+    var playerWindows: [NSWindow] = [NSWindow]()
     static var shared : AppDelegate!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -72,6 +73,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.viewStore.send(AppAction.refresh)
             }
         }
+    }
+    
+    @objc func openPlayerWindow() {
+        let url = UserDefaults.standard.string(forKey: "TempUrl");
+        guard let url = url else {
+            return
+        }
+        
+        let playerWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 1600, height: 900),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered,
+            defer: false)
+        playerWindow.center()
+        playerWindow.setFrameAutosaveName("Player")
+        playerWindow.isReleasedWhenClosed = true
+        let playerView = PlayerView(url: url)
+        playerWindow.contentView = NSHostingView(rootView: playerView)
+        
+        playerWindow.makeKeyAndOrderFront(nil)
+        playerWindows.append(playerWindow)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

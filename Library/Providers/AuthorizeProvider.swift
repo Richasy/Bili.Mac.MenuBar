@@ -211,7 +211,6 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let queryParameters = [QueryKeys.accessToken.rawValue: tokenInfo?.access_token ?? "", QueryKeys.refreshToken.rawValue: refreshToken]
         let result: ServerResponse<TokenInfo>? = try? await httpProvider.requestAsync(url: ApiKeys.refreshToken.rawValue, method: .post, queryParams: queryParameters, type: .ios, needToken: true)
-        await ssoInitAsync()
         
         return result?.data
     }
@@ -251,6 +250,7 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         lastAuthorizeTime = now
         tokenInfo = result
         print("已登录")
+        updateCookie()
     }
     
     private func retrieveAuthorizeResult() {
@@ -273,11 +273,32 @@ class AuthorizeProvider: AuthorizeProviderProtocol {
         userId = String(token.mid)
         tokenInfo = token
         print("用户Id: \(token.mid)")
+        print(token)
         lastAuthorizeTime = saveTime
+        updateCookie()
     }
     
     private func saveTokenCookiesAsync() async throws {
         let httpProvider = DIFactory.instance.container.resolve(HttpProviderProtocol.self)!
         let _: ServerResponse<TokenInfo>? = try! await httpProvider.requestAsync(url: ApiKeys.tokenInfo.rawValue, method: .get, queryParams: Dictionary<String, String>(), type: .ios, needToken: true)
+    }
+    
+    private func updateCookie() {
+        if let cookieInfo = tokenInfo?.cookie_info {
+            for domain in cookieInfo.domains {
+                for cookie in cookieInfo.cookies {
+                    let c = HTTPCookie(properties: [
+                        .domain: domain,
+                        .path: "/",
+                        .name: cookie.name,
+                        .value: cookie.value,
+                        .secure: "FALSE",
+                        .expires: NSDate(timeIntervalSinceNow: cookie.expires)
+                    ])
+                    
+                    HTTPCookieStorage.shared.setCookie(c!)
+                }
+            }
+        }
     }
 }

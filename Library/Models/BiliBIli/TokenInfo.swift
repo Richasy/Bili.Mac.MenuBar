@@ -12,4 +12,18 @@ struct TokenInfo: Codable {
     var access_token: String
     var refresh_token: String
     var expires_in: Int32
+    var cookie_info: CookieInfo
+}
+
+struct CookieInfo: Codable {
+    var cookies: [CookieInfoItem]
+    var domains: [String]
+}
+
+struct CookieInfoItem: Codable {
+    var name: String
+    var value: String
+    var http_only: Int
+    var expires: Double
+    var secure: Int
 }

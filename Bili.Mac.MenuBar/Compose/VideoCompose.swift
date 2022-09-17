@@ -75,7 +75,9 @@ let videoReducer = Reducer<VideoState, VideoAction, Void> { state, action, _ in
     @Environment(\.openURL) var openURL
     switch action {
     case .click:
-        openURL(URL(string: state.link)!)
+        // openURL(URL(string: state.link)!)
+        UserDefaults.standard.set(state.link, forKey: "TempUrl")
+        NSApp.sendAction(#selector(AppDelegate.openPlayerWindow), to: nil, from:nil)
     case .copyLink:
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(state.link, forType: .string)

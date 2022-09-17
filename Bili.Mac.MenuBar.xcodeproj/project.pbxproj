@@ -18,6 +18,8 @@
 		7520044F28BE3D9D008D2FED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520044E28BE3D9D008D2FED /* RootView.swift */; };
 		7520045128BE3D9E008D2FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045028BE3D9E008D2FED /* Assets.xcassets */; };
 		7520045428BE3D9E008D2FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7520045328BE3D9E008D2FED /* Preview Assets.xcassets */; };
+		7543C16E28D4BC4E008BDAEE /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C16D28D4BC4E008BDAEE /* PlayerView.swift */; };
+		7543C17228D4C29F008BDAEE /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543C17128D4C29F008BDAEE /* WebView.swift */; };
 		757B360328D30DE6009AC8FE /* GRPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757B360228D30DE6009AC8FE /* GRPCConfig.swift */; };
 		757B360628D30FBF009AC8FE /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 757B360528D30FBF009AC8FE /* SwiftProtobuf */; };
 		757B360828D30FBF009AC8FE /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 757B360728D30FBF009AC8FE /* protoc-gen-swift */; };
@@ -111,6 +113,8 @@
 		7520045328BE3D9E008D2FED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7520045528BE3D9E008D2FED /* Bili_Mac_MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bili_Mac_MenuBar.entitlements; sourceTree = "<group>"; };
 		7520045B28BE4512008D2FED /* Bili-Mac-MenuBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bili-Mac-MenuBar-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7543C16D28D4BC4E008BDAEE /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		7543C17128D4C29F008BDAEE /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		757B360228D30DE6009AC8FE /* GRPCConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCConfig.swift; sourceTree = "<group>"; };
 		757B360B28D311F5009AC8FE /* fawkes.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fawkes.pb.swift; sourceTree = "<group>"; };
 		757B361728D317B2009AC8FE /* restriction.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = restriction.pb.swift; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 				75F1A82C28C72EB600EFD40A /* AnimeView.swift */,
 				7519781128CC06A8002B4334 /* HotSearchView.swift */,
 				757B363428D35C2E009AC8FE /* PopularVIew.swift */,
+				7543C16D28D4BC4E008BDAEE /* PlayerView.swift */,
+				7543C17128D4C29F008BDAEE /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				75C6AC0728C49C1F00F8AB04 /* WindowView.swift in Sources */,
 				7593E98928C48369003A3497 /* VideoCard.swift in Sources */,
 				7519780C28CB9197002B4334 /* HotSearchCompose.swift in Sources */,
+				7543C16E28D4BC4E008BDAEE /* PlayerView.swift in Sources */,
 				757B362828D32C6D009AC8FE /* preload.pb.swift in Sources */,
 				757B361F28D317B3009AC8FE /* device.pb.swift in Sources */,
 				75CD106128BFAA8100E17A7C /* QueryKeys.swift in Sources */,
@@ -590,6 +597,7 @@
 				75F1A82F28C72F3800EFD40A /* EpisodeCard.swift in Sources */,
 				757B360328D30DE6009AC8FE /* GRPCConfig.swift in Sources */,
 				757B361C28D317B3009AC8FE /* restriction.pb.swift in Sources */,
+				7543C17228D4C29F008BDAEE /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,7 +747,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.2209.5;
+				MARKETING_VERSION = 0.2209.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
 				PRODUCT_MODULE_NAME = "迷你哔哩";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -774,7 +782,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 0.2209.5;
+				MARKETING_VERSION = 0.2209.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.richasy.Bili-Mac-MenuBar";
 				PRODUCT_MODULE_NAME = "迷你哔哩";
 				PRODUCT_NAME = "迷你哔哩";
